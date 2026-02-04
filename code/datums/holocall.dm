@@ -34,10 +34,10 @@
 	var/call_start_time
 	var/head_call = FALSE //calls from a head of staff autoconnect, if the receiving pad is not secure.
 
-//creates a holocall made by `caller` from `calling_pad` to `callees`
-/datum/holocall/New(mob/living/caller, obj/machinery/holopad/calling_pad, list/callees, elevated_access = FALSE)
+//creates a holocall made by `requester` from `calling_pad` to `callees`
+/datum/holocall/New(mob/living/requester, obj/machinery/holopad/calling_pad, list/callees, elevated_access = FALSE)
 	call_start_time = world.time
-	user = caller
+	user = requester
 	calling_pad.outgoing_call = src
 	calling_holopad = calling_pad
 	head_call = elevated_access
@@ -212,15 +212,15 @@
 
 //RECORDS
 /datum/holorecord
-	var/caller_name = "Unknown" //Caller name
-	var/image/caller_image
+	var/requester_name = "Unknown" //requester name
+	var/image/requester_image
 	var/list/entries = list()
 	var/language = /datum/language/common //Initial language, can be changed by HOLORECORD_LANGUAGE entries
 
-/datum/holorecord/proc/set_caller_image(mob/user)
+/datum/holorecord/proc/set_requester_image(mob/user)
 	var/olddir = user.dir
 	user.setDir(SOUTH)
-	caller_image = image(user)
+	requester_image = image(user)
 	user.setDir(olddir)
 
 /obj/item/disk/holodisk
@@ -249,8 +249,8 @@
 		if (holodiskOriginal.record)
 			if (!record)
 				record = new
-			record.caller_name = holodiskOriginal.record.caller_name
-			record.caller_image = holodiskOriginal.record.caller_image
+			record.requester_name = holodiskOriginal.record.requester_name
+			record.requester_image = holodiskOriginal.record.requester_image
 			record.entries = holodiskOriginal.record.entries.Copy()
 			record.language = holodiskOriginal.record.language
 			to_chat(user, "<span class='notice'>You copy the record from [holodiskOriginal] to [src] by connecting the ports!</span>")
@@ -278,8 +278,8 @@
 					continue
 				record.entries += list(list(HOLORECORD_DELAY,delay_value))
 			if("NAME")
-				if(!record.caller_name)
-					record.caller_name = value
+				if(!record.requester_name)
+					record.requester_name = value
 				else
 					record.entries += list(list(HOLORECORD_RENAME,value))
 			if("SAY")
@@ -295,12 +295,12 @@
 				if(ispath(preset_type,/datum/preset_holoimage))
 					record.entries += list(list(HOLORECORD_PRESET,preset_type))
 	if(!preset_image_type)
-		record.caller_image = image('icons/mob/animal.dmi',"old")
+		record.requester_image = image('icons/mob/animal.dmi',"old")
 	else
 		var/datum/preset_holoimage/H = new preset_image_type
-		record.caller_image = H.build_image()
+		record.requester_image = H.build_image()
 
-//These build caller image from outfit and some additional data, for use by mappers for ruin holorecords
+//These build requester image from outfit and some additional data, for use by mappers for ruin holorecords
 /datum/preset_holoimage
 	var/nonhuman_mobtype //Fill this if you just want something nonhuman
 	var/outfit_type

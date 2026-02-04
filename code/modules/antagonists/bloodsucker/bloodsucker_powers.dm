@@ -290,5 +290,5 @@
 	..()
 	linked_power.DeactivatePower()
 
-/obj/effect/proc_holder/bloodsucker/InterceptClickOn(mob/living/caller, params, atom/A)
+/obj/effect/proc_holder/bloodsucker/InterceptClickOn(mob/living/requester, params, atom/A)
 	return linked_power.ClickWithPower(A)

@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Cargo Tools Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cargo
           key: ${{ runner.os }}-cargo
@@ -30,7 +30,7 @@ jobs:
           cargo install ripgrep --features pcre2
 
       - name: Rust-G Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/rust-g
           key: ${{ runner.os }}-rustg
@@ -47,19 +47,19 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: SpacemanDMM Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/SpacemanDMM
           key: ${{ runner.os }}-spacemandmm
 
       - name: Cargo Tools Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cargo
           key: ${{ runner.os }}-cargo
 
       - name: LibGit2 Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/libgit2
           key: ${{ runner.os }}-libgit2
@@ -104,7 +104,7 @@ jobs:
         with:
           node-version: 14
       - name: BYOND Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/BYOND
           key: ${{ runner.os }}-byond
@@ -140,13 +140,13 @@ jobs:
           node-version: 14
 
       - name: BYOND Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/BYOND
           key: ${{ runner.os }}-byond
 
       - name: Yarn Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: tgui/.yarn/cache
           key: ${{ runner.os }}-yarn-${{ hashFiles('tgui/yarn.lock') }}
@@ -154,13 +154,13 @@ jobs:
             ${{ runner.os }}-yarn
 
       - name: Cargo Tools Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/.cargo
           key: ${{ runner.os }}-cargo
 
       - name: Rust-G Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: ~/rust-g
           key: ${{ runner.os }}-rustg

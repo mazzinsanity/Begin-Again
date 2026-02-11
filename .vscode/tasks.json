@@ -25,6 +25,20 @@
 			"label": "Build All"
 		},
 		{
+			"type": "dreammaker",
+			"dme": "fortune13.dme",
+			"problemMatcher": [
+				"$dreammaker"
+			],
+			"group": "build",
+			"label": "dm: build - fortune13.dme"
+		},
+		{
+			"command": "${command:dreammaker.reparse}",
+			"group": "build",
+			"label": "dm: reparse"
+		},
+		{
 			"type": "npm",
 			"script": "build",
 			"path": "tgui/packages/tgfont",

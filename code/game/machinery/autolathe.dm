@@ -293,14 +293,14 @@
 			dat += "</tr><tr>"
 			line_length = 1
 
-		dat += "<td><A href='byond://?src=[REF(src)];category=[C];menu=[AUTOLATHE_CATEGORY_MENU]'>[C]</A></td>"
+		dat += "<td><a href='byond://?src=[REF(src)];category=[C];menu=[AUTOLATHE_CATEGORY_MENU]'>[C]</A></td>"
 		line_length++
 
 	dat += "</tr></table></div>"
 	return dat
 
 /obj/machinery/autolathe/proc/category_win(mob/user,selected_category)
-	var/dat = "<A href='byond://?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Return to main menu</A>"
+	var/dat = "<a href='byond://?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Return to main menu</A>"
 	dat += "<div class='statusDisplay'><h3>Browsing [selected_category]:</h3><br>"
 	dat += materials_printout()
 
@@ -339,7 +339,7 @@
 	return dat
 
 /obj/machinery/autolathe/proc/search_win(mob/user)
-	var/dat = "<A href='byond://?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Return to main menu</A>"
+	var/dat = "<a href='byond://?src=[REF(src)];menu=[AUTOLATHE_MAIN_MENU]'>Return to main menu</A>"
 	dat += "<div class='statusDisplay'><h3>Search results:</h3><br>"
 	dat += materials_printout()
 

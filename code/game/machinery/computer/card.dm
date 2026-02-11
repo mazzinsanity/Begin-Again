@@ -175,11 +175,11 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 								}
 								function showAll(){
 									var allJobsSlot = document.getElementById('alljobsslot');
-									allJobsSlot.innerHTML = "<a href='byond://#' onclick='hideAll()'>hide</a><br>"+ "[jobs_all.Join()]";
+									allJobsSlot.innerHTML = "<a href='#' onclick='hideAll()'>hide</a><br>"+ "[jobs_all.Join()]";
 								}
 								function hideAll(){
 									var allJobsSlot = document.getElementById('alljobsslot');
-									allJobsSlot.innerHTML = "<a href='byond://#' onclick='showAll()'>show</a>";
+									allJobsSlot.innerHTML = "<a href='#' onclick='showAll()'>show</a>";
 								}
 							</script>"}
 			carddesc += {"<form name='cardcomp' action='?src=[REF(src)]' method='get'>
@@ -190,7 +190,7 @@ GLOBAL_VAR_INIT(time_last_changed_position, 0)
 				</form>
 				<b>Assignment:</b> "}
 
-			jobs += "<span id='alljobsslot'><a href='byond://#' onclick='showAll()'>[target_rank]</a></span>" //CHECK THIS
+			jobs += "<span id='alljobsslot'><a href='#' onclick='showAll()'>[target_rank]</a></span>" //CHECK THIS
 
 		else
 			carddesc += "<b>registered_name:</b> [target_owner]</span>"

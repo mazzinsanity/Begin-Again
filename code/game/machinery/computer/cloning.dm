@@ -158,14 +158,14 @@
 	updatemodules(TRUE)
 
 	var/dat = ""
-	dat += "<a href='byond://byond://?src=[REF(src)];refresh=1'>Refresh</a>"
+	dat += "<a href='byond://?src=[REF(src)];refresh=1'>Refresh</a>"
 
 	if(use_records)
 		if(scanner && HasEfficientPod() && scanner.scan_level >= AUTOCLONING_MINIMAL_LEVEL)
 			if(!autoprocess)
-				dat += "<a href='byond://byond://?src=[REF(src)];task=autoprocess'>Autoclone</a>"
+				dat += "<a href='byond://?src=[REF(src)];task=autoprocess'>Autoclone</a>"
 			else
-				dat += "<a href='byond://byond://?src=[REF(src)];task=stopautoprocess'>Stop autoclone</a>"
+				dat += "<a href='byond://?src=[REF(src)];task=stopautoprocess'>Stop autoclone</a>"
 		else
 			dat += "<span class='linkOff'>Autoclone</span>"
 	dat += "<h3>Cloning Pod Status</h3>"
@@ -176,7 +176,7 @@
 			// Modules
 			if (isnull(src.scanner) || !LAZYLEN(pods))
 				dat += "<h3>Modules</h3>"
-				//dat += "<a href='byond://byond://?src=[REF(src)];relmodules=1'>Reload Modules</a>"
+				//dat += "<a href='byond://?src=[REF(src)];relmodules=1'>Reload Modules</a>"
 				if (isnull(src.scanner))
 					dat += "<font class='bad'>ERROR: No Scanner detected!</font><br>"
 				if (!LAZYLEN(pods))
@@ -204,36 +204,36 @@
 				dat += "</div>"
 
 				if(scanner_occupant)
-					dat += "<a href='byond://byond://?src=[REF(src)];scan=1'>[use_records ? "Start Scan" : "Clone"]</a>"
-					dat += "<br><a href='byond://byond://?src=[REF(src)];lock=1'>[scanner.locked ? "Unlock Scanner" : "Lock Scanner"]</a>"
+					dat += "<a href='byond://?src=[REF(src)];scan=1'>[use_records ? "Start Scan" : "Clone"]</a>"
+					dat += "<br><a href='byond://?src=[REF(src)];lock=1'>[scanner.locked ? "Unlock Scanner" : "Lock Scanner"]</a>"
 				else
 					dat += "<span class='linkOff'>[use_records ? "Start Scan" : "Clone"]</span>"
 			if(use_records)
 				// Database
 				dat += "<h3>Database Functions</h3>"
 				if (src.records.len && src.records.len > 0)
-					dat += "<a href='byond://byond://?src=[REF(src)];menu=2'>View Records ([src.records.len])</a><br>"
+					dat += "<a href='byond://?src=[REF(src)];menu=2'>View Records ([src.records.len])</a><br>"
 				else
 					dat += "<span class='linkOff'>View Records (0)</span><br>"
 				if (src.diskette)
-					dat += "<a href='byond://byond://?src=[REF(src)];disk=eject'>Eject Disk</a><br>"
+					dat += "<a href='byond://?src=[REF(src)];disk=eject'>Eject Disk</a><br>"
 
 
 
 		if(2)
 			dat += "<h3>Current records</h3>"
-			dat += "<a href='byond://byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
 			for(var/datum/data/record/R in records)
-				dat += "<h4>[R.fields["name"]]</h4>Scan ID [R.fields["id"]] <a href='byond://byond://?src=[REF(src)];view_rec=[R.fields["id"]]'>View Record</a>"
+				dat += "<h4>[R.fields["name"]]</h4>Scan ID [R.fields["id"]] <a href='byond://?src=[REF(src)];view_rec=[R.fields["id"]]'>View Record</a>"
 		if(3)
 			dat += "<h3>Selected Record</h3>"
-			dat += "<a href='byond://byond://?src=[REF(src)];menu=2'><< Back</a><br>"
+			dat += "<a href='byond://?src=[REF(src)];menu=2'><< Back</a><br>"
 
 			if (!src.active_record)
 				dat += "<font class='bad'>Record not found.</font>"
 			else
 				dat += "<h4>[src.active_record.fields["name"]]</h4>"
-				dat += "Scan ID [src.active_record.fields["id"]] <a href='byond://byond://?src=[REF(src)];clone=[active_record.fields["id"]]'>Clone</a><br>"
+				dat += "Scan ID [src.active_record.fields["id"]] <a href='byond://?src=[REF(src)];clone=[active_record.fields["id"]]'>Clone</a><br>"
 
 				var/obj/item/implant/health/H = locate(active_record.fields["imp"])
 
@@ -257,12 +257,12 @@
 					if(diskette.fields["SE"])
 						L += "Structural Enzymes"
 					dat += english_list(L, "Empty", " + ", " + ")
-					dat += "<br /><a href='byond://byond://?src=[REF(src)];disk=load'>Load from Disk</a>"
+					dat += "<br /><a href='byond://?src=[REF(src)];disk=load'>Load from Disk</a>"
 
-					dat += "<br /><a href='byond://byond://?src=[REF(src)];disk=save'>Save to Disk</a>"
+					dat += "<br /><a href='byond://?src=[REF(src)];disk=save'>Save to Disk</a>"
 					dat += "</div>"
 
-				dat += "<font size=1><a href='byond://byond://?src=[REF(src)];del_rec=1'>Delete Record</a></font>"
+				dat += "<font size=1><a href='byond://?src=[REF(src)];del_rec=1'>Delete Record</a></font>"
 
 		if(4)
 			if (!src.active_record)
@@ -270,8 +270,8 @@
 			dat = "[src.temp]<br>"
 			dat += "<h3>Confirm Record Deletion</h3>"
 
-			dat += "<b><a href='byond://byond://?src=[REF(src)];del_rec=1'>Scan card to confirm.</a></b><br>"
-			dat += "<b><a href='byond://byond://?src=[REF(src)];menu=3'>Cancel</a></b>"
+			dat += "<b><a href='byond://?src=[REF(src)];del_rec=1'>Scan card to confirm.</a></b><br>"
+			dat += "<b><a href='byond://?src=[REF(src)];menu=3'>Cancel</a></b>"
 
 
 	var/datum/browser/popup = new(user, "cloning", "Cloning System Control")

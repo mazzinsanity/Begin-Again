@@ -63,9 +63,9 @@
 
 /datum/browser/proc/get_header()
 	var/file
-	head_content += "<link rel='stylesheet' type='text/css' href='byond://[common_asset.get_url_mappings()["common.css"]]'>"
+	head_content += "<link rel='stylesheet' type='text/css' href='[common_asset.get_url_mappings()["common.css"]]'>"
 	for (file in stylesheets)
-		head_content += "<link rel='stylesheet' type='text/css' href='byond://[SSassets.transport.get_asset_url(file)]'>"
+		head_content += "<link rel='stylesheet' type='text/css' href='[SSassets.transport.get_asset_url(file)]'>"
 
 
 	for (file in scripts)

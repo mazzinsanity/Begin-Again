@@ -33,18 +33,18 @@
 
 /obj/machinery/computer/arcade/battle/ui_interact(mob/user)
 	. = ..()
-	var/dat = "<a href='byond://byond://?src=[REF(src)];close=1'>Close</a>"
+	var/dat = "<a href='byond://?src=[REF(src)];close=1'>Close</a>"
 	dat += "<center><h4>[enemy_name]</h4></center>"
 
 	dat += "<br><center><h3>[temp]</h3></center>"
 	dat += "<br><center>Health: [player_hp] | Magic: [player_mp] | Enemy Health: [enemy_hp]</center>"
 
 	if (gameover)
-		dat += "<center><b><a href='byond://byond://?src=[REF(src)];newgame=1'>New Game</a>"
+		dat += "<center><b><a href='byond://?src=[REF(src)];newgame=1'>New Game</a>"
 	else
-		dat += "<center><b><a href='byond://byond://?src=[REF(src)];attack=1'>Attack</a> | "
-		dat += "<a href='byond://byond://?src=[REF(src)];heal=1'>Heal</a> | "
-		dat += "<a href='byond://byond://?src=[REF(src)];charge=1'>Recharge Power</a>"
+		dat += "<center><b><a href='byond://?src=[REF(src)];attack=1'>Attack</a> | "
+		dat += "<a href='byond://?src=[REF(src)];heal=1'>Heal</a> | "
+		dat += "<a href='byond://?src=[REF(src)];charge=1'>Recharge Power</a>"
 
 	dat += "</b></center>"
 	var/datum/browser/popup = new(user, "arcade", "Space Villain 2000")

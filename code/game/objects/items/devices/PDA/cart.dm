@@ -217,20 +217,20 @@
 			menu = "<h4>[PDAIMG(signaler)] Remote Signaling System</h4>"
 
 			menu += {"
-<a href='byond://byond://?src=[REF(src)];choice=Send Signal'>Send Signal</A><BR>
+<a href='byond://?src=[REF(src)];choice=Send Signal'>Send Signal</A><BR>
 Frequency:
-<a href='byond://byond://?src=[REF(src)];choice=Signal Frequency;sfreq=-10'>-</a>
-<a href='byond://byond://?src=[REF(src)];choice=Signal Frequency;sfreq=-2'>-</a>
+<a href='byond://?src=[REF(src)];choice=Signal Frequency;sfreq=-10'>-</a>
+<a href='byond://?src=[REF(src)];choice=Signal Frequency;sfreq=-2'>-</a>
 [format_frequency(radio.frequency)]
-<a href='byond://byond://?src=[REF(src)];choice=Signal Frequency;sfreq=2'>+</a>
-<a href='byond://byond://?src=[REF(src)];choice=Signal Frequency;sfreq=10'>+</a><br>
+<a href='byond://?src=[REF(src)];choice=Signal Frequency;sfreq=2'>+</a>
+<a href='byond://?src=[REF(src)];choice=Signal Frequency;sfreq=10'>+</a><br>
 <br>
 Code:
-<a href='byond://byond://?src=[REF(src)];choice=Signal Code;scode=-5'>-</a>
-<a href='byond://byond://?src=[REF(src)];choice=Signal Code;scode=-1'>-</a>
+<a href='byond://?src=[REF(src)];choice=Signal Code;scode=-5'>-</a>
+<a href='byond://?src=[REF(src)];choice=Signal Code;scode=-1'>-</a>
 [radio.code]
-<a href='byond://byond://?src=[REF(src)];choice=Signal Code;scode=1'>+</a>
-<a href='byond://byond://?src=[REF(src)];choice=Signal Code;scode=5'>+</a><br>"}
+<a href='byond://?src=[REF(src)];choice=Signal Code;scode=1'>+</a>
+<a href='byond://?src=[REF(src)];choice=Signal Code;scode=5'>+</a><br>"}
 		if (41) //crew manifest
 
 			menu = "<h4>[PDAIMG(notes)] Vault Manifest</h4>"
@@ -240,15 +240,15 @@ Code:
 		if (42) //status displays
 			menu = "<h4>[PDAIMG(status)] Station Status Display Interlink</h4>"
 
-			menu += "\[ <A href='byond://?src=[REF(src)];choice=Status;statdisp=blank'>Clear</A> \]<BR>"
-			menu += "\[ <A href='byond://?src=[REF(src)];choice=Status;statdisp=shuttle'>Shuttle ETA</A> \]<BR>"
-			menu += "\[ <A href='byond://?src=[REF(src)];choice=Status;statdisp=message'>Message</A> \]"
-			menu += "<ul><li> Line 1: <A href='byond://?src=[REF(src)];choice=Status;statdisp=setmsg1'>[ message1 ? message1 : "(none)"]</A>"
-			menu += "<li> Line 2: <A href='byond://?src=[REF(src)];choice=Status;statdisp=setmsg2'>[ message2 ? message2 : "(none)"]</A></ul><br>"
-			menu += "\[ Alert: <A href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=default'>None</A> |"
-			menu += " <A href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=redalert'>Red Alert</A> |"
-			menu += " <A href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=lockdown'>Lockdown</A> |"
-			menu += " <A href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=biohazard'>Biohazard</A> \]<BR>"
+			menu += "\[ <a href='byond://?src=[REF(src)];choice=Status;statdisp=blank'>Clear</A> \]<BR>"
+			menu += "\[ <a href='byond://?src=[REF(src)];choice=Status;statdisp=shuttle'>Shuttle ETA</A> \]<BR>"
+			menu += "\[ <a href='byond://?src=[REF(src)];choice=Status;statdisp=message'>Message</A> \]"
+			menu += "<ul><li> Line 1: <a href='byond://?src=[REF(src)];choice=Status;statdisp=setmsg1'>[ message1 ? message1 : "(none)"]</A>"
+			menu += "<li> Line 2: <a href='byond://?src=[REF(src)];choice=Status;statdisp=setmsg2'>[ message2 ? message2 : "(none)"]</A></ul><br>"
+			menu += "\[ Alert: <a href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=default'>None</A> |"
+			menu += " <a href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=redalert'>Red Alert</A> |"
+			menu += " <a href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=lockdown'>Lockdown</A> |"
+			menu += " <a href='byond://?src=[REF(src)];choice=Status;statdisp=alert;alert=biohazard'>Biohazard</A> \]<BR>"
 
 		if (43)
 			menu = "<h4>[PDAIMG(power)] Power Monitors - Please select one</h4><BR>"
@@ -278,7 +278,7 @@ Code:
 				var/count = 0
 				for(var/obj/machinery/computer/monitor/pMon in powermonitors)
 					count++
-					menu += "<a href='byond://byond://?src=[REF(src)];choice=Power Select;target=[count]'>[pMon] - [get_area_name(pMon, TRUE)] </a><BR>"
+					menu += "<a href='byond://?src=[REF(src)];choice=Power Select;target=[count]'>[pMon] - [get_area_name(pMon, TRUE)] </a><BR>"
 
 				menu += "</FONT>"
 
@@ -450,11 +450,11 @@ Code:
 
 			else
 				menu += "ERROR: Unable to determine current location."
-			menu += "<br><br><A href='byond://byond://?src=[REF(src)];choice=49'>Refresh GPS Locator</a>"
+			menu += "<br><br><A href='byond://?src=[REF(src)];choice=49'>Refresh GPS Locator</a>"
 
 		if (53) // Newscaster
 			menu = "<h4>[PDAIMG(notes)] Newscaster Access</h4>"
-			menu += "<br> Current Newsfeed: <A href='byond://byond://?src=[REF(src)];choice=Newscaster Switch Channel'>[current_channel ? current_channel : "None"]</a> <br>"
+			menu += "<br> Current Newsfeed: <A href='byond://?src=[REF(src)];choice=Newscaster Switch Channel'>[current_channel ? current_channel : "None"]</a> <br>"
 			var/datum/news/feed_channel/current
 			for(var/datum/news/feed_channel/chan in GLOB.news_network.network_channels)
 				if (chan.channel_name == current_channel)
@@ -472,7 +472,7 @@ Code:
 				i++
 				for(var/datum/news/feed_comment/comment in msg.comments)
 					menu +="<font size=1><small>[comment.body]</font><br><font size=1><small><small><small>[comment.author] [comment.time_stamp]</small></small></small></small></font><br>"
-			menu += "<br> <A href='byond://byond://?src=[REF(src)];choice=Newscaster Message'>Post Message</a>"
+			menu += "<br> <A href='byond://?src=[REF(src)];choice=Newscaster Message'>Post Message</a>"
 
 		if (54) // Beepsky, Medibot, Floorbot, and Cleanbot access
 			menu = "<h4>[PDAIMG(medbot)] Bots Interlink</h4>"
@@ -613,7 +613,7 @@ Code:
 	var/mob/living/simple_animal/bot/Bot
 
 	if(active_bot)
-		menu += "<B>[active_bot]</B><BR> Status: (<A href='byond://byond://?src=[REF(src)];op=control;bot=[REF(active_bot)]'>[PDAIMG(refresh)]<i>refresh</i></A>)<BR>"
+		menu += "<B>[active_bot]</B><BR> Status: (<A href='byond://?src=[REF(src)];op=control;bot=[REF(active_bot)]'>[PDAIMG(refresh)]<i>refresh</i></A>)<BR>"
 		menu += "Model: [active_bot.model]<BR>"
 		menu += "Location: [get_area(active_bot)]<BR>"
 		menu += "Mode: [active_bot.get_mode()]"
@@ -622,7 +622,7 @@ Code:
 			if(active_bot.paicard && active_bot.paicard.pai)
 				menu += "[active_bot.paicard.pai.name]"
 				if(active_bot.bot_core.allowed(usr))
-					menu += " (<A href='byond://byond://?src=[REF(src)];op=ejectpai'><i>eject</i></A>)"
+					menu += " (<A href='byond://?src=[REF(src)];op=ejectpai'><i>eject</i></A>)"
 			else
 				menu += "<i>none</i>"
 
@@ -630,35 +630,35 @@ Code:
 		if(active_bot.bot_type == MULE_BOT)
 			var/mob/living/simple_animal/bot/mulebot/MULE = active_bot
 			var/atom/Load = MULE.load
-			menu += "<BR>Current Load: [ !Load ? "<i>none</i>" : "[Load.name] (<A href='byond://byond://?src=[REF(src)];mule=unload'><i>unload</i></A>)" ]<BR>"
-			menu += "Destination: [MULE.destination ? MULE.destination : "<i>None</i>"] (<A href='byond://byond://?src=[REF(src)];mule=destination'><i>set</i></A>)<BR>"
-			menu += "Set ID: [MULE.suffix] <A href='byond://byond://?src=[REF(src)];mule=setid'><i> Modify</i></A><BR>"
+			menu += "<BR>Current Load: [ !Load ? "<i>none</i>" : "[Load.name] (<A href='byond://?src=[REF(src)];mule=unload'><i>unload</i></A>)" ]<BR>"
+			menu += "Destination: [MULE.destination ? MULE.destination : "<i>None</i>"] (<A href='byond://?src=[REF(src)];mule=destination'><i>set</i></A>)<BR>"
+			menu += "Set ID: [MULE.suffix] <A href='byond://?src=[REF(src)];mule=setid'><i> Modify</i></A><BR>"
 			menu += "Power: [MULE.cell ? MULE.cell.percent() : 0]%<BR>"
 			menu += "Home: [!MULE.home_destination ? "<i>none</i>" : MULE.home_destination ]<BR>"
-			menu += "Delivery Reporting: <A href='byond://byond://?src=[REF(src)];mule=report'>[MULE.report_delivery ? "(<B>On</B>)": "(<B>Off</B>)"]</A><BR>"
-			menu += "Auto Return Home: <A href='byond://byond://?src=[REF(src)];mule=autoret'>[MULE.auto_return ? "(<B>On</B>)": "(<B>Off</B>)"]</A><BR>"
-			menu += "Auto Pickup Crate: <A href='byond://byond://?src=[REF(src)];mule=autopick'>[MULE.auto_pickup ? "(<B>On</B>)": "(<B>Off</B>)"]</A><BR><BR>" //Hue.
+			menu += "Delivery Reporting: <A href='byond://?src=[REF(src)];mule=report'>[MULE.report_delivery ? "(<B>On</B>)": "(<B>Off</B>)"]</A><BR>"
+			menu += "Auto Return Home: <A href='byond://?src=[REF(src)];mule=autoret'>[MULE.auto_return ? "(<B>On</B>)": "(<B>Off</B>)"]</A><BR>"
+			menu += "Auto Pickup Crate: <A href='byond://?src=[REF(src)];mule=autopick'>[MULE.auto_pickup ? "(<B>On</B>)": "(<B>Off</B>)"]</A><BR><BR>" //Hue.
 
-			menu += "\[<A href='byond://byond://?src=[REF(src)];mule=stop'>Stop</A>\] "
-			menu += "\[<A href='byond://byond://?src=[REF(src)];mule=go'>Proceed</A>\] "
-			menu += "\[<A href='byond://byond://?src=[REF(src)];mule=home'>Return Home</A>\]<BR>"
+			menu += "\[<A href='byond://?src=[REF(src)];mule=stop'>Stop</A>\] "
+			menu += "\[<A href='byond://?src=[REF(src)];mule=go'>Proceed</A>\] "
+			menu += "\[<A href='byond://?src=[REF(src)];mule=home'>Return Home</A>\]<BR>"
 
 		else
-			menu += "<BR>\[<A href='byond://byond://?src=[REF(src)];op=patroloff'>Stop Patrol</A>\] "	//patrolon
-			menu += "\[<A href='byond://byond://?src=[REF(src)];op=patrolon'>Start Patrol</A>\] "	//patroloff
-			menu += "\[<A href='byond://byond://?src=[REF(src)];op=summon'>Summon Bot</A>\]<BR>"		//summon
+			menu += "<BR>\[<A href='byond://?src=[REF(src)];op=patroloff'>Stop Patrol</A>\] "	//patrolon
+			menu += "\[<A href='byond://?src=[REF(src)];op=patrolon'>Start Patrol</A>\] "	//patroloff
+			menu += "\[<A href='byond://?src=[REF(src)];op=summon'>Summon Bot</A>\]<BR>"		//summon
 			menu += "Keep an ID inserted to upload access codes upon summoning."
 
-		menu += "<HR><A href='byond://byond://?src=[REF(src)];op=botlist'>[PDAIMG(back)]Return to bot list</A>"
+		menu += "<HR><A href='byond://?src=[REF(src)];op=botlist'>[PDAIMG(back)]Return to bot list</A>"
 	else
-		menu += "<BR><A href='byond://byond://?src=[REF(src)];op=botlist'>[PDAIMG(refresh)]Scan for active bots</A><BR><BR>"
+		menu += "<BR><A href='byond://?src=[REF(src)];op=botlist'>[PDAIMG(refresh)]Scan for active bots</A><BR><BR>"
 		var/turf/current_turf = get_turf(src)
 		var/zlevel = current_turf.z
 		var/botcount = 0
 		for(Bot in GLOB.alive_mob_list) //Git da botz
 			if(!Bot.on || Bot.z != zlevel || Bot.remote_disabled || !(bot_access_flags & Bot.bot_type)) //Only non-emagged bots on the same Z-level are detected!
 				continue //Also, the PDA must have access to the bot type.
-			menu += "<A href='byond://byond://?src=[REF(src)];op=control;bot=[REF(Bot)]'><b>[Bot.name]</b> ([Bot.get_mode()])<BR>"
+			menu += "<A href='byond://?src=[REF(src)];op=control;bot=[REF(Bot)]'><b>[Bot.name]</b> ([Bot.get_mode()])<BR>"
 			botcount++
 		if(!botcount) //No bots at all? Lame.
 			menu += "No bots found.<BR>"

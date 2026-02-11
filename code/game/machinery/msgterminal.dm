@@ -123,12 +123,12 @@ GLOBAL_LIST_EMPTY(allTerminals)
 				dat += "<br>West Temple HighComm"
 			dat += "</td>"
 			dat += "<td width='45%'>"
-			dat += "<br><A href='byond://?src=[REF(src)];setScreen=11'>Send Message to Command</A><br>"
+			dat += "<br><a href='byond://?src=[REF(src)];setScreen=11'>Send Message to Command</A><br>"
 			dat += "</td>"
 			dat += "</tr>"
 
 			dat += "</table>"
-			dat += "<br><A href='byond://?src=[REF(src)];setScreen=0'><< Back</A><br>"
+			dat += "<br><a href='byond://?src=[REF(src)];setScreen=0'><< Back</A><br>"
 			dat += "<br><div class='panel redborder'><span class='redtext'>(( NOTE: Do not misuse this terminal to send harassing, joke or meme messages to other factions or groups in the terminal list. ))</span></div><br>"
 
 
@@ -394,7 +394,7 @@ GLOBAL_LIST_EMPTY(allTerminals)
 	if(istype(source, /obj/machinery/msgterminal))
 		var/obj/machinery/msgterminal/sender = source
 		if (sender.terminal == "COMMAND")
-			linkedsender = "<A href='byond://?src=[REF(src)];setScreen=11'>COMMAND</a>"
+			linkedsender = "<a href='byond://?src=[REF(src)];setScreen=11'>COMMAND</a>"
 		else
 			linkedsender = "<a href='byond://?src=[REF(src)];write=[ckey(sender.terminal)]'>[sender.terminal]</a>"
 	else

@@ -153,7 +153,7 @@ GLOBAL_LIST_EMPTY(allConsoles)
 				dat += "</td>"
 				dat += "</tr>"
 			dat += "</table>"
-			dat += "<br><A href='byond://?src=[REF(src)];setScreen=0'><< Back</A><br>"
+			dat += "<br><a href='byond://?src=[REF(src)];setScreen=0'><< Back</A><br>"
 
 		if(2)	//req. supplies
 			dat += "Which department do you need supplies from?<br><br>"
@@ -172,7 +172,7 @@ GLOBAL_LIST_EMPTY(allConsoles)
 				dat += "</td>"
 				dat += "</tr>"
 			dat += "</table>"
-			dat += "<br><A href='byond://?src=[REF(src)];setScreen=0'><< Back</A><br>"
+			dat += "<br><a href='byond://?src=[REF(src)];setScreen=0'><< Back</A><br>"
 
 		if(3)	//relay information
 			dat += "Which department would you like to send information to?<br><br>"

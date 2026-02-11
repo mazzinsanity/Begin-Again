@@ -324,7 +324,7 @@ the new instance inside the host to be updated to the template's stats.
 	var/list/dat = list()
 
 	if(examining_ability)
-		dat += "<a href='byond://byond://?src=[REF(src)];main_menu=1'>Back</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];main_menu=1'>Back</a><br>"
 		dat += "<h1>[examining_ability.name]</h1>"
 		dat += "[examining_ability.stat_block][examining_ability.long_desc][examining_ability.threshold_block]"
 		for(var/entry in examining_ability.threshold_block)
@@ -345,20 +345,20 @@ the new instance inside the host to be updated to the template's stats.
 			var/purchase_text
 			if(unpurchased_abilities[A])
 				if(A.CanBuy(src))
-					purchase_text = "<a href='byond://byond://?src=[REF(src)];buy_ability=[REF(A)]'>Purchase</a>"
+					purchase_text = "<a href='byond://?src=[REF(src)];buy_ability=[REF(A)]'>Purchase</a>"
 				else
 					purchase_text = "<span class='linkOff'>Purchase</span>"
 			else
 				if(A.CanRefund(src))
-					purchase_text = "<a href='byond://byond://?src=[REF(src)];refund_ability=[REF(A)]'>Refund</a>"
+					purchase_text = "<a href='byond://?src=[REF(src)];refund_ability=[REF(A)]'>Refund</a>"
 				else
 					purchase_text = "<span class='linkOff'>Refund</span>"
-			dat += "<tr><td>[A.cost]</td><td>[purchase_text]</td><td>[A.required_total_points]</td><td><a href='byond://byond://?src=[REF(src)];examine_ability=[REF(A)]'>[A.name]</a></td><td>[A.category]</td><td>[A.short_desc]</td></tr>"
+			dat += "<tr><td>[A.cost]</td><td>[purchase_text]</td><td>[A.required_total_points]</td><td><a href='byond://?src=[REF(src)];examine_ability=[REF(A)]'>[A.name]</a></td><td>[A.category]</td><td>[A.short_desc]</td></tr>"
 
 		dat += "</table><br>Infect many hosts at once to gain adaptation points.<hr><h1>Infected Hosts</h1>"
 		for(var/V in hosts)
 			var/mob/living/L = V
-			dat += "<br><a href='byond://byond://?src=[REF(src)];follow_instance=[REF(L)]'>[L.real_name]</a>"
+			dat += "<br><a href='byond://?src=[REF(src)];follow_instance=[REF(L)]'>[L.real_name]</a>"
 
 	browser.set_content(dat.Join())
 	browser.open()

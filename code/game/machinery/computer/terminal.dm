@@ -64,20 +64,20 @@
 		if (0)
 			if(prog_notekeeper)
 				dat += "TERMINAL FUNCTIONS"
-				dat += "<br><a href='byond://byond://?src=[REF(src)];choice=1'>\>  Word Processor</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];choice=1'>\>  Word Processor</a>"
 				dat += "<br><br>"
 			dat += "FILE SYSTEM"
 
 			if(doc_title_1)
-				dat += "<br><a href='byond://byond://?src=[REF(src)];choice=doc_1'>\>  [doc_title_1]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];choice=doc_1'>\>  [doc_title_1]</a>"
 			if(doc_title_2)
-				dat += "<br><a href='byond://byond://?src=[REF(src)];choice=doc_2'>\>  [doc_title_2]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];choice=doc_2'>\>  [doc_title_2]</a>"
 			if(doc_title_3)
-				dat += "<br><a href='byond://byond://?src=[REF(src)];choice=doc_3'>\>  [doc_title_3]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];choice=doc_3'>\>  [doc_title_3]</a>"
 			if(doc_title_4)
-				dat += "<br><a href='byond://byond://?src=[REF(src)];choice=doc_4'>\>  [doc_title_4]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];choice=doc_4'>\>  [doc_title_4]</a>"
 			if(doc_title_5)
-				dat += "<br><a href='byond://byond://?src=[REF(src)];choice=doc_5'>\>  [doc_title_5]</a>"
+				dat += "<br><a href='byond://?src=[REF(src)];choice=doc_5'>\>  [doc_title_5]</a>"
 
 		if (1)
 			dat += "</center><font face=\"Courier\">[(!notehtml ? note : notehtml)]</font>"
@@ -88,8 +88,8 @@
 	if (mode)
 		dat += "<br><br><center>=============================================================================</center>"
 		if(mode == 1)
-			dat += "<a href='byond://byond://?src=[REF(src)];choice=Edit'>\>  Edit</a><br>"
-		dat += "<a href='byond://byond://?src=[REF(src)];choice=Return'>\>  Return</a>"
+			dat += "<a href='byond://?src=[REF(src)];choice=Edit'>\>  Edit</a><br>"
+		dat += "<a href='byond://?src=[REF(src)];choice=Return'>\>  Return</a>"
 
 
 	dat += "</font></div>"

@@ -115,7 +115,7 @@
 	if(QDELETED(M) || QDELETED(usr))
 		return
 
-	//body += "<A href='byond://?_src_=holder;[HrefToken()];showmessageckey=[M.ckey]'>Notes | Messages | Watchlist</A> | "
+	//body += "<a href='byond://?_src_=holder;[HrefToken()];showmessageckey=[M.ckey]'>Notes | Messages | Watchlist</A> | "
 	body += "<a href='byond://?src=[ref];showmessageckey=[M.ckey]'>Notes</A> | "
 	if(M.client)
 		body += "<a href='byond://?src=[ref];sendtoprison=[ref_mob]'>Prison</A> | "
@@ -265,19 +265,19 @@
 			dat += "<BR>Feed channels and stories entered through here will be uneditable and handled as official news by the rest of the units."
 			dat += "<BR>Note that this panel allows full freedom over the news network, there are no constrictions except the few basic ones. Don't break things!</FONT>"
 			if(GLOB.news_network.wanted_issue.active)
-				dat+= "<HR><A href='byond://?src=[REF(src)];[HrefToken()];ac_view_wanted=1'>Read Wanted Issue</A>"
-			dat+= "<HR><BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_create_channel=1'>Create Feed Channel</A>"
-			dat+= "<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_view=1'>View Feed Channels</A>"
-			dat+= "<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_create_feed_story=1'>Submit new Feed story</A>"
-			dat+= "<BR><BR><A href='byond://?src=[REF(usr)];[HrefToken()];mach_close=newscaster_main'>Exit</A>"
+				dat+= "<HR><a href='byond://?src=[REF(src)];[HrefToken()];ac_view_wanted=1'>Read Wanted Issue</A>"
+			dat+= "<HR><BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_create_channel=1'>Create Feed Channel</A>"
+			dat+= "<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_view=1'>View Feed Channels</A>"
+			dat+= "<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_create_feed_story=1'>Submit new Feed story</A>"
+			dat+= "<BR><BR><a href='byond://?src=[REF(usr)];[HrefToken()];mach_close=newscaster_main'>Exit</A>"
 			var/wanted_already = 0
 			if(GLOB.news_network.wanted_issue.active)
 				wanted_already = 1
 			dat+="<HR><B>Feed Security functions:</B><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_menu_censor_story=1'>Censor Feed Stories</A>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_menu_censor_channel=1'>Mark Feed Channel with Nanotrasen D-Notice (disables and locks the channel).</A>"
-			dat+="<BR><HR><A href='byond://?src=[REF(src)];[HrefToken()];ac_set_signature=1'>The newscaster recognises you as:<BR> <FONT COLOR='green'>[src.admin_signature]</FONT></A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_menu_wanted=1'>[(wanted_already) ? ("Manage") : ("Publish")] \"Wanted\" Issue</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_menu_censor_story=1'>Censor Feed Stories</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_menu_censor_channel=1'>Mark Feed Channel with Nanotrasen D-Notice (disables and locks the channel).</A>"
+			dat+="<BR><HR><a href='byond://?src=[REF(src)];[HrefToken()];ac_set_signature=1'>The newscaster recognises you as:<BR> <FONT COLOR='green'>[src.admin_signature]</FONT></A>"
 		if(1)
 			dat+= "Station Feed Channels<HR>"
 			if( !length(GLOB.news_network.network_channels) )
@@ -285,36 +285,36 @@
 			else
 				for(var/datum/news/feed_channel/CHANNEL in GLOB.news_network.network_channels)
 					if(CHANNEL.is_admin_channel)
-						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><A href='byond://?src=[REF(src)];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
+						dat+="<B><FONT style='BACKGROUND-COLOR: LightGreen'><a href='byond://?src=[REF(src)];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A></FONT></B><BR>"
 					else
-						dat+="<B><A href='byond://?src=[REF(src)];[HrefToken()];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR></B>"
-			dat+="<BR><HR><A href='byond://?src=[REF(src)];[HrefToken()];ac_refresh=1'>Refresh</A>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A>"
+						dat+="<B><a href='byond://?src=[REF(src)];[HrefToken()];ac_show_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR></B>"
+			dat+="<BR><HR><a href='byond://?src=[REF(src)];[HrefToken()];ac_refresh=1'>Refresh</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A>"
 		if(2)
 			dat+="Creating new Feed Channel..."
-			dat+="<HR><B><A href='byond://?src=[REF(src)];[HrefToken()];ac_set_channel_name=1'>Channel Name</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>"
-			dat+="<B><A href='byond://?src=[REF(src)];[HrefToken()];ac_set_signature=1'>Channel Author</A>:</B> <FONT COLOR='green'>[src.admin_signature]</FONT><BR>"
-			dat+="<B><A href='byond://?src=[REF(src)];[HrefToken()];ac_set_channel_lock=1'>Will Accept Public Feeds</A>:</B> [(src.admincaster_feed_channel.locked) ? ("NO") : ("YES")]<BR><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_submit_new_channel=1'>Submit</A><BR><BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A><BR>"
+			dat+="<HR><B><a href='byond://?src=[REF(src)];[HrefToken()];ac_set_channel_name=1'>Channel Name</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>"
+			dat+="<B><a href='byond://?src=[REF(src)];[HrefToken()];ac_set_signature=1'>Channel Author</A>:</B> <FONT COLOR='green'>[src.admin_signature]</FONT><BR>"
+			dat+="<B><a href='byond://?src=[REF(src)];[HrefToken()];ac_set_channel_lock=1'>Will Accept Public Feeds</A>:</B> [(src.admincaster_feed_channel.locked) ? ("NO") : ("YES")]<BR><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_submit_new_channel=1'>Submit</A><BR><BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A><BR>"
 		if(3)
 			dat+="Creating new Feed Message..."
-			dat+="<HR><B><A href='byond://?src=[REF(src)];[HrefToken()];ac_set_channel_receiving=1'>Receiving Channel</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>" //MARK
+			dat+="<HR><B><a href='byond://?src=[REF(src)];[HrefToken()];ac_set_channel_receiving=1'>Receiving Channel</A>:</B> [src.admincaster_feed_channel.channel_name]<BR>" //MARK
 			dat+="<B>Message Author:</B> <FONT COLOR='green'>[src.admin_signature]</FONT><BR>"
-			dat+="<B><A href='byond://?src=[REF(src)];[HrefToken()];ac_set_new_message=1'>Message Body</A>:</B> [src.admincaster_feed_message.returnBody(-1)] <BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_submit_new_message=1'>Submit</A><BR><BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A><BR>"
+			dat+="<B><a href='byond://?src=[REF(src)];[HrefToken()];ac_set_new_message=1'>Message Body</A>:</B> [src.admincaster_feed_message.returnBody(-1)] <BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_submit_new_message=1'>Submit</A><BR><BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A><BR>"
 		if(4)
 			dat+="Feed story successfully submitted to [src.admincaster_feed_channel.channel_name].<BR><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(5)
 			dat+="Feed Channel [src.admincaster_feed_channel.channel_name] created successfully.<BR><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(6)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed story to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name=="")
 				dat+="<FONT COLOR='maroon'>Invalid receiving channel name.</FONT><BR>"
 			if(src.admincaster_feed_message.returnBody(-1) == "" || src.admincaster_feed_message.returnBody(-1) == "\[REDACTED\]")
 				dat+="<FONT COLOR='maroon'>Invalid message body.</FONT><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[3]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[3]'>Return</A><BR>"
 		if(7)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Could not submit Feed Channel to Network.</B></FONT><HR><BR>"
 			if(src.admincaster_feed_channel.channel_name =="" || src.admincaster_feed_channel.channel_name == "\[REDACTED\]")
@@ -326,7 +326,7 @@
 					break
 			if(check)
 				dat+="<FONT COLOR='maroon'>Channel name already in use.</FONT><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[2]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[2]'>Return</A><BR>"
 		if(9)
 			dat+="<B>[admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[created by: <FONT COLOR='maroon'>[admincaster_feed_channel.returnAuthor(-1)]</FONT>\]</FONT><HR>"
 			if(src.admincaster_feed_channel.censored)
@@ -348,8 +348,8 @@
 						for(var/datum/news/feed_comment/comment in MESSAGE.comments)
 							dat+="[comment.body]<br><font size=1>[comment.author] [comment.time_stamp]</font><br>"
 						dat+="<br>"
-			dat+="<BR><HR><A href='byond://?src=[REF(src)];[HrefToken()];ac_refresh=1'>Refresh</A>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[1]'>Back</A>"
+			dat+="<BR><HR><a href='byond://?src=[REF(src)];[HrefToken()];ac_refresh=1'>Refresh</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[1]'>Back</A>"
 		if(10)
 			dat+="<B>Nanotrasen Feed Censorship Tool</B><BR>"
 			dat+="<FONT SIZE=1>NOTE: Due to the nature of news Feeds, total deletion of a Feed Story is not possible.<BR>"
@@ -359,8 +359,8 @@
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/news/feed_channel/CHANNEL in GLOB.news_network.network_channels)
-					dat+="<A href='byond://?src=[REF(src)];[HrefToken()];ac_pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A>"
+					dat+="<a href='byond://?src=[REF(src)];[HrefToken()];ac_pick_censor_channel=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A>"
 		if(11)
 			dat+="<B>Nanotrasen D-Notice Handler</B><HR>"
 			dat+="<FONT SIZE=1>A D-Notice is to be bestowed upon the channel if the handling Authority deems it as harmful for the station's"
@@ -370,26 +370,26 @@
 				dat+="<I>No feed channels found active...</I><BR>"
 			else
 				for(var/datum/news/feed_channel/CHANNEL in GLOB.news_network.network_channels)
-					dat+="<A href='byond://?src=[REF(src)];[HrefToken()];ac_pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
+					dat+="<a href='byond://?src=[REF(src)];[HrefToken()];ac_pick_d_notice=[REF(CHANNEL)]'>[CHANNEL.channel_name]</A> [(CHANNEL.censored) ? ("<FONT COLOR='red'>***</FONT>") : ""]<BR>"
 
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A>"
 		if(12)
 			dat+="<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.returnAuthor(-1)]</FONT> \]</FONT><BR>"
-			dat+="<FONT SIZE=2><A href='byond://?src=[REF(src)];[HrefToken()];ac_censor_channel_author=[REF(src.admincaster_feed_channel)]'>[(src.admincaster_feed_channel.authorCensor) ? ("Undo Author censorship") : ("Censor channel Author")]</A></FONT><HR>"
+			dat+="<FONT SIZE=2><a href='byond://?src=[REF(src)];[HrefToken()];ac_censor_channel_author=[REF(src.admincaster_feed_channel)]'>[(src.admincaster_feed_channel.authorCensor) ? ("Undo Author censorship") : ("Censor channel Author")]</A></FONT><HR>"
 
 			if( !length(src.admincaster_feed_channel.messages) )
 				dat+="<I>No feed messages found in channel...</I><BR>"
 			else
 				for(var/datum/news/feed_message/MESSAGE in src.admincaster_feed_channel.messages)
 					dat+="-[MESSAGE.returnBody(-1)] <BR><FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.returnAuthor(-1)]</FONT>\]</FONT><BR>"
-					dat+="<FONT SIZE=2><A href='byond://?src=[REF(src)];[HrefToken()];ac_censor_channel_story_body=[REF(MESSAGE)]'>[(MESSAGE.bodyCensor) ? ("Undo story censorship") : ("Censor story")]</A>  -  <A href='byond://?src=[REF(src)];[HrefToken()];ac_censor_channel_story_author=[REF(MESSAGE)]'>[(MESSAGE.authorCensor) ? ("Undo Author Censorship") : ("Censor message Author")]</A></FONT><BR>"
+					dat+="<FONT SIZE=2><a href='byond://?src=[REF(src)];[HrefToken()];ac_censor_channel_story_body=[REF(MESSAGE)]'>[(MESSAGE.bodyCensor) ? ("Undo story censorship") : ("Censor story")]</A>  -  <a href='byond://?src=[REF(src)];[HrefToken()];ac_censor_channel_story_author=[REF(MESSAGE)]'>[(MESSAGE.authorCensor) ? ("Undo Author Censorship") : ("Censor message Author")]</A></FONT><BR>"
 					dat+="[MESSAGE.comments.len] comment[MESSAGE.comments.len > 1 ? "s" : ""]: <a href='byond://?src=[REF(src)];[HrefToken()];ac_lock_comment=[REF(MESSAGE)]'>[MESSAGE.locked ? "Unlock" : "Lock"]</a><br>"
 					for(var/datum/news/feed_comment/comment in MESSAGE.comments)
 						dat+="[comment.body] <a href='byond://?src=[REF(src)];[HrefToken()];ac_del_comment=[REF(comment)];ac_del_comment_msg=[REF(MESSAGE)]'>X</a><br><font size=1>[comment.author] [comment.time_stamp]</font><br>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[10]'>Back</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[10]'>Back</A>"
 		if(13)
 			dat+="<B>[src.admincaster_feed_channel.channel_name]: </B><FONT SIZE=1>\[ created by: <FONT COLOR='maroon'>[src.admincaster_feed_channel.returnAuthor(-1)]</FONT> \]</FONT><BR>"
-			dat+="Channel messages listed below. If you deem them dangerous to the station, you can <A href='byond://?src=[REF(src)];[HrefToken()];ac_toggle_d_notice=[REF(src.admincaster_feed_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>"
+			dat+="Channel messages listed below. If you deem them dangerous to the station, you can <a href='byond://?src=[REF(src)];[HrefToken()];ac_toggle_d_notice=[REF(src.admincaster_feed_channel)]'>Bestow a D-Notice upon the channel</A>.<HR>"
 			if(src.admincaster_feed_channel.censored)
 				dat+="<FONT COLOR='red'><B>ATTENTION: </B></FONT>This channel has been deemed as threatening to the welfare of the station, and marked with a Nanotrasen D-Notice.<BR>"
 				dat+="No further feed story additions are allowed while the D-Notice is in effect.</FONT><BR><BR>"
@@ -399,7 +399,7 @@
 				else
 					for(var/datum/news/feed_message/MESSAGE in src.admincaster_feed_channel.messages)
 						dat+="-[MESSAGE.returnBody(-1)] <BR><FONT SIZE=1>\[Story by <FONT COLOR='maroon'>[MESSAGE.returnAuthor(-1)]</FONT>\]</FONT><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[11]'>Back</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[11]'>Back</A>"
 		if(14)
 			dat+="<B>Wanted Issue Handler:</B>"
 			var/wanted_already = 0
@@ -410,29 +410,29 @@
 			if(wanted_already)
 				dat+="<FONT SIZE=2><BR><I>A wanted issue is already in Feed Circulation. You can edit or cancel it below.</FONT></I>"
 			dat+="<HR>"
-			dat+="<A href='byond://?src=[REF(src)];[HrefToken()];ac_set_wanted_name=1'>Criminal Name</A>: [src.admincaster_wanted_message.criminal] <BR>"
-			dat+="<A href='byond://?src=[REF(src)];[HrefToken()];ac_set_wanted_desc=1'>Description</A>: [src.admincaster_wanted_message.body] <BR>"
+			dat+="<a href='byond://?src=[REF(src)];[HrefToken()];ac_set_wanted_name=1'>Criminal Name</A>: [src.admincaster_wanted_message.criminal] <BR>"
+			dat+="<a href='byond://?src=[REF(src)];[HrefToken()];ac_set_wanted_desc=1'>Description</A>: [src.admincaster_wanted_message.body] <BR>"
 			if(wanted_already)
 				dat+="<B>Wanted Issue created by:</B><FONT COLOR='green'>[GLOB.news_network.wanted_issue.scannedUser]</FONT><BR>"
 			else
 				dat+="<B>Wanted Issue will be created under prosecutor:</B><FONT COLOR='green'>[src.admin_signature]</FONT><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_submit_wanted=[end_param]'>[(wanted_already) ? ("Edit Issue") : ("Submit")]</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_submit_wanted=[end_param]'>[(wanted_already) ? ("Edit Issue") : ("Submit")]</A>"
 			if(wanted_already)
-				dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_cancel_wanted=1'>Take down Issue</A>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A>"
+				dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_cancel_wanted=1'>Take down Issue</A>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Cancel</A>"
 		if(15)
 			dat+="<FONT COLOR='green'>Wanted issue for [src.admincaster_wanted_message.criminal] is now in Network Circulation.</FONT><BR><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(16)
 			dat+="<B><FONT COLOR='maroon'>ERROR: Wanted Issue rejected by Network.</B></FONT><HR><BR>"
 			if(src.admincaster_wanted_message.criminal =="" || src.admincaster_wanted_message.criminal == "\[REDACTED\]")
 				dat+="<FONT COLOR='maroon'>Invalid name for person wanted.</FONT><BR>"
 			if(src.admincaster_wanted_message.body == "" || src.admincaster_wanted_message.body == "\[REDACTED\]")
 				dat+="<FONT COLOR='maroon'>Invalid description.</FONT><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(17)
 			dat+="<B>Wanted Issue successfully deleted from Circulation</B><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		if(18)
 			dat+="<B><FONT COLOR ='maroon'>-- STATIONWIDE WANTED ISSUE --</B></FONT><BR><FONT SIZE=2>\[Submitted by: <FONT COLOR='green'>[GLOB.news_network.wanted_issue.scannedUser]</FONT>\]</FONT><HR>"
 			dat+="<B>Criminal</B>: [GLOB.news_network.wanted_issue.criminal]<BR>"
@@ -443,10 +443,10 @@
 				dat+="<BR><img src='tmp_photow.png' width = '180'>"
 			else
 				dat+="None"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Back</A><BR>"
 		if(19)
 			dat+="<FONT COLOR='green'>Wanted issue for [src.admincaster_wanted_message.criminal] successfully edited.</FONT><BR><BR>"
-			dat+="<BR><A href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
+			dat+="<BR><a href='byond://?src=[REF(src)];[HrefToken()];ac_setScreen=[0]'>Return</A><BR>"
 		else
 			dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
@@ -460,42 +460,42 @@
 
 	var/dat = {"
 		<center><B>Game Panel</B></center><hr>\n
-		<A href='byond://?src=[REF(src)];[HrefToken()];c_mode=1'>Change Game Mode</A><br>
+		<a href='byond://?src=[REF(src)];[HrefToken()];c_mode=1'>Change Game Mode</A><br>
 		"}
 	if(GLOB.master_mode == "secret")
-		dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_secret=1'>(Force Secret Mode)</A><br>"
+		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_secret=1'>(Force Secret Mode)</A><br>"
 	if(GLOB.master_mode == "dynamic")
 		if(SSticker.current_state <= GAME_STATE_PREGAME)
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart=1'>(Force Roundstart Rulesets)</A><br>"
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart=1'>(Force Roundstart Rulesets)</A><br>"
 			if (GLOB.dynamic_forced_roundstart_ruleset.len > 0)
 				for(var/datum/dynamic_ruleset/roundstart/rule in GLOB.dynamic_forced_roundstart_ruleset)
-					dat += {"<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_remove=\ref[rule]'>-> [rule.name] <-</A><br>"}
-				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_clear=1'>(Clear Rulesets)</A><br>"
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_storyteller=1'>(Force Storyteller)</A><br>"
+					dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_remove=\ref[rule]'>-> [rule.name] <-</A><br>"}
+				dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_clear=1'>(Clear Rulesets)</A><br>"
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_storyteller=1'>(Force Storyteller)</A><br>"
 			if (GLOB.dynamic_forced_storyteller)
 				var/datum/dynamic_storyteller/S = GLOB.dynamic_forced_storyteller
-				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_storyteller_clear=1'>-> [initial(S.name)] <-</A><br>"
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_options=1'>(Dynamic mode options)</A><br>"
+				dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_storyteller_clear=1'>-> [initial(S.name)] <-</A><br>"
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_options=1'>(Dynamic mode options)</A><br>"
 		else if (SSticker.IsRoundInProgress())
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_latejoin=1'>(Force Next Latejoin Ruleset)</A><br>"
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_latejoin=1'>(Force Next Latejoin Ruleset)</A><br>"
 			if (SSticker && SSticker.mode && istype(SSticker.mode,/datum/game_mode/dynamic))
 				var/datum/game_mode/dynamic/mode = SSticker.mode
 				if (mode.forced_latejoin_rule)
-					dat += {"<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_latejoin_clear=1'>-> [mode.forced_latejoin_rule.name] <-</A><br>"}
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_midround=1'>(Execute Midround Ruleset!)</A><br>"
+					dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_latejoin_clear=1'>-> [mode.forced_latejoin_rule.name] <-</A><br>"}
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_midround=1'>(Execute Midround Ruleset!)</A><br>"
 		dat += "<hr/>"
 	if(SSticker.IsRoundInProgress())
 		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];gamemode_panel=1'>(Game Mode Panel)</a><BR>"
 	dat += {"
 		<BR>
-		<A href='byond://?src=[REF(src)];[HrefToken()];create_object=1'>Create Object</A><br>
-		<A href='byond://?src=[REF(src)];[HrefToken()];quick_create_object=1'>Quick Create Object</A><br>
-		<A href='byond://?src=[REF(src)];[HrefToken()];create_turf=1'>Create Turf</A><br>
-		<A href='byond://?src=[REF(src)];[HrefToken()];create_mob=1'>Create Mob</A><br>
+		<a href='byond://?src=[REF(src)];[HrefToken()];create_object=1'>Create Object</A><br>
+		<a href='byond://?src=[REF(src)];[HrefToken()];quick_create_object=1'>Quick Create Object</A><br>
+		<a href='byond://?src=[REF(src)];[HrefToken()];create_turf=1'>Create Turf</A><br>
+		<a href='byond://?src=[REF(src)];[HrefToken()];create_mob=1'>Create Mob</A><br>
 		"}
 
 	if(marked_datum && istype(marked_datum, /atom))
-		dat += "<A href='byond://?src=[REF(src)];[HrefToken()];dupe_marked_datum=1'>Duplicate Marked Datum</A><br>"
+		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];dupe_marked_datum=1'>Duplicate Marked Datum</A><br>"
 
 	usr << browse(dat, "window=admin2;size=240x280")
 	return
@@ -961,15 +961,15 @@
 		dat += "</td>"
 		dat += "<td>"
 		if(job.total_positions >= 0)
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];customjobslot=[job.title]'>Custom</A> | "
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];addjobslot=[job.title]'>Add 1</A> | "
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];customjobslot=[job.title]'>Custom</A> | "
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];addjobslot=[job.title]'>Add 1</A> | "
 			if(job.total_positions > job.current_positions)
-				dat += "<A href='byond://?src=[REF(src)];[HrefToken()];removejobslot=[job.title]'>Remove</A> | "
+				dat += "<a href='byond://?src=[REF(src)];[HrefToken()];removejobslot=[job.title]'>Remove</A> | "
 			else
 				dat += "Remove | "
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];unlimitjobslot=[job.title]'>Unlimit</A></td>"
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];unlimitjobslot=[job.title]'>Unlimit</A></td>"
 		else
-			dat += "<A href='byond://?src=[REF(src)];[HrefToken()];limitjobslot=[job.title]'>Limit</A></td>"
+			dat += "<a href='byond://?src=[REF(src)];[HrefToken()];limitjobslot=[job.title]'>Limit</A></td>"
 
 	browser.height = min(100 + count * 20, 650)
 	browser.set_content(dat.Join())
@@ -1001,14 +1001,14 @@
 		<b>Stacking threeshold:</b> Current value : <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_stacking_limit=1'><b>[GLOB.dynamic_stacking_limit]</b></a>.
 		<br/>The threshold at which "round-ender" rulesets will stack. A value higher than 100 ensure this never happens. <br/>
 		<h3>Advanced parameters</h3>
-		Curve centre: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_centre=1'>-> [GLOB.dynamic_curve_centre] <-</A><br>
-		Curve width: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_width=1'>-> [GLOB.dynamic_curve_width] <-</A><br>
+		Curve centre: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_centre=1'>-> [GLOB.dynamic_curve_centre] <-</A><br>
+		Curve width: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_width=1'>-> [GLOB.dynamic_curve_width] <-</A><br>
 		Latejoin injection delay:<br>
-		Minimum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_min=1'>-> [GLOB.dynamic_latejoin_delay_min / 60 / 10] <-</A> Minutes<br>
-		Maximum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_max=1'>-> [GLOB.dynamic_latejoin_delay_max / 60 / 10] <-</A> Minutes<br>
+		Minimum: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_min=1'>-> [GLOB.dynamic_latejoin_delay_min / 60 / 10] <-</A> Minutes<br>
+		Maximum: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_latejoin_max=1'>-> [GLOB.dynamic_latejoin_delay_max / 60 / 10] <-</A> Minutes<br>
 		Midround injection delay:<br>
-		Minimum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_min=1'>-> [GLOB.dynamic_midround_delay_min / 60 / 10] <-</A> Minutes<br>
-		Maximum: <A href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_max=1'>-> [GLOB.dynamic_midround_delay_max / 60 / 10] <-</A> Minutes<br>
+		Minimum: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_min=1'>-> [GLOB.dynamic_midround_delay_min / 60 / 10] <-</A> Minutes<br>
+		Maximum: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_max=1'>-> [GLOB.dynamic_midround_delay_max / 60 / 10] <-</A> Minutes<br>
 		"}
 
 	user << browse(dat, "window=dyn_mode_options;size=900x650")

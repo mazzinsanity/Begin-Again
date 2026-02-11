@@ -580,7 +580,7 @@
 			if("memo")
 				output += "<span class='memo'>Memo by <span class='prefix'>[admin_key]</span> on [timestamp]"
 				if(editor_key)
-					output += "<br><span class='memoedit'>Last edit by [editor_key] <A href='byond://?_src_=holder;[HrefToken()];messageedits=[message_id]'>(Click here to see edit log)</A></span>"
+					output += "<br><span class='memoedit'>Last edit by [editor_key] <a href='byond://?_src_=holder;[HrefToken()];messageedits=[message_id]'>(Click here to see edit log)</A></span>"
 				output += "<br>[text]</span><br>"
 	qdel(query_get_message_output)
 	return output

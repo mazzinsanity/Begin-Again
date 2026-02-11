@@ -136,15 +136,15 @@
 	if((can_clone && CONFIG_GET(flag/ic_printing)) || debug)
 		HTML += "Here you can load script for your assembly.<br>"
 		if(!cloning)
-			HTML += " <A href='byond://?src=[REF(src)];print=load'>{Load Program}</a> "
+			HTML += " <a href='byond://?src=[REF(src)];print=load'>{Load Program}</a> "
 		else
 			HTML += " Load Program"
 		if(!program)
 			HTML += " [fast_clone ? "Print" : "Begin Printing"] Assembly"
 		else if(cloning)
-			HTML += " <A href='byond://?src=[REF(src)];print=cancel'>Cancel Print</a>"
+			HTML += " <a href='byond://?src=[REF(src)];print=cancel'>Cancel Print</a>"
 		else
-			HTML += " <A href='byond://?src=[REF(src)];print=print'>[fast_clone ? "Print" : "Begin Printing"] Assembly</a>"
+			HTML += " <a href='byond://?src=[REF(src)];print=print'>[fast_clone ? "Print" : "Begin Printing"] Assembly</a>"
 
 		HTML += "<br><hr>"
 	HTML += "Categories:"

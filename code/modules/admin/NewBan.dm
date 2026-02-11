@@ -13,7 +13,7 @@ GLOBAL_PROTECT(Banlist)
 	var/appeal
 	var/bran = CONFIG_GET(string/banappeals)
 	if(bran)
-		appeal = "\nFor more information on your ban, or to appeal, head to <a href='byond://[bran]'>[bran]</a>"
+		appeal = "\nFor more information on your ban, or to appeal, head to <a href='[bran]'>[bran]</a>"
 	GLOB.Banlist.cd = "/base"
 	if( "[ckey][id]" in GLOB.Banlist.dir )
 		GLOB.Banlist.cd = "[ckey][id]"
@@ -195,7 +195,7 @@ GLOBAL_PROTECT(Banlist)
 		else
 			expiry = "Permaban"
 
-		dat += text("<tr><td><A href='byond://?src=[ref];unbanf=[key][id]'>(U)</A><A href='byond://?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>")
+		dat += text("<tr><td><a href='byond://?src=[ref];unbanf=[key][id]'>(U)</A><a href='byond://?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>")
 
 	dat += "</table>"
 	dat = "<HR><B>Bans:</B> <FONT COLOR=blue>(U) = Unban , (E) = Edit Ban</FONT> - <FONT COLOR=green>([count] Bans)</FONT><HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 >[dat]"

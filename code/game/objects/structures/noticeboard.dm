@@ -49,9 +49,9 @@
 	var/dat = "<B>[name]</B><BR>"
 	for(var/obj/item/P in src)
 		if(istype(P, /obj/item/paper))
-			dat += "<A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<A href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
+			dat += "<a href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<a href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <a href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
 		else
-			dat += "<A href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<A href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
+			dat += "<a href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A> [auth ? "<a href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A>" : ""]<BR>"
 	user << browse("<HEAD><TITLE>Notices</TITLE></HEAD>[dat]","window=noticeboard")
 	onclose(user, "noticeboard")
 

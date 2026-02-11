@@ -1,31 +1,44 @@
 // rust_g.dm - DM API for rust_g extension library
-
+//
+// To configure, create a `rust_g.config.dm` and set what you care about from
+// the following options:
+//
+// #define RUST_G "path/to/rust_g"
+// Override the .dll/.so detection logic with a fixed path or with detection
+// logic of your own.
+//
 // #define RUSTG_OVERRIDE_BUILTINS
+// Enable replacement rust-g functions for certain builtins. Off by default.
+
 #ifndef RUST_G
+// Default automatic RUST_G detection.
+// On Windows, looks in the standard places for `rust_g.dll`.
+// On Linux, looks in `.`, `$LD_LIBRARY_PATH`, and `~/.byond/bin` for either of
+// `librust_g.so` (preferred) or `rust_g` (old).
 
 /* This comment bypasses grep checks */ /var/__rust_g
 
 /proc/__detect_rust_g()
-	switch(world.system_type)
-		if(MS_WINDOWS)
-			__rust_g = "rust_g.dll"
-
-		if(UNIX)
-			__rust_g = "librust_g.so"
-
-	if(!fexists(__rust_g))
-		world.log << "Rust-G: Failed to locate library at [__rust_g]."
-		return
-
-	try
-		world.log << "Rust-G: [rustg_get_version()]"
-		return __rust_g
-	catch
-		world.log << "Rust-G: Failed to load."
+	if (world.system_type == UNIX)
+		if (fexists("./librust_g.so"))
+			// No need for LD_LIBRARY_PATH badness.
+			return __rust_g = "./librust_g.so"
+		else if (fexists("./rust_g"))
+			// Old dumb filename.
+			return __rust_g = "./rust_g"
+		else if (fexists("[world.GetConfig("env", "HOME")]/.byond/bin/rust_g"))
+			// Old dumb filename in `~/.byond/bin`.
+			return __rust_g = "rust_g"
+		else
+			// It's not in the current directory, so try others
+			return __rust_g = "librust_g.so"
+	else
+		return __rust_g = "rust_g"
 
 #define RUST_G (__rust_g || __detect_rust_g())
 #endif
 
+// Handle 515 call() -> call_ext() changes
 #if DM_VERSION >= 515
 #define RUSTG_CALL call_ext
 #else
@@ -34,6 +47,7 @@
 
 /// Gets the version of rust_g
 /proc/rustg_get_version() return RUSTG_CALL(RUST_G, "get_version")()
+
 
 /**
  * Sets up the Aho-Corasick automaton with its default options.
@@ -96,9 +110,15 @@
 #define rustg_dmi_strip_metadata(fname) RUSTG_CALL(RUST_G, "dmi_strip_metadata")(fname)
 #define rustg_dmi_create_png(path, width, height, data) RUSTG_CALL(RUST_G, "dmi_create_png")(path, width, height, data)
 #define rustg_dmi_resize_png(path, width, height, resizetype) RUSTG_CALL(RUST_G, "dmi_resize_png")(path, width, height, resizetype)
+/**
+ * input: must be a path, not an /icon; you have to do your own handling if it is one, as icon objects can't be directly passed to rustg.
+ *
+ * output: json_encode'd list. json_decode to get a flat list with icon states in the order they're in inside the .dmi
+ */
+#define rustg_dmi_icon_states(fname) RUSTG_CALL(RUST_G, "dmi_icon_states")(fname)
 
 #define rustg_file_read(fname) RUSTG_CALL(RUST_G, "file_read")(fname)
-#define rustg_file_exists(fname) RUSTG_CALL(RUST_G, "file_exists")(fname)
+#define rustg_file_exists(fname) (RUSTG_CALL(RUST_G, "file_exists")(fname) == "true")
 #define rustg_file_write(text, fname) RUSTG_CALL(RUST_G, "file_write")(text, fname)
 #define rustg_file_append(text, fname) RUSTG_CALL(RUST_G, "file_append")(text, fname)
 #define rustg_file_get_line_count(fname) text2num(RUSTG_CALL(RUST_G, "file_get_line_count")(fname))
@@ -109,8 +129,23 @@
 	#define text2file(text, fname) rustg_file_append(text, "[fname]")
 #endif
 
+/// Returns the git hash of the given revision, ex. "HEAD".
 #define rustg_git_revparse(rev) RUSTG_CALL(RUST_G, "rg_git_revparse")(rev)
-#define rustg_git_commit_date(rev) RUSTG_CALL(RUST_G, "rg_git_commit_date")(rev)
+
+/**
+ * Returns the date of the given revision using the provided format.
+ * Defaults to returning %F which is YYYY-MM-DD.
+ */
+/proc/rustg_git_commit_date(rev, format = "%F")
+	return RUSTG_CALL(RUST_G, "rg_git_commit_date")(rev, format)
+
+/**
+ * Returns the formatted datetime string of HEAD using the provided format.
+ * Defaults to returning %F which is YYYY-MM-DD.
+ * This is different to rustg_git_commit_date because it only needs the logs directory.
+ */
+/proc/rustg_git_commit_date_head(format = "%F")
+	return RUSTG_CALL(RUST_G, "rg_git_commit_date_head")(format)
 
 #define RUSTG_HTTP_METHOD_GET "get"
 #define RUSTG_HTTP_METHOD_PUT "put"
@@ -133,6 +168,20 @@
 
 #define rustg_noise_get_at_coordinates(seed, x, y) RUSTG_CALL(RUST_G, "noise_get_at_coordinates")(seed, x, y)
 
+/**
+ * Generates a 2D poisson disk distribution ('blue noise'), which is relatively uniform.
+ *
+ * params:
+ * 	`seed`: str
+ * 	`width`: int, width of the noisemap (see world.maxx)
+ * 	`length`: int, height of the noisemap (see world.maxy)
+ * 	`radius`: int, distance between points on the noisemap
+ *
+ * returns:
+ * 	a width*length length string of 1s and 0s representing a 2D poisson sample collapsed into a 1D string
+ */
+#define rustg_noise_poisson_map(seed, width, length, radius) RUSTG_CALL(RUST_G, "noise_poisson_map")(seed, width, length, radius)
+
 #define rustg_sql_connect_pool(options) RUSTG_CALL(RUST_G, "sql_connect_pool")(options)
 #define rustg_sql_query_async(handle, query, params) RUSTG_CALL(RUST_G, "sql_query_async")(handle, query, params)
 #define rustg_sql_query_blocking(handle, query, params) RUSTG_CALL(RUST_G, "sql_query_blocking")(handle, query, params)
@@ -144,7 +193,27 @@
 #define rustg_time_milliseconds(id) text2num(RUSTG_CALL(RUST_G, "time_milliseconds")(id))
 #define rustg_time_reset(id) RUSTG_CALL(RUST_G, "time_reset")(id)
 
-#define rustg_read_toml_file(path) json_decode(RUSTG_CALL(RUST_G, "toml_file_to_json")(path) || "null")
+/// Returns the timestamp as a string
+/proc/rustg_unix_timestamp()
+	return RUSTG_CALL(RUST_G, "unix_timestamp")()
+
+#define rustg_raw_read_toml_file(path) json_decode(RUSTG_CALL(RUST_G, "toml_file_to_json")(path) || "null")
+
+/proc/rustg_read_toml_file(path)
+	var/list/output = rustg_raw_read_toml_file(path)
+	if (output["success"])
+		return json_decode(output["content"])
+	else
+		CRASH(output["content"])
+
+#define rustg_raw_toml_encode(value) json_decode(RUSTG_CALL(RUST_G, "toml_encode")(json_encode(value)))
+
+/proc/rustg_toml_encode(value)
+	var/list/output = rustg_raw_toml_encode(value)
+	if (output["success"])
+		return output["content"]
+	else
+		CRASH(output["content"])
 
 #define rustg_url_encode(text) RUSTG_CALL(RUST_G, "url_encode")("[text]")
 #define rustg_url_decode(text) RUSTG_CALL(RUST_G, "url_decode")(text)
@@ -153,3 +222,46 @@
 	#define url_encode(text) rustg_url_encode(text)
 	#define url_decode(text) rustg_url_decode(text)
 #endif
+
+/// Provided a static RSC file path or a raw text file path, returns the duration of the file in deciseconds as a float.
+/proc/rustg_sound_length(file_path)
+	var/static/list/sound_cache
+	if(isnull(sound_cache))
+		sound_cache = list()
+
+	. = 0
+
+	if(!istext(file_path))
+		if(!isfile(file_path))
+			CRASH("rustg_sound_length error: Passed non-text object")
+
+		if(length("[file_path]")) // Runtime generated RSC references stringify into 0-length strings.
+			file_path = "[file_path]"
+		else
+			CRASH("rustg_sound_length does not support non-static file refs.")
+
+	var/cached_length = sound_cache[file_path]
+	if(!isnull(cached_length))
+		return cached_length
+
+	var/ret = RUSTG_CALL(RUST_G, "sound_len")(file_path)
+	var/as_num = text2num(ret)
+	if(isnull(ret))
+		. = 0
+		CRASH("rustg_sound_length error: [ret]")
+
+	sound_cache[file_path] = as_num
+	return as_num
+
+
+#define RUSTG_SOUNDLEN_SUCCESSES "successes"
+#define RUSTG_SOUNDLEN_ERRORS "errors"
+/**
+ * Returns a nested key-value list containing "successes" and "errors"
+ * The format is as follows:
+ * list(
+ *  RUSTG_SOUNDLEN_SUCCESES = list("sounds/test.ogg" = 25.34),
+ *  RUSTG_SOUNDLEN_ERRORS = list("sound/bad.png" = "SoundLen: Unable to decode file."),
+ *)
+*/
+#define rustg_sound_length_list(file_paths) json_decode(RUSTG_CALL(RUST_G, "sound_len_list")(json_encode(file_paths)))

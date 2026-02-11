@@ -282,19 +282,19 @@
 		for(var/index = 1, index <= laws.devillaws.len, index++)
 			if (!devillawcheck[index])
 				devillawcheck[index] = "No"
-			list += {"<A href='byond://?src=[REF(src)];lawdevil=[index]'>[devillawcheck[index]] 666:</A> <font color='#cc5500'>[laws.devillaws[index]]</font><BR>"}
+			list += {"<A href='byond://byond://?src=[REF(src)];lawdevil=[index]'>[devillawcheck[index]] 666:</A> <font color='#cc5500'>[laws.devillaws[index]]</font><BR>"}
 
 	if (laws.zeroth)
 		if (!lawcheck[1])
 			lawcheck[1] = "No" //Given Law 0's usual nature, it defaults to NOT getting reported. --NeoFite
-		list += {"<A href='byond://?src=[REF(src)];lawc=0'>[lawcheck[1]] 0:</A> <font color='#ff0000'><b>[laws.zeroth]</b></font><BR>"}
+		list += {"<A href='byond://byond://?src=[REF(src)];lawc=0'>[lawcheck[1]] 0:</A> <font color='#ff0000'><b>[laws.zeroth]</b></font><BR>"}
 
 	for (var/index = 1, index <= laws.hacked.len, index++)
 		var/law = laws.hacked[index]
 		if (length(law) > 0)
 			if (!hackedcheck[index])
 				hackedcheck[index] = "No"
-			list += {"<A href='byond://?src=[REF(src)];lawh=[index]'>[hackedcheck[index]] [ionnum()]:</A> <font color='#660000'>[law]</font><BR>"}
+			list += {"<A href='byond://byond://?src=[REF(src)];lawh=[index]'>[hackedcheck[index]] [ionnum()]:</A> <font color='#660000'>[law]</font><BR>"}
 			hackedcheck.len += 1
 
 	for (var/index = 1, index <= laws.ion.len, index++)
@@ -303,7 +303,7 @@
 		if (length(law) > 0)
 			if (!ioncheck[index])
 				ioncheck[index] = "Yes"
-			list += {"<A href='byond://?src=[REF(src)];lawi=[index]'>[ioncheck[index]] [ionnum()]:</A> <font color='#547DFE'>[law]</font><BR>"}
+			list += {"<A href='byond://byond://?src=[REF(src)];lawi=[index]'>[ioncheck[index]] [ionnum()]:</A> <font color='#547DFE'>[law]</font><BR>"}
 			ioncheck.len += 1
 
 	var/number = 1
@@ -315,7 +315,7 @@
 
 			if (!lawcheck[number+1])
 				lawcheck[number+1] = "Yes"
-			list += {"<A href='byond://?src=[REF(src)];lawc=[number]'>[lawcheck[number+1]] [number]:</A> [law]<BR>"}
+			list += {"<A href='byond://byond://?src=[REF(src)];lawc=[number]'>[lawcheck[number+1]] [number]:</A> [law]<BR>"}
 			number++
 
 	for (var/index = 1, index <= laws.supplied.len, index++)
@@ -324,9 +324,9 @@
 			lawcheck.len += 1
 			if (!lawcheck[number+1])
 				lawcheck[number+1] = "Yes"
-			list += {"<A href='byond://?src=[REF(src)];lawc=[number]'>[lawcheck[number+1]] [number]:</A> <font color='#990099'>[law]</font><BR>"}
+			list += {"<A href='byond://byond://?src=[REF(src)];lawc=[number]'>[lawcheck[number+1]] [number]:</A> <font color='#990099'>[law]</font><BR>"}
 			number++
-	list += {"<br><br><A href='byond://?src=[REF(src)];laws=1'>State Laws</A>"}
+	list += {"<br><br><A href='byond://byond://?src=[REF(src)];laws=1'>State Laws</A>"}
 
 	usr << browse(list, "window=laws")
 

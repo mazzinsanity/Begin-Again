@@ -56,7 +56,7 @@ GLOBAL_PROTECT(staff)
 	if(!add_or_remove)
 		return
 
-	
+
 	switch(add_or_remove)
 		if("Add")
 			chosen_recipe = input(src, "Enter the recipe name to add to [target.name].", "Search recipes") as null|text
@@ -100,7 +100,7 @@ GLOBAL_PROTECT(staff)
 				to_chat(src, "<span class='warning'>Target does not know any recipes!</span>")
 				return
 
-			
+
 //event coordinator stuff
 /datum/admins/proc/event_panel()
 	if(!check_rights(R_SPAWN))
@@ -122,22 +122,22 @@ GLOBAL_PROTECT(staff)
 	dat += "<br><font size=1>Being lazy with this command directly lags the server and Buffy will know! So try to be efficient. <3</font><br><br>"
 	dat += "<b>_______________________________</b><br><br>"
 
-	dat += "<font size=3><A href='?src=[REF(src)];[HrefToken()];create_object=1'>Create Object</A><br><br></font>"
+	dat += "<font size=3><A href='byond://?src=[REF(src)];[HrefToken()];create_object=1'>Create Object</A><br><br></font>"
 	dat += "<br><font size=1>Spawn an object (type of /obj).</font><br><br>"
 	dat += "<b>_______________________________</b><br><br>"
-	dat += "<font size=3><A href='?src=[REF(src)];[HrefToken()];quick_create_object=1'>Quick Create Object</A><br><br></font>"
+	dat += "<font size=3><A href='byond://?src=[REF(src)];[HrefToken()];quick_create_object=1'>Quick Create Object</A><br><br></font>"
 	dat += "<br><font size=1>DO IT QUICKLY MY CHILDS</font><br><br>"
 	dat += "<b>_______________________________</b><br><br>"
-	dat += "<font size=3><A href='?src=[REF(src)];[HrefToken()];create_turf=1'><b>Create Turf</b></A><br><br></font>"
+	dat += "<font size=3><A href='byond://?src=[REF(src)];[HrefToken()];create_turf=1'><b>Create Turf</b></A><br><br></font>"
 	dat += "<br><font size=1>Spawn a floor (type of /turf).</font><br><br>"
 	dat += "<b>_______________________________</b><br><br>"
-	dat += "<font size=3><A href='?src=[REF(src)];[HrefToken()];create_mob=1'><b>Create Mob</b></A><br><br></font>"
+	dat += "<font size=3><A href='byond://?src=[REF(src)];[HrefToken()];create_mob=1'><b>Create Mob</b></A><br><br></font>"
 	dat += "<br><font size=1>Spawn a mob (type of /mob).</font><br><br>"
 	dat += "<b>_______________________________</b><br><br>"
-	dat += "<font size=3><A href='?src=[REF(src)];[HrefToken()];toggle_build=1'><b>Toggle Build Mode</b></font></a>"
+	dat += "<font size=3><A href='byond://?src=[REF(src)];[HrefToken()];toggle_build=1'><b>Toggle Build Mode</b></font></a>"
 	dat += "<br><br><font size=2>Enables build mode. Use this instead of spawning 500 things by hand please.</font><br><br>"
 	dat += "<b>_______________________________</b><br><br>"
-	dat += "<font size=3><A href='?src=[REF(src)];[HrefToken()];toggle_invis=1'>Toggle Own Invisibility</a></font>"
+	dat += "<font size=3><A href='byond://?src=[REF(src)];[HrefToken()];toggle_invis=1'>Toggle Own Invisibility</a></font>"
 	dat += "<br><br><font size=1>Makes you invisible if you are alive.<br><br></font>"
 
 	var/datum/browser/popup = new(usr, "eventcoordpanel", "Event Coordinator Panel", 500, 750)
@@ -153,7 +153,7 @@ GLOBAL_PROTECT(staff)
 		message_admins("[ADMIN_TPMONTY(usr)] tried to use open_event_panel() without perms!")
 		log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use open_event_panel() without perms!")
 		return
-	
+
 	src.holder.event_panel()
 
 //for the client to optionally go fullscreen

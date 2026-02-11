@@ -98,8 +98,8 @@ GLOBAL_LIST_INIT(possible_uplinker_IDs, list("Alfa","Bravo","Charlie","Delta","E
 		var/datum/component/uplink/hidden_uplink = uplinkholder.GetComponent(/datum/component/uplink)
 		dat += "[hidden_uplink.telecrystals] telecrystals remain in this uplink.<BR>"
 		if(linkedboss)
-			dat += "Donate TC: <a href='byond://?src=[REF(src)];donate=1'>1</a> | <a href='byond://?src=[REF(src)];donate=5'>5</a> | <a href='byond://?src=[REF(src)];donate=-1'>All</a>"
-		dat += "<br><a href='byond://?src=[REF(src)];eject=1'>Eject Uplink</a>"
+			dat += "Donate TC: <a href='byond://byond://?src=[REF(src)];donate=1'>1</a> | <a href='byond://byond://?src=[REF(src)];donate=5'>5</a> | <a href='byond://byond://?src=[REF(src)];donate=-1'>All</a>"
+		dat += "<br><a href='byond://byond://?src=[REF(src)];eject=1'>Eject Uplink</a>"
 
 
 	var/datum/browser/popup = new(user, "computer", "Telecrystal Upload/Receive Station", 700, 500)
@@ -161,7 +161,7 @@ GLOBAL_LIST_INIT(possible_uplinker_IDs, list("Alfa","Bravo","Charlie","Delta","E
 /obj/machinery/computer/telecrystals/boss/ui_interact(mob/user)
 	. = ..()
 	var/dat = ""
-	dat += "<a href='byond://?src=[REF(src)];scan=1'>Scan for TC stations.</a><BR>"
+	dat += "<a href='byond://byond://?src=[REF(src)];scan=1'>Scan for TC stations.</a><BR>"
 	dat += "[storedcrystals] telecrystals are available for distribution. <BR>"
 	dat += "<BR><BR>"
 
@@ -176,7 +176,7 @@ GLOBAL_LIST_INIT(possible_uplinker_IDs, list("Alfa","Bravo","Charlie","Delta","E
 		dat += "<BR>"
 
 	if(TCstations.len && storedcrystals)
-		dat += "<BR><BR><a href='byond://?src=[REF(src)];distrib=1'>Evenly distribute remaining TC.</a><BR><BR>"
+		dat += "<BR><BR><a href='byond://byond://?src=[REF(src)];distrib=1'>Evenly distribute remaining TC.</a><BR><BR>"
 
 
 	for(var/entry in transferlog)

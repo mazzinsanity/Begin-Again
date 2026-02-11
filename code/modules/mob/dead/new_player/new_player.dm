@@ -1,4 +1,4 @@
-#define LINKIFY_READY(string, value) "<a href='byond://?src=[REF(src)];ready=[value]'>[string]</a>"
+#define LINKIFY_READY(string, value) "<a href='byond://byond://?src=[REF(src)];ready=[value]'>[string]</a>"
 
 /mob/dead/new_player
 	var/ready = 0
@@ -45,7 +45,7 @@
 	var/list/output = list()
 	if(client?.prefs)
 		output += "<center><p>Welcome, <b>[client.prefs.be_random_name ? "random name player" : client.prefs.real_name]</b></p>"
-	output += "<center><p><a href='byond://?src=[REF(src)];show_preferences=1'>Setup Character</a></p>"
+	output += "<center><p><a href='byond://byond://?src=[REF(src)];show_preferences=1'>Setup Character</a></p>"
 
 	if(SSticker.current_state <= GAME_STATE_PREGAME)
 	/*
@@ -58,13 +58,13 @@
 				output += "<p>\[ [LINKIFY_READY("Ready", PLAYER_READY_TO_PLAY)] | [LINKIFY_READY("Not Ready", PLAYER_NOT_READY)] | <b> Observe </b> \]</p>"
 	*/
 		output += "<p>Please be patient, the game is starting soon!</p>"
-		output += "<p><a href='byond://?src=[REF(src)];refresh=1'>(Refresh)</a></p>"
-		output += "<p><a href='byond://?src=[REF(src)];refresh_chat=1)'>(Fix Chat Window)</a></p>"
+		output += "<p><a href='byond://byond://?src=[REF(src)];refresh=1'>(Refresh)</a></p>"
+		output += "<p><a href='byond://byond://?src=[REF(src)];refresh_chat=1)'>(Fix Chat Window)</a></p>"
 	else
-		output += "<p><a href='byond://?src=[REF(src)];manifest=1'>View the Crew Manifest</a></p>"
-		output += "<p><a href='byond://?src=[REF(src)];late_join=1'>Join Game!</a></p>"
+		output += "<p><a href='byond://byond://?src=[REF(src)];manifest=1'>View the Crew Manifest</a></p>"
+		output += "<p><a href='byond://byond://?src=[REF(src)];late_join=1'>Join Game!</a></p>"
 		output += "<p>[LINKIFY_READY("Observe", PLAYER_READY_TO_OBSERVE)]</p>"
-		output += "<p><a href='byond://?src=[REF(src)];refresh_chat=1)'>(Fix Chat Window)</a></p>"
+		output += "<p><a href='byond://byond://?src=[REF(src)];refresh_chat=1)'>(Fix Chat Window)</a></p>"
 
 	if(!IsGuestKey(src.key))
 		output += playerpolls()
@@ -100,9 +100,9 @@
 			qdel(query_get_new_polls)
 			return
 		if(query_get_new_polls.NextRow())
-			output += "<p><b><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
+			output += "<p><b><a href='byond://byond://?src=[rs];showpoll=1'>Show Player Polls</A> (NEW!)</b></p>"
 		else
-			output += "<p><a href='byond://?src=[rs];showpoll=1'>Show Player Polls</A></p>"
+			output += "<p><a href='byond://byond://?src=[rs];showpoll=1'>Show Player Polls</A></p>"
 		qdel(query_get_new_polls)
 		if(QDELETED(src))
 			return
@@ -589,7 +589,7 @@
 				var/command_bold = ""
 				if(job in GLOB.command_positions)
 					command_bold = " command"
-				dept_dat += "<a class='job[command_bold]' href='byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.title] ([job_datum.current_positions])</a>"
+				dept_dat += "<a class='job[command_bold]' href='byond://byond://?src=[REF(src)];SelectedJob=[job_datum.title]'>[job_datum.title] ([job_datum.current_positions])</a>"
 		if(!dept_dat.len)
 			dept_dat += "<span class='nopositions'>No positions open.</span>"
 		dat += jointext(dept_dat, "")

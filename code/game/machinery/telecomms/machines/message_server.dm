@@ -165,7 +165,7 @@
 
 /datum/signal/subspace/pda/proc/format_message()
 	if (logged && data["photo"])
-		return "\"[data["message"]]\" (<a href='byond://?src=[REF(logged)];photo=1'>Photo</a>)"
+		return "\"[data["message"]]\" (<a href='byond://byond://?src=[REF(logged)];photo=1'>Photo</a>)"
 	return "\"[data["message"]]\""
 
 /datum/signal/subspace/pda/broadcast()
@@ -238,4 +238,3 @@
 				priority = "Extreme"
 			else
 				priority = "Undetermined"
-

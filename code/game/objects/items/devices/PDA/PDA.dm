@@ -276,20 +276,20 @@ GLOBAL_LIST_EMPTY(PDAs)
 	dat += assets.css_tag()
 	dat += emoji_s.css_tag()
 
-	dat += "<a href='byond://?src=[REF(src)];choice=Refresh'>Refresh</a>"
+	dat += "<a href='byond://byond://?src=[REF(src)];choice=Refresh'>Refresh</a>"
 
 	if ((!isnull(cartridge)) && (mode == 0))
-		dat += " | <a href='byond://?src=[REF(src)];choice=Eject'>Eject [cartridge]</a>"
+		dat += " | <a href='byond://byond://?src=[REF(src)];choice=Eject'>Eject [cartridge]</a>"
 	if (mode)
-		dat += " | <a href='byond://?src=[REF(src)];choice=Return'>Return</a>"
+		dat += " | <a href='byond://byond://?src=[REF(src)];choice=Return'>Return</a>"
 
 	/* UNUSED because of the new pipboy look
 	if (mode == 0)
 
 		dat += "<div align=\"center\">"
-		dat += "<br><a href='byond://?src=[REF(src)];choice=Toggle_Font'>Toggle Font</a>"
-		dat += " | <a href='byond://?src=[REF(src)];choice=Change_Color'>Change Color</a>"
-		dat += " | <a href='byond://?src=[REF(src)];choice=Toggle_Underline'>Toggle Underline</a>" //underline button
+		dat += "<br><a href='byond://byond://?src=[REF(src)];choice=Toggle_Font'>Toggle Font</a>"
+		dat += " | <a href='byond://byond://?src=[REF(src)];choice=Change_Color'>Change Color</a>"
+		dat += " | <a href='byond://byond://?src=[REF(src)];choice=Toggle_Underline'>Toggle Underline</a>" //underline button
 
 		dat += "</div>"
 
@@ -298,14 +298,14 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 	if (!owner)
 		dat += "Warning: No owner information entered.  Please swipe card.<br><br>"
-		dat += "<a href='byond://?src=[REF(src)];choice=Refresh'>Retry</a>"
+		dat += "<a href='byond://byond://?src=[REF(src)];choice=Refresh'>Retry</a>"
 	else
 		switch (mode)
 			if (0)
 				dat += "<h2><center>=======PERSONAL INFORMATION PROCESSOR v.1.2=======</center></h2>"
 				dat += "Owner: [owner], [ownjob]<br>"
-				dat += "ID: <a href='?src=[REF(src)];choice=Authenticate'>[id ? "[id.registered_name], [id.assignment]" : "----------"]</a><br>"
-				dat += "<a href='?src=[REF(src)];choice=UpdateInfo'>[id ? "Update Pip-Boy Info" : ""]</a><br><br>"
+				dat += "ID: <a href='byond://?src=[REF(src)];choice=Authenticate'>[id ? "[id.registered_name], [id.assignment]" : "----------"]</a><br>"
+				dat += "<a href='byond://?src=[REF(src)];choice=UpdateInfo'>[id ? "Update Pip-Boy Info" : ""]</a><br><br>"
 
 				dat += "[STATION_TIME_TIMESTAMP("hh:mm:ss", world.time)]<br>" //:[world.time / 100 % 6][world.time / 100 % 10]"
 				dat += "[time2text(world.realtime, "MMM DD")] [GLOB.year_integer]"
@@ -314,37 +314,37 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 				dat += "<h4>General Functions</h4>"
 				dat += "<ul>"
-				dat += "<li><a href='byond://?src=[REF(src)];choice=1'>Notekeeper</a></li>"
-				dat += "<li><a href='byond://?src=[REF(src)];choice=2'>Messenger</a></li>"
-				dat += "<li><a href='byond://?src=[REF(src)];choice=99'>Radio</a></li>"
+				dat += "<li><a href='byond://byond://?src=[REF(src)];choice=1'>Notekeeper</a></li>"
+				dat += "<li><a href='byond://byond://?src=[REF(src)];choice=2'>Messenger</a></li>"
+				dat += "<li><a href='byond://byond://?src=[REF(src)];choice=99'>Radio</a></li>"
 
 				if (cartridge)
 					if (cartridge.access & CART_MANIFEST)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=41'>View Vault Manifest</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=41'>View Vault Manifest</a></li>"
 					if(cartridge.access & CART_STATUS_DISPLAY)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=42'>Set Status Display</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=42'>Set Status Display</a></li>"
 					dat += "</ul>"
 					if (cartridge.access & CART_ENGINE)
 						dat += "<h4>Engineering Functions</h4>"
 						dat += "<ul>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=43'>Power Monitor</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=43'>Power Monitor</a></li>"
 						dat += "</ul>"
 					if (cartridge.access & CART_MEDICAL)
 						dat += "<h4>Medical Functions</h4>"
 						dat += "<ul>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=44'>Vault Medical Records</a></li>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=Medical Scan'>[scanmode == 1 ? "Disable" : "Enable"] Medical Scanner</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=44'>Vault Medical Records</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Medical Scan'>[scanmode == 1 ? "Disable" : "Enable"] Medical Scanner</a></li>"
 						dat += "</ul>"
 					if (cartridge.access & CART_SECURITY)
 						dat += "<h4>Security Functions</h4>"
 						dat += "<ul>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=45'>Vault Security Records</A></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=45'>Vault Security Records</A></li>"
 						dat += "</ul>"
 					if(cartridge.access & CART_QUARTERMASTER)
 						dat += "<h4>Quartermaster Functions:</h4>"
 						dat += "<ul>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=47'>Supply Records</A></li>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=48'>Ore Silo Logs</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=47'>Supply Records</A></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=48'>Ore Silo Logs</a></li>"
 						dat += "</ul>"
 				dat += "</ul>"
 
@@ -353,47 +353,47 @@ GLOBAL_LIST_EMPTY(PDAs)
 
 				if (cartridge)
 					if(cartridge.bot_access_flags)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=54'>Bots Access</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=54'>Bots Access</a></li>"
 					if (cartridge.access & CART_JANITOR)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=49'>Custodial Locator</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=49'>Custodial Locator</a></li>"
 					if (istype(cartridge.radio))
-						dat += "<li><a href='byond://?src=[REF(src)];choice=40'>Signaler System</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=40'>Signaler System</a></li>"
 					if (cartridge.access & CART_NEWSCASTER)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=53'>Newscaster Access </a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=53'>Newscaster Access </a></li>"
 					if (cartridge.access & CART_REAGENT_SCANNER)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=Reagent Scan'>[scanmode == 3 ? "Disable" : "Enable"] Reagent Scanner</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Reagent Scan'>[scanmode == 3 ? "Disable" : "Enable"] Reagent Scanner</a></li>"
 					if (cartridge.access & CART_ENGINE)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=Halogen Counter'>[scanmode == 4 ? "Disable" : "Enable"] Halogen Counter</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Halogen Counter'>[scanmode == 4 ? "Disable" : "Enable"] Halogen Counter</a></li>"
 					if (cartridge.access & CART_ATMOS)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=Gas Scan'>[scanmode == 5 ? "Disable" : "Enable"] Gas Scanner</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Gas Scan'>[scanmode == 5 ? "Disable" : "Enable"] Gas Scanner</a></li>"
 					if (cartridge.access & CART_REMOTE_DOOR)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=Toggle Door'>Toggle Remote Door</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Toggle Door'>Toggle Remote Door</a></li>"
 					if (cartridge.access & CART_DRONEPHONE)
-						dat += "<li><a href='byond://?src=[REF(src)];choice=Drone Phone'>Drone Phone</a></li>"
-				dat += "<li><a href='byond://?src=[REF(src)];choice=3'>Atmospheric Scan</a></li>"
-				dat += "<li><a href='byond://?src=[REF(src)];choice=Light'>[fon ? "Disable" : "Enable"] Flashlight</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Drone Phone'>Drone Phone</a></li>"
+				dat += "<li><a href='byond://byond://?src=[REF(src)];choice=3'>Atmospheric Scan</a></li>"
+				dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Light'>[fon ? "Disable" : "Enable"] Flashlight</a></li>"
 				if (pai)
 					if(pai.loc != src)
 						pai = null
 						update_icon()
 					else
-						dat += "<li><a href='byond://?src=[REF(src)];choice=pai;option=1'>pAI Device Configuration</a></li>"
-						dat += "<li><a href='byond://?src=[REF(src)];choice=pai;option=2'>Eject pAI Device</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=pai;option=1'>pAI Device Configuration</a></li>"
+						dat += "<li><a href='byond://byond://?src=[REF(src)];choice=pai;option=2'>Eject pAI Device</a></li>"
 				dat += "</ul>"
 
 			if (1)
 				dat += "<h4> Notekeeper V2.2</h4>"
-				dat += "<a href='byond://?src=[REF(src)];choice=Edit'>Edit</a><br>"
+				dat += "<a href='byond://byond://?src=[REF(src)];choice=Edit'>Edit</a><br>"
 				if(notescanned)
 					dat += "(This is a scanned image, editing it may cause some text formatting to change.)<br>"
 				dat += "<HR><font face=\"[PEN_FONT]\">[(!notehtml ? note : notehtml)]</font>"
 
 			if (2)
 				dat += "<h4> RobCo Messenger V3.9.6</h4>"
-				//dat += "<a href='byond://?src=[REF(src)];choice=Toggle Ringer'>Ringer: [silent == 1 ? "Off" : "On"]</a> | "
-				dat += "<a href='byond://?src=[REF(src)];choice=Toggle Messenger'>Send / Receive: [toff == 1 ? "Off" : "On"]</a> | "
-				dat += "<a href='byond://?src=[REF(src)];choice=Ringtone'>Set Ringtone</a> | "
-				dat += "<a href='byond://?src=[REF(src)];choice=21'>Messages</a><br>"
+				//dat += "<a href='byond://byond://?src=[REF(src)];choice=Toggle Ringer'>Ringer: [silent == 1 ? "Off" : "On"]</a> | "
+				dat += "<a href='byond://byond://?src=[REF(src)];choice=Toggle Messenger'>Send / Receive: [toff == 1 ? "Off" : "On"]</a> | "
+				dat += "<a href='byond://byond://?src=[REF(src)];choice=Ringtone'>Set Ringtone</a> | "
+				dat += "<a href='byond://byond://?src=[REF(src)];choice=21'>Messages</a><br>"
 
 				if(cartridge)
 					dat += cartridge.message_header()
@@ -408,9 +408,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 						if (P == src)
 							continue
 						if(P.owner in blocked_pdas)
-							dat += "<li><a href='byond://?src=[REF(src)];choice=unblock_pda;target=[P.owner]'>(BLOCKED - CLICK TO UNBLOCK) [P]</a>"
+							dat += "<li><a href='byond://byond://?src=[REF(src)];choice=unblock_pda;target=[P.owner]'>(BLOCKED - CLICK TO UNBLOCK) [P]</a>"
 						else
-							dat += "<li><a href='byond://?src=[REF(src)];choice=Message;target=[REF(P)]'>[P]</a>"
+							dat += "<li><a href='byond://byond://?src=[REF(src)];choice=Message;target=[REF(P)]'>[P]</a>"
 						if(cartridge)
 							dat += cartridge.message_special(P)
 						dat += "</li>"
@@ -419,11 +419,11 @@ GLOBAL_LIST_EMPTY(PDAs)
 				if (count == 0)
 					dat += "None detected.<br>"
 				else if(cartridge && cartridge.spam_enabled)
-					dat += "<a href='byond://?src=[REF(src)];choice=MessageAll'>Send To All</a>"
+					dat += "<a href='byond://byond://?src=[REF(src)];choice=MessageAll'>Send To All</a>"
 
 			if(21)
 				dat += "<h4> RobCo Messenger V3.9.6</h4>"
-				dat += "<a href='byond://?src=[REF(src)];choice=Clear'>Clear Messages</a>"
+				dat += "<a href='byond://byond://?src=[REF(src)];choice=Clear'>Clear Messages</a>"
 
 				dat += "<h4> Messages</h4>"
 
@@ -456,22 +456,22 @@ GLOBAL_LIST_EMPTY(PDAs)
 			if (4)
 				dat += "<h4>Radio settings</h4>"
 
-				dat += "Microphone: <a href='byond://?src=[REF(src)];rmictoggle=1'>[radio.broadcasting?"Engaged":"Disengaged"]</a><br>"
-				dat += "Speaker: <a href='byond://?src=[REF(src)];rspktoggle=1'>[radio.listening?"Engaged":"Disengaged"]</a><br>"
+				dat += "Microphone: <a href='byond://byond://?src=[REF(src)];rmictoggle=1'>[radio.broadcasting?"Engaged":"Disengaged"]</a><br>"
+				dat += "Speaker: <a href='byond://byond://?src=[REF(src)];rspktoggle=1'>[radio.listening?"Engaged":"Disengaged"]</a><br>"
 				dat += "Frequency:<br>"
-				dat += "<a href='?src=[REF(src)];rfreq=-10'>-</a>"
-				dat += "<a href='?src=[REF(src)];rfreq=-2'>-</a>"
+				dat += "<a href='byond://?src=[REF(src)];rfreq=-10'>-</a>"
+				dat += "<a href='byond://?src=[REF(src)];rfreq=-2'>-</a>"
 				dat += "[format_frequency(radio.frequency)]"
-				dat += "<a href='?src=[REF(src)];rfreq=2'>+</a>"
-				dat += "<a href='?src=[REF(src)];rfreq=10'>+</a>"
-				dat += " | <a href='?src=[REF(src)];rsavefreq=[radio.frequency]'>Save Frequency</a><br><br>"
+				dat += "<a href='byond://?src=[REF(src)];rfreq=2'>+</a>"
+				dat += "<a href='byond://?src=[REF(src)];rfreq=10'>+</a>"
+				dat += " | <a href='byond://?src=[REF(src)];rsavefreq=[radio.frequency]'>Save Frequency</a><br><br>"
 
 				if(saved_frequencies)
 					dat += "<b>Saved Frequencies</b>"
 					dat += "<ul>"
 					for(var/freq in saved_frequencies)
-						dat += "<li><a href='?src=[REF(src)];rloadfreq=[saved_frequencies[freq]]'>[freq] ([format_frequency(saved_frequencies[freq])])</a>"
-						dat += " (<a href='?src=[REF(src)];rdelfreq=[saved_frequencies[freq]]'>Delete</a> | <a href='?src=[REF(src)];rrenfreq=[saved_frequencies[freq]]'>Rename</a>)</li>"
+						dat += "<li><a href='byond://?src=[REF(src)];rloadfreq=[saved_frequencies[freq]]'>[freq] ([format_frequency(saved_frequencies[freq])])</a>"
+						dat += " (<a href='byond://?src=[REF(src)];rdelfreq=[saved_frequencies[freq]]'>Delete</a> | <a href='byond://?src=[REF(src)];rrenfreq=[saved_frequencies[freq]]'>Rename</a>)</li>"
 					dat += "</ul>"
 
 			else//Else it links to the cart menu proc. Although, it really uses menu hub 4--menu 4 doesn't really exist as it simply redirects to hub.
@@ -930,7 +930,7 @@ GLOBAL_LIST_EMPTY(PDAs)
 		last_everyone = world.time
 
 /obj/item/pda/proc/receive_message(datum/signal/subspace/pda/signal)
-	tnote += "<i><b>&larr; From <a href='byond://?src=[REF(src)];choice=Message;target=[REF(signal.source)]'>[signal.data["name"]]</a> ([signal.data["job"]]):</b></i> <a href='byond://?src=[REF(src)];choice=toggle_block;target=[signal.data["name"]]'>(BLOCK/UNBLOCK)</a><br>[signal.format_message()]<br>"
+	tnote += "<i><b>&larr; From <a href='byond://byond://?src=[REF(src)];choice=Message;target=[REF(signal.source)]'>[signal.data["name"]]</a> ([signal.data["job"]]):</b></i> <a href='byond://byond://?src=[REF(src)];choice=toggle_block;target=[signal.data["name"]]'>(BLOCK/UNBLOCK)</a><br>[signal.format_message()]<br>"
 	if (!silent)
 		playsound(src, 'sound/f13items/pipsounds/pipmsgget.ogg', 80, 1)
 		audible_message("[icon2html(src, hearers(src))] *[ttone]*", null, 3)
@@ -946,14 +946,14 @@ GLOBAL_LIST_EMPTY(PDAs)
 		var/hrefstart
 		var/hrefend
 		if (isAI(L))
-			hrefstart = "<a href='?src=[REF(L)];track=[html_encode(signal.data["name"])]'>"
+			hrefstart = "<a href='byond://?src=[REF(L)];track=[html_encode(signal.data["name"])]'>"
 			hrefend = "</a>"
 
 		var/inbound_message = signal.format_message()
 		if(signal.data["emojis"] == TRUE)//so will not parse emojis as such from pdas that don't send emojis
 			inbound_message = emoji_parse(inbound_message)
 
-		to_chat(L, "[icon2html(src)] <b>Message from [hrefstart][signal.data["name"]] ([signal.data["job"]])[hrefend], </b>[inbound_message] (<a href='byond://?src=[REF(src)];choice=Message;skiprefresh=1;target=[REF(signal.source)]'>Reply</a>) (<a href='byond://?src=[REF(src)];choice=toggle_block;target=[signal.data["name"]]'>BLOCK/UNBLOCK</a>)")
+		to_chat(L, "[icon2html(src)] <b>Message from [hrefstart][signal.data["name"]] ([signal.data["job"]])[hrefend], </b>[inbound_message] (<a href='byond://byond://?src=[REF(src)];choice=Message;skiprefresh=1;target=[REF(signal.source)]'>Reply</a>) (<a href='byond://byond://?src=[REF(src)];choice=toggle_block;target=[signal.data["name"]]'>BLOCK/UNBLOCK</a>)")
 
 	new_alert = TRUE
 	update_icon(TRUE)

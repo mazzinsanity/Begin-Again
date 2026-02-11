@@ -75,7 +75,7 @@
 		. += "<span class='notice'>The maintenance panel [opened ? "can be" : "is"] <b>screwed</b> in place.</span>"
 
 	if((isobserver(user) && ckeys_allowed_to_scan[user.ckey]) || IsAdminGhost(user))
-		. += "You can <a href='?src=[REF(src)];ghostscan=1'>scan</a> this circuit."
+		. += "You can <a href='byond://?src=[REF(src)];ghostscan=1'>scan</a> this circuit."
 
 	for(var/I in assembly_components)
 		var/obj/item/integrated_circuit/IC = I
@@ -155,11 +155,11 @@
 
 	HTML += "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>[name]</title></head><body>"
 
-	HTML += "<a href='?src=[REF(src)]'>\[Refresh\]</a>  |  <a href='?src=[REF(src)];rename=1'>\[Rename\]</a><br>"
+	HTML += "<a href='byond://?src=[REF(src)]'>\[Refresh\]</a>  |  <a href='byond://?src=[REF(src)];rename=1'>\[Rename\]</a><br>"
 	HTML += "[total_part_size]/[max_components] ([round((total_part_size / max_components) * 100, 0.1)]%) space taken up in the assembly.<br>"
 	HTML += "[total_complexity]/[max_complexity] ([round((total_complexity / max_complexity) * 100, 0.1)]%) maximum complexity.<br>"
 	if(battery)
-		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='?src=[REF(src)];remove_cell=1'>\[Remove\]</a>"
+		HTML += "[round(battery.charge, 0.1)]/[battery.maxcharge] ([round(battery.percent(), 0.1)]%) cell charge. <a href='byond://?src=[REF(src)];remove_cell=1'>\[Remove\]</a>"
 	else
 		HTML += "<span class='danger'>No power cell detected!</span>"
 	HTML += "<br><br>"
@@ -173,8 +173,8 @@
 	for(var/c in assembly_components)
 		var/obj/item/integrated_circuit/circuit = c
 		if(!circuit.removable)
-			builtin_components += "<a href='?src=[REF(circuit)];rename=1;return=1'>\[R\]</a> | "
-			builtin_components += "<a href='?src=[REF(circuit)]'>[circuit.displayed_name]</a>"
+			builtin_components += "<a href='byond://?src=[REF(circuit)];rename=1;return=1'>\[R\]</a> | "
+			builtin_components += "<a href='byond://?src=[REF(circuit)]'>[circuit.displayed_name]</a>"
 			builtin_components += "<br>"
 
 	// Put removable circuits (if any) in separate categories from non-removable
@@ -190,13 +190,13 @@
 	for(var/c in assembly_components)
 		var/obj/item/integrated_circuit/circuit = c
 		if(circuit.removable)
-			HTML += "<a href='?src=[REF(src)];component=[REF(circuit)];up=1' style='text-decoration:none;'>&#8593;</a> "
-			HTML += "<a href='?src=[REF(src)];component=[REF(circuit)];down=1' style='text-decoration:none;'>&#8595;</a>  "
-			HTML += "<a href='?src=[REF(src)];component=[REF(circuit)];top=1' style='text-decoration:none;'>&#10514;</a> "
-			HTML += "<a href='?src=[REF(src)];component=[REF(circuit)];bottom=1' style='text-decoration:none;'>&#10515;</a> | "
-			HTML += "<a href='?src=[REF(circuit)];component=[REF(circuit)];rename=1;return=1'>\[R\]</a> | "
-			HTML += "<a href='?src=[REF(src)];component=[REF(circuit)];remove=1'>\[-\]</a> | "
-			HTML += "<a href='?src=[REF(circuit)]'>[circuit.displayed_name]</a>"
+			HTML += "<a href='byond://?src=[REF(src)];component=[REF(circuit)];up=1' style='text-decoration:none;'>&#8593;</a> "
+			HTML += "<a href='byond://?src=[REF(src)];component=[REF(circuit)];down=1' style='text-decoration:none;'>&#8595;</a>  "
+			HTML += "<a href='byond://?src=[REF(src)];component=[REF(circuit)];top=1' style='text-decoration:none;'>&#10514;</a> "
+			HTML += "<a href='byond://?src=[REF(src)];component=[REF(circuit)];bottom=1' style='text-decoration:none;'>&#10515;</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)];component=[REF(circuit)];rename=1;return=1'>\[R\]</a> | "
+			HTML += "<a href='byond://?src=[REF(src)];component=[REF(circuit)];remove=1'>\[-\]</a> | "
+			HTML += "<a href='byond://?src=[REF(circuit)]'>[circuit.displayed_name]</a>"
 			HTML += "<br>"
 
 	HTML += "</body></html>"

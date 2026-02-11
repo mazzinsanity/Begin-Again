@@ -50,13 +50,13 @@
 
 	switch(src.menu)
 		if(1)
-			dat += "<a href='byond://?src=[REF(src)];menu=2'>View crew storage log</a><br><br>"
+			dat += "<a href='byond://byond://?src=[REF(src)];menu=2'>View crew storage log</a><br><br>"
 			if(allow_items)
-				dat += "<a href='byond://?src=[REF(src)];menu=3'>View objects storage log</a><br><br>"
-				dat += "<a href='byond://?src=[REF(src)];item=1'>Recover object</a><br><br>"
-				dat += "<a href='byond://?src=[REF(src)];allitems=1'>Recover all objects</a><br>"
+				dat += "<a href='byond://byond://?src=[REF(src)];menu=3'>View objects storage log</a><br><br>"
+				dat += "<a href='byond://byond://?src=[REF(src)];item=1'>Recover object</a><br><br>"
+				dat += "<a href='byond://byond://?src=[REF(src)];allitems=1'>Recover all objects</a><br>"
 		if(2)
-			dat += "<a href='byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
+			dat += "<a href='byond://byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
 			dat += "<h3>Recently stored Crew</h3><br/><hr/><br/>"
 			if(!frozen_crew.len)
 				dat += "There has been no storage usage at this terminal.<br/>"
@@ -65,7 +65,7 @@
 					dat += "[person]<br/>"
 			dat += "<hr/>"
 		if(3)
-			dat += "<a href='byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
+			dat += "<a href='byond://byond://?src=[REF(src)];menu=1'><< Back</a><br><br>"
 			dat += "<h3>Recently stored objects</h3><br/><hr/><br/>"
 			if(!frozen_items.len)
 				dat += "There has been no storage usage at this terminal.<br/>"
@@ -487,7 +487,7 @@
 	to_chat(target, "<span class='boldnotice'>If you ghost, log out or close your client now, your character will shortly be permanently removed from the round.</span>")
 	name = "[name] ([occupant.name])"
 	log_admin("<span class='notice'>[key_name(target)] entered a stasis pod.</span>")
-	message_admins("[key_name_admin(target)] entered a stasis pod. (<A HREF='?_src_=holder;[HrefToken()];adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
+	message_admins("[key_name_admin(target)] entered a stasis pod. (<A href='byond://?_src_=holder;[HrefToken()];adminplayerobservecoodjump=1;X=[x];Y=[y];Z=[z]'>JMP</a>)")
 	add_fingerprint(target)
 
 //Attacks/effects.

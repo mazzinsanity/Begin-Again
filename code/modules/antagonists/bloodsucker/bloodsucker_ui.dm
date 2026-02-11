@@ -17,9 +17,9 @@
 	for(var/pickedpower in typesof(/datum/action/bloodsucker))
 		var/obj/effect/proc_holder/spell/bloodsucker/power = pickedpower
 		// NAME
-		dat += "<A href='byond://?src=[REF(src)];[module.mod_pick_name]=1'>[power.name]</A>"
+		dat += "<A href='byond://byond://?src=[REF(src)];[module.mod_pick_name]=1'>[power.name]</A>"
 		// COST
-		dat += "<td align='right'><b>[power.name]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
+		dat += "<td align='right'><b>[power.name]&nbsp;</b><a href='byond://byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
 		dat == "<BR>"
 
 	var/datum/browser/popup = new(owner.current, "bloodsuckerrank", "Bloodsucker Rank Up")
@@ -42,9 +42,9 @@
 	dat += "<B>Install Module:</B><BR>"
 	dat += "<I>The number afterwards is the amount of processing time it consumes.</I><BR>"
 	for(var/datum/AI_Module/large/module in possible_modules)
-		dat += "<A href='byond://?src=[REF(src)];[module.mod_pick_name]=1'>[module.module_name]</A><A href='byond://?src=[REF(src)];showdesc=[module.mod_pick_name]'>\[?\]</A> ([module.cost])<BR>"
+		dat += "<A href='byond://byond://?src=[REF(src)];[module.mod_pick_name]=1'>[module.module_name]</A><A href='byond://byond://?src=[REF(src)];showdesc=[module.mod_pick_name]'>\[?\]</A> ([module.cost])<BR>"
 	for(var/datum/AI_Module/small/module in possible_modules)
-		dat += "<A href='byond://?src=[REF(src)];[module.mod_pick_name]=1'>[module.module_name]</A><A href='byond://?src=[REF(src)];showdesc=[module.mod_pick_name]'>\[?\]</A> ([module.cost])<BR>"
+		dat += "<A href='byond://byond://?src=[REF(src)];[module.mod_pick_name]=1'>[module.module_name]</A><A href='byond://byond://?src=[REF(src)];showdesc=[module.mod_pick_name]'>\[?\]</A> ([module.cost])<BR>"
 	dat += "<HR>"
 	if(temp)
 		dat += "[temp]"
@@ -91,7 +91,7 @@
 			dat += "<tr><td><img src='data:image/jpeg;base64,[GetIconForProduct(R)]'/></td>"
 			dat += "<td style=\"width: 100%\"><b>[sanitize(R.name)]  ([price_listed])</b></td>"
 			if(R.amount > 0 && ((C && C.registered_account && onstation) || (!onstation && isliving(user))))
-				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
+				dat += "<td align='right'><b>[R.amount]&nbsp;</b><a href='byond://byond://?src=[REF(src)];vend=[REF(R)]'>Vend</a></td>"
 			else
 				dat += "<td align='right'><span class='linkOff'>Not&nbsp;Available</span></td>"
 			dat += "</tr>"
@@ -105,7 +105,7 @@
 		for (var/O in dish_quants)
 			if(dish_quants[O] > 0)
 				var/N = dish_quants[O]
-				dat += "<a href='byond://?src=[REF(src)];dispense=[sanitize(O)]'>Dispense</A> "
+				dat += "<a href='byond://byond://?src=[REF(src)];dispense=[sanitize(O)]'>Dispense</A> "
 				dat += "<B>[capitalize(O)] ($[default_price]): [N]</B><br>"
 		dat += "</div>"
 

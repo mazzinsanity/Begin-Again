@@ -11,8 +11,7 @@ export const MiningVendor = (props, context) => {
   return (
     <Window
       width={425}
-      height={600}
-      resizable>
+      height={600}>
       <Window.Content scrollable>
         <Section title="User">
           {data.user && (
@@ -37,7 +36,7 @@ export const MiningVendor = (props, context) => {
                 <Table.Row key={product.name}>
                   <Table.Cell>
                     <span
-                      className={classes(['vending32x32', product.asset])}
+                      className={classes(['vending32x32', product.path])}
                       style={{
                         'vertical-align': 'middle',
                       }} />

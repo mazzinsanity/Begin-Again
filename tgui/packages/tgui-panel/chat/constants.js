@@ -52,13 +52,13 @@ export const MESSAGE_TYPES = [
     type: MESSAGE_TYPE_LOCALCHAT,
     name: 'Local',
     description: 'In-character local messages (say, emote, etc)',
-    selector: '.say, .emote, .subtle',
+    selector: '.say, .emote',
   },
   {
     type: MESSAGE_TYPE_RADIO,
     name: 'Radio',
     description: 'All departments of radio messages',
-    selector: '.alert, .minorannounce, .syndradio, .centcomradio, .aiprivradio, .comradio, .secradio, .engradio, .medradio, .sciradio, .suppradio, .servradio, .radio, .deptradio, .binarysay, .newscaster, .resonate, .vaultradio, .ncrradio, .bosradio, .enclaveradio, .denradio, .legionradio, .rangerradio, .khansradio',
+    selector: '.alert, .minorannounce, .syndradio, .centcomradio, .aiprivradio, .comradio, .secradio, .engradio, .medradio, .sciradio, .suppradio, .servradio, .radio, .deptradio, .binarysay, .newscaster, .resonate',
   },
   {
     type: MESSAGE_TYPE_INFO,
@@ -82,13 +82,7 @@ export const MESSAGE_TYPES = [
     type: MESSAGE_TYPE_OOC,
     name: 'OOC',
     description: 'The bluewall of global OOC messages',
-    selector: '.ooc, .adminooc, .oocplain, .adminobserverooc',
-  },
-  {
-    type: 'looc',
-    name: 'LOOC',
-    description: 'Local Out of Character message.',
-    selector: '.filter_looc, .looc',
+    selector: '.ooc, .adminooc, .oocplain',
   },
   {
     type: MESSAGE_TYPE_ADMINPM,

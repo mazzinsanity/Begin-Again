@@ -13,7 +13,7 @@ export const Safe = (properties, context) => {
   return (
     <Window
       width={625}
-      height={760}
+      height={800}
       theme="ntos">
       <Window.Content>
         <Box className="Safe__engraving">
@@ -29,7 +29,7 @@ export const Safe = (properties, context) => {
           <Icon
             className="Safe__engraving-arrow"
             name="long-arrow-alt-down"
-            size="3"
+            size="5"
           /><br />
           {open ? (
             <Contents />
@@ -44,7 +44,9 @@ export const Safe = (properties, context) => {
             />
           )}
         </Box>
-        {!open}
+        {!open && (
+          <Help />
+        )}
       </Window.Content>
     </Window>
   );
@@ -124,5 +126,24 @@ const Contents = (properties, context) => {
         </Fragment>
       ))}
     </Box>
+  );
+};
+
+const Help = (properties, context) => {
+  return (
+    <Section
+      className="Safe__help"
+      title="Safe opening instructions (because you all keep forgetting)">
+      <Box>
+        1. Turn the dial left to the first number.<br />
+        2. Turn the dial right to the second number.<br />
+        3. Continue repeating this process for each number,
+        switching between left and right each time.<br />
+        4. Open the safe.
+      </Box>
+      <Box bold>
+        To lock fully, turn the dial to the left after closing the safe.
+      </Box>
+    </Section>
   );
 };

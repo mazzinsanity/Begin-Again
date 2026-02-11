@@ -179,9 +179,11 @@ a.popt {
   padding: 2px 0;
 }
 
-.filterMessages input {}
+.filterMessages input {
+}
 
-.filterMessages label {}
+.filterMessages label {
+}
 
 .icon-stack {
   height: 1em;
@@ -252,8 +254,8 @@ a.popt {
 
 /* ADD HERE FOR ITALIC */
 
-.italic,
-.italics {
+
+.italic, .italics {
   font-style: italic;
 }
 
@@ -266,18 +268,12 @@ a.popt {
   background: yellow;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: #a4bad6;
   font-family: Georgia, Verdana, sans-serif;
 }
 
-h1.alert,
-h2.alert {
+h1.alert, h2.alert {
   color: #a4bad6;
 }
 
@@ -342,12 +338,8 @@ em {
   font-weight: bold;
 }
 
-.say,
-.emote,
-.infoplain,
-.oocplain,
-.warningplain,
-.subtle {}
+.say, .emote, .infoplain, .oocplain, .warningplain, .subtle {
+}
 
 .deadsay {
   color: #e2c1ff;
@@ -361,8 +353,7 @@ em {
   color: #00ff00;
 }
 
-.binarysay a:active,
-.binarysay a:visited {
+.binarysay a:active, .binarysay a:visited {
   color: #88ff88;
 }
 
@@ -615,40 +606,40 @@ em {
 }
 
 .cult {
-  color: #aa1c1c;
+  color: #973e3b;
 }
 
 .cultitalic {
-  color: #aa1c1c;
+  color: #973e3b;
   font-style: italic;
 }
 
 .cultbold {
-  color: #aa1c1c;
+  color: #973e3b;
   font-style: italic;
   font-weight: bold;
 }
 
 .cultboldtalic {
-  color: #aa1c1c;
+  color: #973e3b;
   font-weight: bold;
   font-size: 185%;
 }
 
 .cultlarge {
-  color: #aa1c1c;
+  color: #973e3b;
   font-weight: bold;
   font-size: 185%;
 }
 
 .narsie {
-  color: #aa1c1c;
+  color: #973e3b;
   font-weight: bold;
   font-size: 925%;
 }
 
 .narsiesmall {
-  color: #aa1c1c;
+  color: #973e3b;
   font-weight: bold;
   font-size: 370%;
 }
@@ -725,7 +716,7 @@ em {
 }
 
 .deconversion_message {
-  color: #5000A0;
+  color: #a947ff;
   font-size: 185%;
   font-style: italic;
 }
@@ -943,7 +934,7 @@ em {
 
 .command_headset {
   font-weight: bold;
-  font-size: 125%;
+  font-size: 160%;
 }
 
 .small {
@@ -979,7 +970,7 @@ em {
 
 .clown {
   color: #ff70c1;
-  font-size: 125%;
+  font-size: 160%;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: bold;
 }
@@ -1138,8 +1129,7 @@ em {
   font-size: 80%;
 }
 
-.connectionClosed,
-.fatalError {
+.connectionClosed, .fatalError {
   background: red;
   color: white;
   padding: 5px;

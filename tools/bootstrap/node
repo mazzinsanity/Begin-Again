@@ -16,9 +16,9 @@ if [ "$TG_BOOTSTRAP_CACHE" ]; then
 fi
 OldPWD="$PWD"
 cd "$Bootstrap/../.."
-. ./dependencies.sh  # sets NODE_VERSION_PRECISE
+. ./dependencies.sh  # sets NODE_VERSION_LTS
 cd "$OldPWD"
-NodeVersion="$NODE_VERSION_PRECISE"
+NodeVersion="$NODE_VERSION_LTS"
 NodeFullVersion="node-v$NodeVersion-win-x64"
 NodeDir="$Cache/$NodeFullVersion"
 NodeExe="$NodeDir/node.exe"
@@ -65,6 +65,7 @@ fi
 
 # Invoke Node with all command-line arguments
 if [ "$is_vendored" = "1" ]; then
+	PATH="$(readlink -f "$NodeDir"):$PATH"
 	echo "Using vendored Node $("$NodeExe" --version)"
 else
 	echo "Using system-wide Node $("$NodeExe" --version)"

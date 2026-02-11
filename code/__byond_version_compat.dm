@@ -1,10 +1,10 @@
 // This file contains defines allowing targeting byond versions newer than the supported
 
 //Update this whenever you need to take advantage of more recent byond features
-#define MIN_COMPILER_VERSION 515
+#define MIN_COMPILER_VERSION 516
 
 #if DM_VERSION < MIN_COMPILER_VERSION
-	#error Your compiler version is outdated, you must use 515 or newer to compile and run this code.
+	#error Your compiler version is outdated, you must use 516 or newer to compile and run this code.
 #endif
 
 // Keep savefile compatibilty at minimum supported level

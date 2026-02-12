@@ -804,7 +804,7 @@ GLOBAL_VAR_INIT(exploit_warn_spam_prevention, 0)
 			if(!QDELETED(S))
 				qdel(S)
 	if(client)
-		client << output(null, "statbrowser:check_spells")
+		client.stat_panel.send_message("check_spells")
 
 /mob/proc/anti_magic_check(magic = TRUE, holy = FALSE, tinfoil = FALSE, chargecost = 1, self = FALSE)
 	if(!magic && !holy && !tinfoil)

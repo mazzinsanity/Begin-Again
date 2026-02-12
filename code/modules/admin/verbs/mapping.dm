@@ -168,15 +168,15 @@ GLOBAL_LIST_EMPTY(dirty_vars)
 	set name = "Show roundstart AT list"
 	set desc = "Displays a list of active turfs coordinates at roundstart"
 
-	var/dat = {"<b>Coordinate list of Active Turfs at Roundstart</b>
-		<br>Real-time Active Turfs list you can see in Air Subsystem at active_turfs var<br>"}
+	var/list/dat = list({"<b>Coordinate list of Active Turfs at Roundstart</b>
+		<br>Real-time Active Turfs list you can see in Air Subsystem at active_turfs var<br>"})
 
 	for(var/t in GLOB.active_turfs_startlist)
 		var/turf/T = t
 		dat += "[ADMIN_VERBOSEJMP(T)]\n"
 		dat += "<br>"
 
-	usr << browse(dat, "window=at_list")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=at_list")
 
 	SSblackbox.record_feedback("tally", "admin_verb", 1, "Show Roundstart Active Turfs") //If you are copy-pasting this, ensure the 2nd parameter is unique to the new proc!
 

@@ -195,10 +195,10 @@
 /mob/living/simple_animal/parrot/show_inv(mob/user)
 	user.set_machine(src)
 
-	var/dat = 	"<div align='center'><b>Inventory of [name]</b></div><p>"
+	var/list/dat = list("<div align='center'><b>Inventory of [name]</b></div><p>")
 	dat += "<br><B>Headset:</B> <a href='byond://?src=[REF(src)];[ears ? "remove_inv=ears'>[ears]" : "add_inv=ears'>Nothing"]</A>"
 
-	user << browse(dat, "window=mob[REF(src)];size=325x500")
+	user << browse(HTML_SKELETON(dat.Join()), "window=mob[REF(src)];size=325x500")
 	onclose(user, "window=mob[REF(src)]")
 
 

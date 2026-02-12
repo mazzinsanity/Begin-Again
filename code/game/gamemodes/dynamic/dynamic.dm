@@ -152,7 +152,7 @@ GLOBAL_VAR_INIT(dynamic_forced_storyteller, null)
 	GLOB.dynamic_first_midround_delay_max = CONFIG_GET(number/dynamic_first_midround_delay_max)*600
 
 /datum/game_mode/dynamic/admin_panel()
-	var/list/dat = list("<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Game Mode Panel</title></head><body><h1><B>Game Mode Panel</B></h1>")
+	var/list/dat = list("<h1><B>Game Mode Panel</B></h1>")
 	dat += "Dynamic Mode <a href='byond://?_src_=vars;[HrefToken()];Vars=[REF(src)]'>\[VV\]</A><a href='byond://?src=\ref[src];[HrefToken()]'>\[Refresh\]</A><BR>"
 	dat += "Target threat: <b>[threat_level]</b><br/>"
 
@@ -176,7 +176,7 @@ GLOBAL_VAR_INIT(dynamic_forced_storyteller, null)
 	dat += "<br>Injection Timers:<BR>"
 	dat += "Latejoin: [(latejoin_injection_cooldown-world.time)>60*10 ? "[round((latejoin_injection_cooldown-world.time)/60/10,0.1)] minutes" : "[(latejoin_injection_cooldown-world.time)/10] seconds"] <a href='byond://?src=\ref[src];[HrefToken()];injectlate=1'>\[Now!\]</a><BR>"
 	dat += "Midround: [(midround_injection_cooldown-world.time)>60*10 ? "[round((midround_injection_cooldown-world.time)/60/10,0.1)] minutes" : "[(midround_injection_cooldown-world.time)/10] seconds"] <a href='byond://?src=\ref[src];[HrefToken()];injectmid=1'>\[Now!\]</a><BR>"
-	usr << browse(dat.Join(), "window=gamemode_panel;size=500x500")
+	usr << browse(HTML_SKELETON_TITLE("Game Mode Panel", dat.Join()), "window=gamemode_panel;size=500x500")
 
 /datum/game_mode/dynamic/Topic(href, href_list)
 	if (..()) // Sanity, maybe ?

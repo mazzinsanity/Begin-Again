@@ -1598,11 +1598,11 @@ GLOBAL_LIST_EMPTY(custom_outfits) //Admin created outfits
 	holder.modify_goals()
 
 /datum/admins/proc/modify_goals()
-	var/dat = ""
+	var/list/dat = list()
 	for(var/datum/station_goal/S in SSticker.mode.station_goals)
 		dat += "[S.name] - <a href='byond://?src=[REF(S)];[HrefToken()];announce=1'>Announce</a> | <a href='byond://?src=[REF(S)];[HrefToken()];remove=1'>Remove</a><br>"
 	dat += "<br><a href='byond://?src=[REF(src)];[HrefToken()];add_station_goal=1'>Add New Goal</a>"
-	usr << browse(dat, "window=goals;size=400x400")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=goals;size=400x400")
 
 
 /client/proc/toggle_hub()

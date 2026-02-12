@@ -754,7 +754,7 @@ GLOBAL_PROTECT(admin_verbs_hideable)
 	set name = "Debug Stat Panel"
 	set category = "Debug"
 
-	src << output("", "statbrowser:create_debug")
+	src.stat_panel.send_message("create_debug")
 
 
 /datum/admins/proc/toggle_sleep(mob/living/perp in GLOB.mob_living_list)

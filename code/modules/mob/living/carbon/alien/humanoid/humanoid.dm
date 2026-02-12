@@ -32,11 +32,10 @@
 
 /mob/living/carbon/alien/humanoid/show_inv(mob/user)
 	user.set_machine(src)
-	var/list/dat = list()
-	dat += {"
+	var/list/dat = list({"
 	<HR>
 	<span class='big bold'>[name]</span>
-	<HR>"}
+	<HR>"})
 	for(var/i in 1 to held_items.len)
 		var/obj/item/I = get_item_for_held_index(i)
 		dat += "<BR><B>[get_held_index_name(i)]:</B><a href='byond://?src=[REF(src)];item=[SLOT_HANDS];hand_index=[i]'>[(I && !(I.item_flags & ABSTRACT)) ? I : "<font color=grey>Empty</font>"]</a>"
@@ -51,7 +50,7 @@
 	<BR>
 	<BR><a href='byond://?src=[REF(user)];mach_close=mob[REF(src)]'>Close</A>
 	"}
-	user << browse(dat.Join(), "window=mob[REF(src)];size=325x500")
+	user << browse(HTML_SKELETON(dat.Join()), "window=mob[REF(src)];size=325x500")
 	onclose(user, "mob[REF(src)]")
 
 

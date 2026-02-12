@@ -484,11 +484,9 @@ GLOBAL_LIST_EMPTY(PDAs)
 	if (!underline_flag)
 		dat = replacetext(dat, "text-decoration:underline", "text-decoration:none")
 
-	//user << browse(dat, "window=pda;size=600x500;border=1;can_resize=1;can_minimize=0")
 	var/datum/browser/popup = new(user, "pda", "", 600, 500)
 	popup.set_content(dat)
 	popup.open(FALSE)
-	//onclose(user, "pda", src)
 
 /obj/item/pda/proc/Boop()
 	playsound(src, pick(pipsounds), 40, 1)
@@ -1292,8 +1290,8 @@ GLOBAL_LIST_EMPTY(PDAs)
 	if(incapacitated())
 		return
 	if(!isnull(aiPDA))
-		var/HTML = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>AI PDA Message Log</title></head><body>[aiPDA.tnote]</body></html>"
-		user << browse(HTML, "window=log;size=400x444;border=1;can_resize=1;can_close=1;can_minimize=0")
+		var/list/dat = list("[aiPDA.tnote]")
+		user << browse(HTML_SKELETON_TITLE("AI PDA Message Log", dat.Join()), "window=log;size=400x444;border=1;can_resize=1;can_close=1;can_minimize=0")
 	else
 		to_chat(user, "You do not have a PDA. You should make an issue report about this.")
 

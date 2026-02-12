@@ -675,7 +675,7 @@
 			to_chat(usr, "This mob has no ckey.")
 			return
 
-		var/dat = "<head><title>Job-Ban Panel: [key_name(M)]</title></head>"
+		var/list/dat = list()
 
 	/***********************************WARNING!************************************
 					The jobban stuff looks mangled and disgusting
@@ -995,7 +995,7 @@
 			dat += "<td width='20%'><a href='byond://?src=[REF(src)];[HrefToken()];jobban3=[ROLE_MIND_TRANSFER];jobban4=[REF(M)]'>Mind Transfer Potion</a></td>"
 
 		dat += "</tr></table>"
-		usr << browse(dat, "window=jobban2;size=800x450")
+		usr << browse(HTML_SKELETON_TITLE("Job-Ban Panel: [key_name(M)]", dat.Join()), "window=jobban2;size=800x450")
 		return
 
 	//JOBBAN'S INNARDS
@@ -3142,7 +3142,7 @@
 		var/list/dat = list("Related accounts by [uppertext(href_list["showrelatedacc"])]:")
 		dat += thing_to_check
 
-		usr << browse(dat.Join("<br>"), "window=related_[C];size=420x300")
+		usr << browse(HTML_SKELETON(dat.Join("<br>")), "window=related_[C];size=420x300")
 
 	else if(href_list["centcomlookup"])
 		if(!check_rights(R_ADMIN))
@@ -3275,13 +3275,13 @@
 
 	if(SSticker.HasRoundStarted())
 		return alert(usr, "The game has already started.", null, null, null, null)
-	var/dat = {"<B>What mode do you wish to play?</B><HR>"}
+	var/list/dat = list({"<B>What mode do you wish to play?</B><HR>"})
 	for(var/mode in config.modes)
 		dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];c_mode2=[mode]'>[config.mode_names[mode]]</A><br>"}
 	dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];c_mode2=secret'>Secret</A><br>"}
 	dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];c_mode2=random'>Random</A><br>"}
 	dat += {"Now: [GLOB.master_mode]"}
-	usr << browse(dat, "window=c_mode")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=c_mode")
 
 /datum/admins/proc/HandleFSecret()
 	if(!check_rights(R_ADMIN))
@@ -3293,12 +3293,12 @@
 		return alert(usr, "The game has already started.", null, null, null, null)
 	if(GLOB.master_mode != "secret")
 		return alert(usr, "The game mode has to be secret!", null, null, null, null)
-	var/dat = {"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"}
+	var/list/dat = list({"<B>What game mode do you want to force secret to be? Use this if you want to change the game mode, but want the players to believe it's secret. This will only work if the current game mode is secret.</B><HR>"})
 	for(var/mode in config.modes)
 		dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];f_secret2=[mode]'>[config.mode_names[mode]]</A><br>"}
 	dat += {"<a href='byond://?src=[REF(src)];[HrefToken()];f_secret2=secret'>Random (default)</A><br>"}
 	dat += {"Now: [GLOB.secret_force_mode]"}
-	usr << browse(dat, "window=f_secret")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=f_secret")
 
 /datum/admins/proc/makeMentor(ckey)
 	if(!usr.client)

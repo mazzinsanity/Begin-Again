@@ -49,7 +49,7 @@
 
 
 /obj/item/clipboard/attack_self(mob/user)
-	var/dat = "<title>Clipboard</title>"
+	var/list/dat = list()
 	if(haspen)
 		dat += "<a href='byond://?src=[REF(src)];pen=1'>Remove Pen</A><BR><HR>"
 	else
@@ -64,7 +64,7 @@
 			if(P == toppaper)
 				continue
 			dat += "<a href='byond://?src=[REF(src)];write=[REF(P)]'>Write</A> <a href='byond://?src=[REF(src)];remove=[REF(P)]'>Remove</A> <a href='byond://?src=[REF(src)];top=[REF(P)]'>Move to top</A> - <a href='byond://?src=[REF(src)];read=[REF(P)]'>[P.name]</A><BR>"
-	user << browse(dat, "window=clipboard")
+	user << browse(HTML_SKELETON_TITLE("Clipboard", dat.Join()), "window=clipboard")
 	onclose(user, "clipboard")
 	add_fingerprint(usr)
 

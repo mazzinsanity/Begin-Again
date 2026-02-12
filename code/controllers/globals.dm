@@ -7,6 +7,7 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 	var/static/list/gvars_datum_protected_varlist
 	var/list/gvars_datum_in_built_vars
 	var/list/gvars_datum_init_order
+	var/initialized = FALSE
 
 /datum/controller/global_vars/New()
 	if(GLOB)
@@ -19,11 +20,12 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 	// Sooo we gotta be dumb
 	var/list/controller_vars = exclude_these.vars.Copy()
 	controller_vars["vars"] = null
-	gvars_datum_in_built_vars = controller_vars + list(NAMEOF(src, gvars_datum_protected_varlist), NAMEOF(src, gvars_datum_in_built_vars), NAMEOF(src, gvars_datum_init_order))
+	gvars_datum_in_built_vars = exclude_these.vars + list(NAMEOF(src, gvars_datum_protected_varlist), NAMEOF(src, gvars_datum_in_built_vars), NAMEOF(src, gvars_datum_init_order), NAMEOF(src, initialized))
 
 	QDEL_IN(exclude_these, 0) //signal logging isn't ready
 
-	Initialize()
+	log_world("[vars.len - gvars_datum_in_built_vars.len] global variables")
+	// NOTE: Initialize() is now called from Master.New() in Phase 6 after subsystems are assigned
 
 /datum/controller/global_vars/Destroy(force)
 	// This is done to prevent an exploit where admins can get around protected vars
@@ -46,6 +48,9 @@ GLOBAL_REAL(GLOB, /datum/controller/global_vars)
 	return debug_variable(var_name, vars[var_name], 0, src)
 
 /datum/controller/global_vars/Initialize()
+	if(initialized)
+		return
+	initialized = TRUE
 	gvars_datum_init_order = list()
 	gvars_datum_protected_varlist = list(NAMEOF(src, gvars_datum_protected_varlist) = TRUE)
 	var/list/global_procs = typesof(/datum/controller/global_vars/proc)

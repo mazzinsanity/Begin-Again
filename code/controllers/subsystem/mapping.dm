@@ -1,4 +1,4 @@
-#define INIT_ANNOUNCE(X) to_chat(world, "<span class='boldannounce'>[X]</span>"); log_world(X)
+#define INIT_ANNOUNCE(X) to_chat(world, span_boldannounce("[X]")); log_world(X)
 
 SUBSYSTEM_DEF(mapping)
 	name = "Mapping"
@@ -29,6 +29,7 @@ SUBSYSTEM_DEF(mapping)
 
 	var/list/areas_in_z = list()
 
+	var/is_initialized = FALSE				//Set to TRUE only after Initialize() completes and all config is valid
 	var/loading_ruins = FALSE
 	var/list/turf/unused_turfs = list()				//Not actually unused turfs they're unused but reserved for use for whatever requests them. "[zlevel_of_turf]" = list(turfs)
 	var/list/datum/turf_reservations		//list of turf reservations
@@ -62,6 +63,14 @@ SUBSYSTEM_DEF(mapping)
 	/// "secret" key
 	var/obfuscation_secret
 
+/**
+ * Checks if it's safe to serve status-related data to clients.
+ * Used by HTTP status topic and live statpanel to gate data delivery.
+ * Single source of truth for "is map initialization complete and valid?"
+ */
+/datum/controller/subsystem/mapping/proc/is_safe_for_status()
+	return (is_initialized && config && config.map_name && config.map_name != "")
+
 //dlete dis once #39770 is resolved
 /datum/controller/subsystem/mapping/proc/HACK_LoadMapConfig()
 	if(!config)
@@ -84,12 +93,18 @@ SUBSYSTEM_DEF(mapping)
 		var/old_config = config
 		config = global.config.defaultmap
 		if(!config || config.defaulted)
-			to_chat(world, "<span class='boldannounce'>Unable to load next or default map config, defaulting to Pahrump...</span>")
+			to_chat(world, span_boldannounce("Unable to load next or default map config, defaulting to Pahrump..."))
 			config = old_config
 	GLOB.year_integer += config.year_offset
 	GLOB.announcertype = (config.announcertype == "standard" ? (prob(1) ? "medibot" : "classic") : config.announcertype)
 	loadWorld()
 	repopulate_sorted_areas()
+
+	// Initialize verbs for all connected clients right after map loads
+	for(var/client/C in GLOB.clients)
+		if(C.mob)
+			C.init_verbs()
+
 	process_teleport_locs()			//Sets up the wizard teleport locations
 	preloadTemplates()
 #ifndef LOWMEMORYMODE
@@ -151,6 +166,20 @@ SUBSYSTEM_DEF(mapping)
 	initialize_reserved_level(transit.z_value)
 	generate_z_level_linkages()
 	calculate_default_z_level_gravities()
+
+	//CRITICAL: Mark as initialized ONLY after all setup is 100% complete
+	// This gates status panel data delivery and prevents race conditions
+	stat_map_name = config.map_name	//Update the live tracker
+	is_initialized = TRUE
+
+	//Clear any stale cache from HTTP status topic
+	GLOB.topic_status_cache = null
+	GLOB.topic_status_lastcache = 0
+
+	//Push fresh status data to all connected clients immediately
+	if(SSstatpanels)
+		SSstatpanels.fire()
+
 	return ..()
 
 /datum/controller/subsystem/mapping/proc/calculate_default_z_level_gravities()
@@ -320,7 +349,7 @@ SUBSYSTEM_DEF(mapping)
 	// load the station
 	station_start = world.maxz + 1
 	INIT_ANNOUNCE("Loading [config.map_name]...")
-	LoadGroup(FailedZs, "Wasteland", config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
+	LoadGroup(FailedZs, config.map_name, config.map_path, config.map_file, config.traits, ZTRAITS_STATION)
 
 	if(SSdbcore.Connect())
 		var/datum/db_query/query_round_map_name = SSdbcore.NewQuery(
@@ -416,7 +445,7 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 	message_admins("Randomly rotating map to [VM.map_name]")
 	. = changemap(VM)
 	if (. && VM.map_name != config.map_name)
-		to_chat(world, "<span class='boldannounce'>Map rotation has chosen [VM.map_name] for next round!</span>")
+		to_chat(world, span_boldannounce("Map rotation has chosen [VM.map_name] for next round!"))
 
 /datum/controller/subsystem/mapping/proc/changemap(datum/map_config/VM)
 	if(!VM.MakeNextMap())
@@ -540,12 +569,12 @@ GLOBAL_LIST_EMPTY(the_station_areas)
 			if(!mapfile)
 				return
 			away_name = "[mapfile] custom"
-			to_chat(usr,"<span class='notice'>Loading [away_name]...</span>")
+			to_chat(usr,span_notice("Loading [away_name]..."))
 			var/datum/map_template/template = new(mapfile, choice, ztraits)
 			away_level = template.load_new_z(ztraits)
 		else
 			away_name = answer
-			to_chat(usr,"<span class='notice'>Loading [away_name]...</span>")
+			to_chat(usr,span_notice("Loading [away_name]..."))
 			var/datum/map_template/template = new(away_name, choice)
 			away_level = template.load_new_z(ztraits)
 

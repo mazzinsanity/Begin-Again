@@ -93,7 +93,7 @@ SUBSYSTEM_DEF(pai)
 		candidates.Add(candidate)
 
 
-	var/dat = ""
+	var/list/dat = list()
 	dat += {"
 			<style type="text/css">
 
@@ -131,7 +131,7 @@ SUBSYSTEM_DEF(pai)
 	dat += "<a href='byond://?src=[REF(src)];option=save;new=1;candidate=[REF(candidate)]'>Save Personality</a><br>"
 	dat += "<a href='byond://?src=[REF(src)];option=load;new=1;candidate=[REF(candidate)]'>Load Personality</a><br>"
 
-	M << browse(dat, "window=paiRecruit")
+	M << browse(HTML_SKELETON(dat.Join()), "window=paiRecruit")
 
 /datum/controller/subsystem/pai/proc/spam_again()
 	ghost_spam = FALSE
@@ -159,7 +159,7 @@ SUBSYSTEM_DEF(pai)
 	var/list/available = list()
 	for(var/datum/paiCandidate/c in SSpai.candidates)
 		available.Add(check_ready(c))
-	var/dat = ""
+	var/list/dat = list()
 
 	dat += {"
 			<style type="text/css">
@@ -192,7 +192,7 @@ SUBSYSTEM_DEF(pai)
 
 	dat += "</table>"
 
-	user << browse(dat, "window=findPai")
+	user << browse(HTML_SKELETON(dat.Join()), "window=findPai")
 
 /datum/paiCandidate
 	var/name

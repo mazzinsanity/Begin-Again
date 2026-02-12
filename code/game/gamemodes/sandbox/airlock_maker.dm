@@ -55,7 +55,7 @@
 	rightcolumn += "Glass door: " + linkpretty("glass",null,glassdoor) + "<br><br>"
 	var/length = max(leftcolumn.len,rightcolumn.len)
 
-	var/dat = "You may move the model airlock around.  A new airlock will be built in its space when you click done, below.<hr><br>"
+	var/list/dat = list("You may move the model airlock around.  A new airlock will be built in its space when you click done, below.<hr><br>")
 	dat += "<a href='byond://?src=[REF(src)];rename'>Door name</a>: \"[doorname]\""
 	dat += "<table>"
 	for(var/i=1; i<=length; i++)
@@ -68,7 +68,7 @@
 		dat += "</td></tr>"
 
 	dat += "</table><hr><a href='byond://?src=[REF(src)];done'>Finalize Airlock Construction</a> | <a href='byond://?src=[REF(src)];cancel'>Cancel and Destroy Airlock</a>"
-	usr << browse(dat,"window=airlockmaker")
+	usr << browse(HTML_SKELETON(dat.Join()),"window=airlockmaker")
 
 /datum/airlock_maker/Topic(href,list/href_list)
 	if(!usr)

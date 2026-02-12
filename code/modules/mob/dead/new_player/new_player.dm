@@ -511,7 +511,7 @@
 	job.standard_assign_skills(character.mind)
 
 	SSticker.minds += character.mind
-	character.client.init_verbs() // init verbs for the late join
+	// Removed duplicate init_verbs() call - verbs already finalized in Login()
 	var/mob/living/carbon/human/humanc
 	if(ishuman(character))
 		humanc = character	//Let's retypecast the var to be human,
@@ -639,7 +639,7 @@
 		mind.original_character = H
 
 	H.name = real_name
-	client.init_verbs()
+	// Removed early init_verbs() call - verbs will be initialized after Login() in BYOND 516
 	. = H
 	new_character = .
 	if(transfer_after)
@@ -660,11 +660,10 @@
 		return
 	client.crew_manifest_delay = world.time + (1 SECONDS)
 
-	var/dat = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'></head><body>"
-	dat += "<h4>Crew Manifest</h4>"
+	var/list/dat = list("<h4>Crew Manifest</h4>")
 	dat += GLOB.data_core.get_manifest_dr(OOC = 1)
 
-	src << browse(dat, "window=manifest;size=387x420;can_close=1")
+	src << browse(HTML_SKELETON(dat.Join()), "window=manifest;size=387x420;can_close=1")
 
 /mob/dead/new_player/Move()
 	return 0
@@ -716,14 +715,13 @@
 	// First we detain them by removing all the verbs they have on client
 	for (var/v in client.verbs)
 		var/procpath/verb_path = v
-		if (!(verb_path in GLOB.stat_panel_verbs))
-			remove_verb(client, verb_path)
+		remove_verb(client, verb_path)
 
 	// Then remove those on their mob as well
 	for (var/v in verbs)
 		var/procpath/verb_path = v
-		if (!(verb_path in GLOB.stat_panel_verbs))
-			remove_verb(src, verb_path)
+		remove_verb(src, verb_path)
+
 	// Then we create the interview form and show it to the client
 	var/datum/interview/I = GLOB.interviews.interview_for_client(client)
 	if (I)

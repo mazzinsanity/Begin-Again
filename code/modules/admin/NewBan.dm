@@ -176,7 +176,7 @@ GLOBAL_PROTECT(Banlist)
 
 /datum/admins/proc/unbanpanel()
 	var/count = 0
-	var/dat
+	var/list/dat = list()
 	GLOB.Banlist.cd = "/base"
 	for (var/A in GLOB.Banlist.dir)
 		count++
@@ -199,7 +199,7 @@ GLOBAL_PROTECT(Banlist)
 
 	dat += "</table>"
 	dat = "<HR><B>Bans:</B> <FONT COLOR=blue>(U) = Unban , (E) = Edit Ban</FONT> - <FONT COLOR=green>([count] Bans)</FONT><HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 >[dat]"
-	usr << browse(dat, "window=unbanp;size=875x400")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=unbanp;size=875x400")
 
 //////////////////////////////////// DEBUG ////////////////////////////////////
 

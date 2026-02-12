@@ -276,7 +276,7 @@
 			user << browse(null, "window=AMcontrol")
 			return
 
-	var/dat = ""
+	var/list/dat = list()
 	dat += "Fusion Control Panel<BR>"
 	dat += "<a href='byond://?src=[REF(src)];close=1'>Close</A><BR>"
 	dat += "<a href='byond://?src=[REF(src)];refresh=1'>Refresh</A><BR>"
@@ -302,7 +302,7 @@
 		dat += "- <a href='byond://?src=[REF(src)];strengthdown=1'>--</A>|<a href='byond://?src=[REF(src)];strengthup=1'>++</A><BR><BR>"
 
 
-	user << browse(dat, "window=AMcontrol;size=420x500")
+	user << browse(HTML_SKELETON(dat.Join()), "window=AMcontrol;size=420x500")
 	onclose(user, "AMcontrol")
 	return
 

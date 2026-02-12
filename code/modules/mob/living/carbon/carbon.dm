@@ -229,13 +229,13 @@
 
 /mob/living/carbon/show_inv(mob/user)
 	user.set_machine(src)
-	var/dat = {"
+	var/list/dat = list({"
 	<HR>
 	<B><FONT size=3>[name]</FONT></B>
 	<HR>
 	<BR><B>Head:</B> <a href='byond://?src=[REF(src)];item=[SLOT_HEAD]'>				[(head && !(head.item_flags & ABSTRACT)) 			? head 		: "Nothing"]</A>
 	<BR><B>Mask:</B> <a href='byond://?src=[REF(src)];item=[SLOT_WEAR_MASK]'>		[(wear_mask && !(wear_mask.item_flags & ABSTRACT))	? wear_mask	: "Nothing"]</A>
-	<BR><B>Neck:</B> <a href='byond://?src=[REF(src)];item=[SLOT_NECK]'>		[(wear_neck && !(wear_neck.item_flags & ABSTRACT))	? wear_neck	: "Nothing"]</A>"}
+	<BR><B>Neck:</B> <a href='byond://?src=[REF(src)];item=[SLOT_NECK]'>		[(wear_neck && !(wear_neck.item_flags & ABSTRACT))	? wear_neck	: "Nothing"]</A>"})
 
 	for(var/i in 1 to held_items.len)
 		var/obj/item/I = get_item_for_held_index(i)
@@ -255,7 +255,7 @@
 	<BR>
 	<BR><a href='byond://?src=[REF(user)];mach_close=mob[REF(src)]'>Close</A>
 	"}
-	user << browse(dat, "window=mob[REF(src)];size=325x500")
+	user << browse(HTML_SKELETON(dat.Join()), "window=mob[REF(src)];size=325x500")
 	onclose(user, "mob[REF(src)]")
 
 /mob/living/carbon/Topic(href, href_list)

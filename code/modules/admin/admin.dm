@@ -256,8 +256,7 @@
 	if (!istype(src, /datum/admins))
 		to_chat(usr, "Error: you are not an admin!", confidential = TRUE)
 		return
-	var/dat
-	dat = text("<HEAD><TITLE>Admin Newscaster</TITLE></HEAD><H3>Admin Newscaster Unit</H3>")
+	var/list/dat = list(text("<H3>Admin Newscaster Unit</H3>"))
 
 	switch(admincaster_screen)
 		if(0)
@@ -450,7 +449,7 @@
 		else
 			dat+="I'm sorry to break your immersion. This shit's bugged. Report this bug to Agouri, polyxenitopalidou@gmail.com"
 
-	usr << browse(dat, "window=admincaster_main;size=400x600")
+	usr << browse(HTML_SKELETON_TITLE("Admin Newscaster", dat.Join()), "window=admincaster_main;size=400x600")
 	onclose(usr, "admincaster_main")
 
 
@@ -458,10 +457,10 @@
 	if(!check_rights(0))
 		return
 
-	var/dat = {"
+	var/list/dat = list({"
 		<center><B>Game Panel</B></center><hr>\n
 		<a href='byond://?src=[REF(src)];[HrefToken()];c_mode=1'>Change Game Mode</A><br>
-		"}
+		"})
 	if(GLOB.master_mode == "secret")
 		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];f_secret=1'>(Force Secret Mode)</A><br>"
 	if(GLOB.master_mode == "dynamic")
@@ -497,7 +496,7 @@
 	if(marked_datum && istype(marked_datum, /atom))
 		dat += "<a href='byond://?src=[REF(src)];[HrefToken()];dupe_marked_datum=1'>Duplicate Marked Datum</A><br>"
 
-	usr << browse(dat, "window=admin2;size=240x280")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=admin2;size=240x280")
 	return
 
 /////////////////////////////////////////////////////////////////////////////////////////////////admins2.dm merge
@@ -1011,7 +1010,7 @@
 		Maximum: <a href='byond://?src=[REF(src)];[HrefToken()];f_dynamic_roundstart_midround_max=1'>-> [GLOB.dynamic_midround_delay_max / 60 / 10] <-</A> Minutes<br>
 		"}
 
-	user << browse(dat, "window=dyn_mode_options;size=900x650")
+	user << browse(HTML_SKELETON(dat), "window=dyn_mode_options;size=900x650")
 
 /datum/admins/proc/create_or_modify_area()
 	set category = "Debug"

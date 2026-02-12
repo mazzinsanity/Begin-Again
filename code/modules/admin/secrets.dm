@@ -86,7 +86,7 @@
 			<BR>
 			"}
 
-	usr << browse(dat.Join(), "window=secrets")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=secrets")
 	return
 
 
@@ -98,23 +98,23 @@
 	var/ok = 0
 	switch(item)
 		if("admin_log")
-			var/dat = "<B>Admin Log<HR></B>"
+			var/list/dat = list("<B>Admin Log<HR></B>")
 			for(var/l in GLOB.admin_log)
 				dat += "<li>[l]</li>"
 			if(!GLOB.admin_log.len)
 				dat += "No-one has done anything this round!"
-			usr << browse(dat, "window=admin_log")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=admin_log")
 
 		if("mentor_log")
 			CitadelMentorLogSecret()
 
 		if("show_admins")
-			var/dat = "<B>Current admins:</B><HR>"
+			var/list/dat = list("<B>Current admins:</B><HR>")
 			if(GLOB.admin_datums)
 				for(var/ckey in GLOB.admin_datums)
 					var/datum/admins/D = GLOB.admin_datums[ckey]
 					dat += "[ckey] - [D.rank.name]<br>"
-				usr << browse(dat, "window=showadmins;size=600x500")
+				usr << browse(HTML_SKELETON(dat.Join()), "window=showadmins;size=600x500")
 
 		if("tdomereset")
 			if(!check_rights(R_ADMIN))
@@ -195,30 +195,30 @@
 				message_admins("[ADMIN_TPMONTY(usr)] tried to use Secrets_topic(), item: list_bombers, without admin perms.")
 				log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use Secrets_topic(), item: list_bombers, without admin perms.")
 				return
-			var/dat = "<B>Bombing List</B><HR>"
+			var/list/dat = list("<B>Bombing List</B><HR>")
 			for(var/l in GLOB.bombers)
 				dat += text("[l]<BR>")
-			usr << browse(dat, "window=bombers")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=bombers")
 
 		if("list_signalers")
 			if(!check_rights(R_ADMIN))
 				message_admins("[ADMIN_TPMONTY(usr)] tried to use Secrets_topic(), item: list_signalers, without admin perms.")
 				log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use Secrets_topic(), item: list_signalers, without admin perms.")
 				return
-			var/dat = "<B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>"
+			var/list/dat = list("<B>Showing last [length(GLOB.lastsignalers)] signalers.</B><HR>")
 			for(var/sig in GLOB.lastsignalers)
 				dat += "[sig]<BR>"
-			usr << browse(dat, "window=lastsignalers;size=800x500")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=lastsignalers;size=800x500")
 
 		if("list_lawchanges")
 			if(!check_rights(R_ADMIN))
 				message_admins("[ADMIN_TPMONTY(usr)] tried to use Secrets_topic(), item: list_lawchanges, without admin perms.")
 				log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use Secrets_topic(), item: list_lawchanges, without admin perms.")
 				return
-			var/dat = "<B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>"
+			var/list/dat = list("<B>Showing last [length(GLOB.lawchanges)] law changes.</B><HR>")
 			for(var/sig in GLOB.lawchanges)
 				dat += "[sig]<BR>"
-			usr << browse(dat, "window=lawchanges;size=800x500")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=lawchanges;size=800x500")
 
 		if("moveminingshuttle")
 			if(!check_rights(R_ADMIN))
@@ -285,36 +285,36 @@
 				message_admins("[ADMIN_TPMONTY(usr)] tried to use Secrets_topic(), item: manifest, without admin perms.")
 				log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use Secrets_topic(), item: manifest, without admin perms.")
 				return
-			var/dat = "<B>Showing Crew Manifest.</B><HR>"
+			var/list/dat = list("<B>Showing Crew Manifest.</B><HR>")
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Position</th></tr>"
 			for(var/datum/data/record/t in GLOB.data_core.general)
 				dat += "<tr><td>[t.fields["name"]]</td><td>[t.fields["rank"]]</td></tr>"
 			dat += "</table>"
-			usr << browse(dat, "window=manifest;size=440x410")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=manifest;size=440x410")
 		if("DNA")
 			if(!check_rights(R_ADMIN))
 				message_admins("[ADMIN_TPMONTY(usr)] tried to use Secrets_topic(), item: DNA, without admin perms.")
 				log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use Secrets_topic(), item: DNA, without admin perms.")
 				return
-			var/dat = "<B>Showing DNA from blood.</B><HR>"
+			var/list/dat = list("<B>Showing DNA from blood.</B><HR>")
 			dat += "<table cellspacing=5><tr><th>Name</th><th>DNA</th><th>Blood Type</th></tr>"
 			for(var/mob/living/carbon/human/H in GLOB.carbon_list)
 				if(H.ckey)
 					dat += "<tr><td>[H]</td><td>[H.dna.unique_enzymes]</td><td>[H.dna.blood_type]</td></tr>"
 			dat += "</table>"
-			usr << browse(dat, "window=DNA;size=440x410")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=DNA;size=440x410")
 		if("fingerprints")
 			if(!check_rights(R_ADMIN))
 				message_admins("[ADMIN_TPMONTY(usr)] tried to use Secrets_topic(), item: fingerprints, without admin perms.")
 				log_admin("INVALID ADMIN PROC ACCESS: [key_name(usr)] tried to use Secrets_topic(), item: fingerprints, without admin perms.")
 				return
-			var/dat = "<B>Showing Fingerprints.</B><HR>"
+			var/list/dat = list("<B>Showing Fingerprints.</B><HR>")
 			dat += "<table cellspacing=5><tr><th>Name</th><th>Fingerprints</th></tr>"
 			for(var/mob/living/carbon/human/H in GLOB.carbon_list)
 				if(H.ckey)
 					dat += "<tr><td>[H]</td><td>[md5(H.dna.uni_identity)]</td></tr>"
 			dat += "</table>"
-			usr << browse(dat, "window=fingerprints;size=440x410")
+			usr << browse(HTML_SKELETON(dat.Join()), "window=fingerprints;size=440x410")
 
 		if("monkey")
 			if(!check_rights(R_FUN))

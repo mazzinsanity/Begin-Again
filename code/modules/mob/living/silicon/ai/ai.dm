@@ -242,8 +242,7 @@
 	. += text("AI shell beacons detected: [LAZYLEN(GLOB.available_ai_shells)]") //Count of total AI shells
 
 /mob/living/silicon/ai/proc/ai_alerts()
-	var/dat = "<HEAD><TITLE>Current Station Alerts</TITLE><META HTTP-EQUIV='Refresh' CONTENT='10'></HEAD><BODY>\n"
-	dat += "<a href='byond://?src=[REF(src)];mach_close=aialerts'>Close</A><BR><BR>"
+	var/list/dat = list("<a href='byond://?src=[REF(src)];mach_close=aialerts'>Close</A><BR><BR>")
 	for (var/cat in alarms)
 		dat += text("<B>[]</B><BR>\n", cat)
 		var/list/L = alarms[cat]
@@ -272,7 +271,7 @@
 		dat += "<BR>\n"
 
 	viewalerts = 1
-	src << browse(dat, "window=aialerts&can_close=0")
+	src << browse(HTML_SKELETON_TITLE("Current Station Alerts", dat.Join()), "window=aialerts&can_close=0")
 
 /mob/living/silicon/ai/proc/ai_call_shuttle()
 	if(control_disabled)

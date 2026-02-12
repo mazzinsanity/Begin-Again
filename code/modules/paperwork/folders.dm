@@ -65,11 +65,11 @@
 
 
 /obj/item/folder/attack_self(mob/user)
-	var/dat = "<title>[name]</title>"
+	var/list/dat = list()
 
 	for(var/obj/item/I in src)
 		dat += "<a href='byond://?src=[REF(src)];remove=[REF(I)]'>Remove</A> - <a href='byond://?src=[REF(src)];read=[REF(I)]'>[I.name]</A><BR>"
-	user << browse(dat, "window=folder")
+	user << browse(HTML_SKELETON_TITLE(name, dat.Join()), "window=folder")
 	onclose(user, "folder")
 	add_fingerprint(usr)
 

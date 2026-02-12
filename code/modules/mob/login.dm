@@ -102,7 +102,7 @@
 	// BYOND 516: Initialize verbs for the client on login/reconnect
 	// Reconnect shorter: joining longer
 	if(client)
-		var/delay = client.stat_panel.is_ready() ? 1 : 50
+		var/delay = client.statbrowser_ready ? 1 : 50
 		addtimer(CALLBACK(client, TYPE_PROC_REF(/client, init_verbs)), delay)
 
 	log_message("Client [key_name(src)] has taken ownership of mob [src]([src.type])", LOG_OWNERSHIP)

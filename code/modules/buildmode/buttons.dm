@@ -28,6 +28,8 @@
 	return 1
 
 /atom/movable/screen/buildmode/mode/update_icon_state()
+	if(!bd || !bd.mode)
+		return
 	icon_state = bd.mode.get_button_iconstate()
 
 /atom/movable/screen/buildmode/help

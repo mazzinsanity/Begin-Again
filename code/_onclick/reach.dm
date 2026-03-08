@@ -29,6 +29,8 @@
  * Works for reach using euclidian distances (cardinal and diagonal moves are not the same)
  */
 /atom/movable/proc/can_reach(atom/ultimate_target, depth = INVENTORY_DEPTH, reach = 1)
+	if(!ultimate_target)
+		return 0
 	if(!isturf(loc) || reach < 1)
 		return has_direct_access_to(ultimate_target, depth)
 
@@ -109,7 +111,7 @@
 
 	if(dir_angle % 45 == 0) // Perfectly diagonal. We don't have to check for zero because cardinals were already checked.
 		return do_ordinal_reach(target, movement_dir, reach, reach_type)
-	
+
 	return do_sloping_reach(target, movement_dir, reach, reach_type, dir_angle)
 
 /area/euclidian_reach(atom/target, reach = 2, reach_type = REACH_CLICK)
@@ -185,7 +187,7 @@
 	// If we move at multiples of 45 degree angles we can move through either cardinal neighbor to ge to the diagonal one.
 	// However, if one cardinal is blocked we should remember it, to avoid zig-zag movement.
 	var/cardinal_blocked = NONE
-	
+
 	var/pixels_travelled = 32 // We start at the edge of the turf.
 	for(var/i in 1 to reach)
 		pixels_travelled += ORDINAL_PIXELS_MOVE
@@ -310,7 +312,7 @@
 			if(crossing == target_turf)
 				return crossing // Hit!
 			last_processed_turf = crossing
-	
+
 	return last_processed_turf // Ran out of breath in the process!
 
 

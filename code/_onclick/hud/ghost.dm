@@ -34,6 +34,8 @@
 
 /atom/movable/screen/ghost/teleport/Click()
 	var/mob/dead/observer/G = usr
+	if(!G || !istype(G, /mob/dead/observer))
+		return
 	G.dead_tele()
 
 /atom/movable/screen/ghost/spawners

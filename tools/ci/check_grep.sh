@@ -70,13 +70,12 @@ if $grep '(new|newlist|icon|matrix|sound)\(.+\)' $map_files;	then
 	echo -e "${RED}ERROR: Using unsupported procs in variables in a map file! Please remove all instances of this.${NC}"
 	st=1
 fi;
-# port pending
-# part "armor lists"
-# if $grep '\tarmor = list' $map_files; then
-# 	echo
-# 	echo -e "${RED}ERROR: Outdated armor list in map file.${NC}"
-# 	st=1
-# fi;
+part "armor lists"
+if $grep '\tarmor = list' $map_files; then
+	echo
+	echo -e "${RED}ERROR: Outdated armor list in map file.${NC}"
+	st=1
+fi;
 part "common spelling mistakes"
 if $grep -i 'nanotransen' $map_files; then
 	echo
@@ -107,18 +106,6 @@ if $grep '^\t+ [^ *]' $code_files; then
     echo -e "${RED}ERROR: Mixed <tab><space> indentation detected, please stick to tab indentation.${NC}"
     st=1
 fi;
-
-section "unit tests"
-unit_test_files="code/modules/unit_tests/**/**.dm"
-# port pending
-# part "mob/living/carbon/human usage"
-# if $grep 'allocate\(/mob/living/carbon/human[,\)]' $unit_test_files ||
-# 	$grep 'new /mob/living/carbon/human\s?\(' $unit_test_files ||
-# 	$grep 'var/mob/living/carbon/human/\w+\s?=\s?new' $unit_test_files ; then
-# 	echo
-# 	echo -e "${RED}ERROR: Usage of mob/living/carbon/human detected in a unit test, please use mob/living/carbon/human/consistent.${NC}"
-# 	st=1
-# fi;
 
 section "common mistakes"
 part "global vars"
@@ -218,6 +205,22 @@ do
     done < <(jq -r '[.map_file] | flatten | .[]' $json)
 done
 
+part "updatepaths validity"
+missing_txt_lines=$(find tools/UpdatePaths/Scripts -type f ! -name "*.txt" | wc -l)
+if [ $missing_txt_lines -gt 0 ]; then
+    echo
+    echo -e "${RED}ERROR: Found an UpdatePaths File that doesn't end in .txt! Please add the proper file extension!${NC}"
+    st=1
+fi;
+
+number_prefix_lines=$(find tools/UpdatePaths/Scripts -type f | wc -l)
+valid_number_prefix_lines=$(find tools/UpdatePaths/Scripts -type f | $grep -P "\d+_(.+)" | wc -l)
+if [ $valid_number_prefix_lines -ne $number_prefix_lines ]; then
+    echo
+    echo -e "${RED}ERROR: Detected an UpdatePaths File that doesn't start with the PR number! Please add the proper number prefix!${NC}"
+    st=1
+fi;
+
 section "515 Proc Syntax"
 part "proc ref syntax"
 if $grep '\.proc/' $code_x_515 ; then
@@ -252,13 +255,6 @@ if [ "$pcre2_support" -eq 1 ]; then
 		echo -e "${RED}ERROR: File(s) with no trailing newline detected, please add one.${NC}"
 		st=1
 	fi
-	# port pending
-	# part "datum stockpart sanity"
-	# if $grep -P 'for\b.*/obj/item/stock_parts/(?!cell)(?![\w_]+ in )' $code_files; then
-	# 	echo
-	# 	echo -e "${RED}ERROR: Should be using datum/stock_part instead"
-	# 	st=1
-	# fi;
 	part "improper atom initialize args"
 	if $grep -P '^/(obj|mob|turf|area|atom)/.+/Initialize\((?!mapload).*\)' $code_files; then
 		echo

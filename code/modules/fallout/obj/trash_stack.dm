@@ -42,7 +42,7 @@
 				var/obj/item/item = new itemtype(ST)
 				//if (prob(10+(user.special_l*3.5)))//SPECIAL Integration
 				//	to_chat(user, "<span class='notice'>You get lucky and find even more loot!</span>")
-				//	var/obj/item/bonusitem = new itemtypebonus(ST)				
+				//	var/obj/item/bonusitem = new itemtypebonus(ST)
 				//	if(istype(bonusitem))
 				//		bonusitem.from_trash = TRUE
 				if(istype(item))

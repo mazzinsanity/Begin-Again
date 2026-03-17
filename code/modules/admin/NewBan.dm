@@ -63,7 +63,7 @@ GLOBAL_PROTECT(Banlist)
 /proc/LoadBans()
 	if(!CONFIG_GET(flag/ban_legacy_system))
 		return
-		
+
 	GLOB.Banlist = new("data/banlist.bdb")
 	log_admin("Loading Banlist")
 
@@ -176,7 +176,7 @@ GLOBAL_PROTECT(Banlist)
 
 /datum/admins/proc/unbanpanel()
 	var/count = 0
-	var/dat
+	var/list/dat = list()
 	GLOB.Banlist.cd = "/base"
 	for (var/A in GLOB.Banlist.dir)
 		count++
@@ -195,11 +195,11 @@ GLOBAL_PROTECT(Banlist)
 		else
 			expiry = "Permaban"
 
-		dat += text("<tr><td><A href='?src=[ref];unbanf=[key][id]'>(U)</A><A href='?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>")
+		dat += text("<tr><td><a href='byond://?src=[ref];unbanf=[key][id]'>(U)</A><a href='byond://?src=[ref];unbane=[key][id]'>(E)</A> Key: <B>[key]</B></td><td>ComputerID: <B>[id]</B></td><td>IP: <B>[ip]</B></td><td> [expiry]</td><td>(By: [by])</td><td>(Reason: [reason])</td></tr>")
 
 	dat += "</table>"
 	dat = "<HR><B>Bans:</B> <FONT COLOR=blue>(U) = Unban , (E) = Edit Ban</FONT> - <FONT COLOR=green>([count] Bans)</FONT><HR><table border=1 rules=all frame=void cellspacing=0 cellpadding=3 >[dat]"
-	usr << browse(dat, "window=unbanp;size=875x400")
+	usr << browse(HTML_SKELETON(dat.Join()), "window=unbanp;size=875x400")
 
 //////////////////////////////////// DEBUG ////////////////////////////////////
 

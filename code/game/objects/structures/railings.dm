@@ -100,7 +100,7 @@
 		density = TRUE
 
 
-/obj/structure/railing/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/caller, no_id = FALSE)
+/obj/structure/railing/CanAStarPass(obj/item/card/id/ID, to_dir, atom/movable/requester, no_id = FALSE)
 	if(!(to_dir & dir))
 		return TRUE
 	return ..()

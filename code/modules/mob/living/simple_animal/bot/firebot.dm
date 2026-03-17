@@ -107,15 +107,15 @@
 	dat += hack(user)
 	dat += showpai(user)
 	dat += "<TT><B>Mobile Fire Extinguisher v1.0</B></TT><BR><BR>"
-	dat += "Status: <A href='?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
+	dat += "Status: <a href='byond://?src=[REF(src)];power=1'>[on ? "On" : "Off"]</A><BR>"
 	dat += "Maintenance panel panel is [open ? "opened" : "closed"]<BR>"
 
 	dat += "Behaviour controls are [locked ? "locked" : "unlocked"]<BR>"
 	if(!locked || hasSiliconAccessInArea(user) || IsAdminGhost(user))
-		dat += "Extinguish Fires: <A href='?src=[REF(src)];operation=extinguish_fires'>[extinguish_fires ? "Yes" : "No"]</A><BR>"
-		dat += "Extinguish People: <A href='?src=[REF(src)];operation=extinguish_people'>[extinguish_people ? "Yes" : "No"]</A><BR>"
-		dat += "Patrol Station: <A href='?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A><BR>"
-		dat += "Stationary Mode: <a href='?src=[REF(src)];operation=stationary_mode'>[stationary_mode ? "Yes" : "No"]</a><br>"
+		dat += "Extinguish Fires: <a href='byond://?src=[REF(src)];operation=extinguish_fires'>[extinguish_fires ? "Yes" : "No"]</A><BR>"
+		dat += "Extinguish People: <a href='byond://?src=[REF(src)];operation=extinguish_people'>[extinguish_people ? "Yes" : "No"]</A><BR>"
+		dat += "Patrol Station: <a href='byond://?src=[REF(src)];operation=patrol'>[auto_patrol ? "Yes" : "No"]</A><BR>"
+		dat += "Stationary Mode: <a href='byond://?src=[REF(src)];operation=stationary_mode'>[stationary_mode ? "Yes" : "No"]</a><br>"
 
 	return dat
 
@@ -322,4 +322,3 @@
 #undef SPEECH_INTERVAL
 #undef DETECTED_VOICE_INTERVAL
 #undef FOAM_INTERVAL
-

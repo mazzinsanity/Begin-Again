@@ -89,9 +89,10 @@
 			_y = -zoom_amt
 		if(WEST)
 			_x = -zoom_amt
-	user.client.change_view(world.view + zoom_out_amt)
-	user.client.pixel_x = world.icon_size*_x
-	user.client.pixel_y = world.icon_size*_y
+	if(user.client)
+		user.client.change_view(world.view + zoom_out_amt)
+		user.client.pixel_x = world.icon_size*_x
+		user.client.pixel_y = world.icon_size*_y
 
 /obj/item/binoculars/proc/on_unwield(obj/item/source, mob/user)
 	slowdown = initial(slowdown)
@@ -99,10 +100,11 @@
 		UnregisterSignal(user, COMSIG_MOVABLE_MOVED)
 		UnregisterSignal(user, COMSIG_ATOM_DIR_CHANGE)
 		listeningTo = null
-	user.visible_message(span_notice("[user] lowers [src]."), span_notice("You lower [src]."))
-	item_state = "binoculars"
-	user.regenerate_icons()
-	user.client.view_size.zoomIn()
+	if(user)
+		user.visible_message(span_notice("[user] lowers [src]."), span_notice("You lower [src]."))
+		item_state = "binoculars"
+		user.regenerate_icons()
+		user.client.view_size.zoomIn()
 
 /obj/item/weapon/maptool
 	name = "Map tools"

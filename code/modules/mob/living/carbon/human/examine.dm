@@ -16,7 +16,7 @@
 	. = list("<span class='info'>*---------*\nThis is <EM>[!obscure_name ? name : "Unknown"]</EM>!")
 
 	if (profilePicture)
-		. += "<a href='?src=[REF(src)];enlargeImage=1'><img src='[DiscordLink(profilePicture)]' width='125' height='auto' max-height='300'></a>"
+		. += "<a href='byond://?src=[REF(src)];enlargeImage=1'><img src='[DiscordLink(profilePicture)]' width='125' height='auto' max-height='300'></a>"
 
 	var/vampDesc = ReturnVampExamine(user) // Vamps recognize the names of other vamps.
 	var/vassDesc = ReturnVassalExamine(user) // Vassals recognize each other's marks.
@@ -261,7 +261,7 @@
 		msg += "[t_He] [t_is] severely dehydrated.\n"
 
 	var/apparent_blood_volume = blood_volume
-	if(dna.species.use_skintones && skin_tone == "albino")
+	if(dna?.species?.use_skintones && skin_tone == "albino")
 		apparent_blood_volume -= 150 // enough to knock you down one tier
 	switch(apparent_blood_volume)
 		if(BLOOD_VOLUME_OKAY to BLOOD_VOLUME_SAFE)
@@ -429,7 +429,7 @@
 
 	SEND_SIGNAL(src, COMSIG_PARENT_EXAMINE, user, .) //This also handles flavor texts now
 
-	if(client.prefs.age_verified)
+	if(client?.prefs.age_verified)
 		. += span_boldnotice("This player is Age Verified.")
 
 	if(has_status_effect(STATUS_EFFECT_ADMINSLEEP))

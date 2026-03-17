@@ -72,13 +72,13 @@ GLOBAL_LIST_EMPTY(mobs_with_editable_flavor_text) //et tu, hacky code
 	if(!text)
 		return
 	if(examine_no_preview)
-		examine_list += "<span class='notice'><a href='?src=[REF(src)];show_flavor=[REF(target)]'>\[[flavor_name]\]</a></span>"
+		examine_list += "<span class='notice'><a href='byond://?src=[REF(src)];show_flavor=[REF(target)]'>\[[flavor_name]\]</a></span>"
 		return
 	var/msg = replacetext(text, "\n", " ")
 	if(length_char(msg) <= 40)
 		examine_list += "<span class='notice'>[msg]</span>"
 	else
-		examine_list += "<span class='notice'>[copytext_char(msg, 1, 37)]... <a href='?src=[REF(src)];show_flavor=[REF(target)]'>More...</span></a>"
+		examine_list += "<span class='notice'>[copytext_char(msg, 1, 37)]... <a href='byond://?src=[REF(src)];show_flavor=[REF(target)]'>More...</span></a>"
 
 /datum/element/flavor_text/Topic(href, href_list)
 	. = ..()
@@ -89,7 +89,9 @@ GLOBAL_LIST_EMPTY(mobs_with_editable_flavor_text) //et tu, hacky code
 		var/mob/living/L = target
 		var/text = texts_by_atom[target]
 		if(text)
-			usr << browse("<HTML><HEAD><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><TITLE>[isliving(target) ? L.get_visible_name() : target.name]</TITLE></HEAD><BODY><TT>[replacetext(texts_by_atom[target], "\n", "<BR>")]</TT></BODY></HTML>", "window=[isliving(target) ? L.get_visible_name() : target.name];size=500x200")
+			var/title = isliving(target) ? L.get_visible_name() : target.name
+			var/list/dat = list("<div word-break: break-all><samp>[replacetext(texts_by_atom[target], "\n", "<br>")]</samp></div>")
+			usr << browse(HTML_SKELETON_TITLE(title, dat.Join()), "window=[title];size=500x200")
 			onclose(usr, "[target.name]")
 		return TRUE
 

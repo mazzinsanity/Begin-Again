@@ -178,7 +178,8 @@
 	var/list/cached_reagents = reagent_list
 	if(!target || !total_volume)
 		return
-	if(amount < 0)
+	// Guard against negative or near-zero amounts (floating point precision)
+	if(amount <= 0.0001)
 		return
 
 	var/datum/reagents/R
@@ -463,7 +464,7 @@
 				if(total_matching_reagents == total_required_reagents && total_matching_catalysts == total_required_catalysts && matching_container && matching_other && meets_temp_requirement && can_special_react)
 					possible_reactions  += C
 
-		sortTim(possible_reactions, /proc/cmp_chemical_reactions_default, FALSE)
+		sortTim(possible_reactions, GLOBAL_PROC_REF(cmp_chemical_reactions_default), FALSE)
 
 		if(possible_reactions.len)
 			var/datum/chemical_reaction/selected_reaction = possible_reactions[1]

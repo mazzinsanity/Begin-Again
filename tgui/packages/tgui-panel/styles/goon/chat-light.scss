@@ -3,8 +3,7 @@
  * SPDX-License-Identifier: MIT
  */
 
-html,
-body {
+html, body {
   padding: 0;
   margin: 0;
   height: 100%;
@@ -198,9 +197,11 @@ a.popt {
   padding: 2px 0;
 }
 
-.filterMessages input {}
+.filterMessages input {
+}
 
-.filterMessages label {}
+.filterMessages label {
+}
 
 .icon-stack {
   height: 1em;
@@ -286,18 +287,12 @@ a.popt {
   background: yellow;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: #0000ff;
   font-family: Georgia, Verdana, sans-serif;
 }
 
-h1.alert,
-h2.alert {
+h1.alert, h2.alert {
   color: #000000;
 }
 
@@ -362,12 +357,8 @@ em {
   font-weight: bold;
 }
 
-.say,
-.emote,
-.infoplain,
-.oocplain,
-.warningplain,
-.subtle {}
+.say, .emote, .infoplain, .oocplain, .warningplain, .subtle {
+}
 
 .deadsay {
   color: #5c00e6;
@@ -493,8 +484,7 @@ em {
   color: #ff0000;
 }
 
-h1.alert,
-h2.alert {
+h1.alert, h2.alert {
   color: #000000;
 }
 
@@ -653,40 +643,40 @@ h2.alert {
 }
 
 .cult {
-  color: #960000;
+  color: #973e3b;
 }
 
 .cultitalic {
-  color: #960000;
+  color: #973e3b;
   font-style: italic;
 }
 
 .cultbold {
-  color: #960000;
+  color: #973e3b;
   font-style: italic;
   font-weight: bold;
 }
 
 .cultboldtalic {
-  color: #960000;
+  color: #973e3b;
   font-weight: bold;
   font-size: 185%;
 }
 
 .cultlarge {
-  color: #960000;
+  color: #973e3b;
   font-weight: bold;
   font-size: 185%;
 }
 
 .narsie {
-  color: #960000;
+  color: #973e3b;
   font-weight: bold;
   font-size: 925%;
 }
 
 .narsiesmall {
-  color: #960000;
+  color: #973e3b;
   font-weight: bold;
   font-size: 370%;
 }
@@ -981,7 +971,7 @@ h2.alert {
 
 .command_headset {
   font-weight: bold;
-  font-size: 125%;
+  font-size: 160%;
 }
 
 .small {
@@ -1017,7 +1007,7 @@ h2.alert {
 
 .clown {
   color: #FF69Bf;
-  font-size: 125%;
+  font-size: 160%;
   font-family: "Comic Sans MS", cursive, sans-serif;
   font-weight: bold;
 }

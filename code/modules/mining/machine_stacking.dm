@@ -30,18 +30,16 @@
 		return
 
 	var/obj/item/stack/sheet/s
-	var/dat
-
-	dat += text("<b>Stacking unit console</b><br><br>")
+	var/list/dat = list("<b>Stacking unit console</b><br><br>")
 
 	for(var/O in machine.stack_list)
 		s = machine.stack_list[O]
 		if(s.amount > 0)
-			dat += text("[capitalize(s.name)]: [s.amount] <A href='?src=[REF(src)];release=[s.type]'>Release</A><br>")
+			dat += text("[capitalize(s.name)]: [s.amount] <a href='byond://?src=[REF(src)];release=[s.type]'>Release</A><br>")
 
 	dat += text("<br>Stacking: [machine.stack_amt]<br><br>")
 
-	user << browse(dat, "window=console_stacking_machine")
+	user << browse(HTML_SKELETON(dat.Join()), "window=console_stacking_machine")
 
 /obj/machinery/mineral/stacking_unit_console/multitool_act(mob/living/user, obj/item/I)
 	if(istype(I, /obj/item/multitool))

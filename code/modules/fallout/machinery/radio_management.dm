@@ -39,19 +39,19 @@ GLOBAL_LIST_EMPTY(enc_radios)
 		if(FACTION_NCR)
 			for(var/obj/item/radio/radio in GLOB.ncr_radios)
 				if(radio.linked_mob)
-					dat += "<a href='?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
+					dat += "<a href='byond://?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
 		if(FACTION_LEGION)
 			for(var/obj/item/radio/radio in GLOB.legion_radios)
 				if(radio.linked_mob)
-					dat += "<a href='?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
+					dat += "<a href='byond://?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
 		if(FACTION_BROTHERHOOD)
 			for(var/obj/item/radio/radio in GLOB.bos_radios)
 				if(radio.linked_mob)
-					dat += "<a href='?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
+					dat += "<a href='byond://?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
 		if(FACTION_ENCLAVE)
 			for(var/obj/item/radio/radio in GLOB.enc_radios)
 				if(radio.linked_mob)
-					dat += "<a href='?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
+					dat += "<a href='byond://?src=[REF(src)];terminate=[REF(radio)]'> [radio.name] linked to [radio.linked_mob]<br>"
 	var/datum/browser/popup = new(user, "radio_console", "Radio Terminal")
 	popup.set_content(dat)
 	popup.open()

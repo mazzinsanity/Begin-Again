@@ -35,13 +35,13 @@
 		damage_overlays[i] = img
 
 /turf/closed/wall/attackby(obj/item/W, mob/user, params)
-	var/holdHardness = hardness	 // Holds wall hardness before anything changes the src.
+	var/holdHardness = initial(hardness) || 70	 // Holds wall hardness before anything changes the src, defaults to 70
 	var/holdUnbreakable = unbreakable	 // Holds wall unbreakable state before anything changes the src.
 	. = ..()
 	if(!.)
 		user.do_attack_animation(src)
 		if(istype(W, /obj/item/pickaxe)) //stops pickaxes from running needless attack checks on our baseturf
-			return	
+			return
 		if(W.force > holdHardness/3 && !holdUnbreakable)
 			take_damage(W.force/10)
 			to_chat(user, text("<span class='warning'>You smash the wall with [W].</span>"))

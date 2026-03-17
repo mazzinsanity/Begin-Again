@@ -403,12 +403,12 @@
 		return
 	client.crew_manifest_delay = world.time + (1 SECONDS)
 
-	var/dat = "<html><head><meta http-equiv='Content-Type' content='text/html; charset=UTF-8'><title>Crew Roster</title></head><body><b>Crew Roster:</b><br><br>"
+	var/list/dat = list("<b>Crew Roster:</b><br><br>")
 
 	dat += GLOB.data_core.get_manifest_dr()
 	dat += "</body></html>"
 
-	src << browse(dat, "window=airoster")
+	src << browse(HTML_SKELETON_TITLE("Crew Roster", dat), "window=airoster")
 	onclose(src, "airoster")
 
 /mob/living/silicon/update_transform()

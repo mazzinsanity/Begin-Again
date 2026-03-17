@@ -1,201 +1,145 @@
 macro "default"
 
-
-menu "menu"
-	elem 
-		name = "&File"
-		command = ""
-		saved-params = "is-checked"
-	elem 
-		name = "&Quick screenshot\tF2"
-		command = ".screenshot auto"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Save screenshot as...\tShift+F2"
-		command = ".screenshot"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = ""
-		command = ""
-		category = "&File"
-		saved-params = "is-checked"
-	elem "reconnectbutton"
-		name = "&Reconnect"
-		command = ".reconnect"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Quit\tAlt-F4"
-		command = ".quit"
-		category = "&File"
-		saved-params = "is-checked"
-	elem 
-		name = "&Help"
-		command = ""
-		saved-params = "is-checked"
-	elem 
-		name = "&Admin Help\tF1"
-		command = "adminhelp"
-		category = "&Help"
-		saved-params = "is-checked"
-	elem 
-		name = "&Hotkeys"
-		command = "hotkeys-help"
-		category = "&Help"
-		saved-params = "is-checked"
-
-
 window "mainwindow"
 	elem "mainwindow"
 		type = MAIN
-		pos = 0,0
+		pos = 281,0
 		size = 640x440
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-default = true
 		saved-params = "pos;size;is-minimized;is-maximized"
+		is-maximized = true
+		statusbar = false
 		title = "New Babylon"
 		icon = 'icons\\deathclawlogo.png'
 		macro = "default"
 		menu = "menu"
+		background-color = #202020
 	elem "split"
 		type = CHILD
-		pos = 3,0
-		size = 637x440
+		pos = 0,0
+		size = 640x440
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = "splitter"
 		left = "mapwindow"
 		right = "infowindow"
 		is-vert = true
+		background-color = #202020
 	elem "asset_cache_browser"
 		type = BROWSER
 		pos = 0,0
 		size = 200x200
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		saved-params = ""
+		background-color = #202020
+		text-color = #a4bad6
 	elem "tooltip"
 		type = BROWSER
 		pos = 0,0
 		size = 999x999
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		saved-params = ""
+		background-color = #202020
+		text-color = #a4bad6
 
 window "mapwindow"
 	elem "mapwindow"
 		type = MAIN
-		pos = 0,0
-		size = 1024x1024
-		anchor1 = none
-		anchor2 = none
+		pos = 281,0
+		size = 640x480
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
 	elem "map"
 		type = MAP
 		pos = 0,0
-		size = 1024x1024
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
 		font-family = "Arial"
 		font-size = 7
-		text-color = none
 		is-default = true
-		saved-params = "zoom;letterbox;zoom-mode"
-		style = ".center { text-align: center; } .maptext { font-family: 'Small Fonts'; font-size: 7px; -dm-text-outline: 1px black; color: white; line-height: 1.1; } .command_headset { font-weight: bold;\tfont-size: 8px; } .small { font-size: 6px; } .big { font-size: 8px; } .reallybig { font-size: 8px; } .extremelybig { font-size: 8px; } .greentext { color: #00FF00; font-size: 7px; } .redtext { color: #FF0000; font-size: 7px; } .clown { color: #FF69Bf; font-size: 7px;  font-weight: bold; } .his_grace { color: #15D512; } .hypnophrase { color: #0d0d0d; font-weight: bold; } .yell { font-weight: bold; } .italics { font-size: 6px; }"
+		saved-params = "zoom;letterbox;zoom-mode;icon-size;text-mode"
 
 window "infowindow"
 	elem "infowindow"
 		type = MAIN
-		pos = 0,0
+		pos = 281,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
+		title = "Info"
 		is-pane = true
+		background-color = #202020
+		text-color = #a4bad6
 	elem "info"
 		type = CHILD
-		pos = 0,30
-		size = 640x445
+		pos = 0,0
+		size = 640x475
 		anchor1 = 0,0
 		anchor2 = 100,100
 		saved-params = "splitter"
 		left = "statwindow"
 		right = "outputwindow"
 		is-vert = false
-	elem "wiki"
-		type = BUTTON
-		pos = 220,5
-		size = 100x20
-		anchor1 = 34,0
-		anchor2 = 50,0
-		saved-params = "is-checked"
-		text = "Wiki"
-		command = "wiki"
-	elem "github"
-		type = BUTTON
-		pos = 420,5
-		size = 100x20
-		anchor1 = 66,0
-		anchor2 = 81,0
-		saved-params = "is-checked"
-		text = "Github"
-		command = "github"
-	elem "discord"
-		type = BUTTON
-		pos = 520,5
-		size = 100x20
-		anchor1 = 81,0
-		anchor2 = 97,0
-		saved-params = "is-checked"
-		text = "Discord/Rules"
-		command = "discord"
+		background-color = #202020
+		text-color = #a4bad6
 
 window "outputwindow"
 	elem "outputwindow"
 		type = MAIN
 		pos = 0,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		outer-size = 656x538
+		inner-size = 640x499
+		background-color = #202020
+		text-color = #a4bad6
 	elem "input"
 		type = INPUT
 		pos = 2,460
 		size = 595x20
 		anchor1 = 0,100
 		anchor2 = 100,100
-		background-color = #d3b5b5
 		is-default = true
-		border = sunken
+		border = line
 		saved-params = "command"
 	elem "saybutton"
 		type = BUTTON
 		pos = 600,460
 		size = 37x20
 		anchor1 = 100,100
-		anchor2 = none
+		anchor2 = -1,-1
+		border = line
 		saved-params = "is-checked"
 		text = "Chat"
 		command = ".winset \"saybutton.is-checked=true ? input.command=\"!say \\\"\" : input.command=\""
 		is-flat = true
 		button-type = pushbox
+		background-color = #202020
+		text-color = #a4bad6
+
 	elem "browseroutput"
 		type = BROWSER
 		pos = 0,0
-		size = 640x456
+		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		background-color = #ffffff
-		is-visible = false
-		is-disabled = true
 		saved-params = ""
+		background-color = #202020
+		text-color = #a4bad6
+
 	elem "output"
 		type = OUTPUT
 		pos = 0,0
@@ -204,14 +148,16 @@ window "outputwindow"
 		anchor2 = 100,100
 		is-default = true
 		saved-params = ""
+		background-color = #171717
+		text-color = #a4bad6
 
 window "popupwindow"
 	elem "popupwindow"
 		type = MAIN
 		pos = 281,0
 		size = 120x120
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		is-visible = false
 		saved-params = "pos;size;is-minimized;is-maximized"
 		statusbar = false
@@ -246,12 +192,14 @@ window "preferences_window"
 window "statwindow"
 	elem "statwindow"
 		type = MAIN
-		pos = 372,0
+		pos = 281,0
 		size = 640x480
-		anchor1 = none
-		anchor2 = none
+		anchor1 = -1,-1
+		anchor2 = -1,-1
 		saved-params = "pos;size;is-minimized;is-maximized"
 		is-pane = true
+		background-color = #171717
+		text-color = #a4bad6
 	elem "statbrowser"
 		type = BROWSER
 		pos = 0,0
@@ -260,4 +208,3 @@ window "statwindow"
 		anchor2 = 100,100
 		is-visible = false
 		saved-params = ""
-

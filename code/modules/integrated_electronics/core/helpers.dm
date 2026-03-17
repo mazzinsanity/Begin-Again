@@ -20,12 +20,14 @@
 			io_list.Add(new io_type(src, io_entry, default_data, pin_type,i))
 
 
-/obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, datum/new_data)
+/obj/item/integrated_circuit/proc/set_pin_data(pin_type, pin_number, new_data)
 	if(islist(new_data))
-		for(var/i in 1 to length(new_data))
-			if (istype(new_data) && !isweakref(new_data))
-				new_data[i] = WEAKREF(new_data[i])
-	if (istype(new_data) && !isweakref(new_data))
+		var/list/data_list
+		data_list = new_data
+		for(var/i in 1 to length(data_list))
+			if (!isweakref(data_list[i]))
+				data_list[i] = WEAKREF(data_list[i])
+	else if (!isweakref(new_data))
 		new_data = WEAKREF(new_data)
 	var/datum/integrated_io/pin = get_pin_ref(pin_type, pin_number)
 	return pin.write_data_to_pin(new_data)
@@ -60,10 +62,12 @@
 
 /datum/integrated_io/proc/get_data()
 	if(islist(data))
-		for(var/i in 1 to length(data))
-			if(isweakref(data[i]))
-				data[i] = data[i].resolve()
-	if(isweakref(data))
+		var/list/data_list = data
+		for(var/i in 1 to length(data_list))
+			if(isweakref(data_list[i]))
+				var/datum/weakref/wr = data_list[i]
+				data_list[i] = wr.resolve()
+	else if(isweakref(data))
 		return data.resolve()
 	return data
 
@@ -140,4 +144,3 @@
 	for(var/i = 1 to length(string))
 		r += ascii2text(text2ascii(string,i) ^ text2ascii(key,(i-1)%length(string)+1))
 	return r
-

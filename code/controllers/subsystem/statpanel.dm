@@ -9,13 +9,12 @@ SUBSYSTEM_DEF(statpanels)
 	var/mc_data_encoded
 	var/list/cached_images = list()
 
-
 /datum/controller/subsystem/statpanels/fire(resumed = FALSE)
 	if (!resumed)
 		var/datum/map_config/cached = SSmapping.next_map_config
 		var/real_round_time = REALTIMEOFDAY - SSticker.real_round_start_time
 		var/list/global_data = list(
-			"Map: [SSmapping.config?.map_name || "Loading..."]",
+			"Map: [SSmapping.stat_map_name || "Loading..."]",
 			cached ? "Next Map: [cached.map_name]" : null,
 			"Round ID: [GLOB.round_id ? GLOB.round_id : "NULL"]",
 			"Server Time: [time2text(world.timeofday, "YYYY-MM-DD hh:mm:ss")]",
@@ -36,12 +35,14 @@ SUBSYSTEM_DEF(statpanels)
 	while(length(currentrun))
 		var/client/target = currentrun[length(currentrun)]
 		currentrun.len--
-		if(!target.statbrowser_ready)
+		if(!target)
 			continue
-		if(target.stat_tab == "Status")
-			var/ping_str = url_encode("Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)")
-			var/other_str = url_encode(json_encode(target.mob.get_status_tab_items()))
-			target << output("[encoded_global_data];[ping_str];[other_str]", "statbrowser:update")
+		// Send map/server data to ALL clients (cheap operation)
+		// Only send expensive per-mob data when viewing Status tab
+		var/ping_str = url_encode("Ping: [round(target.lastping, 1)]ms (Average: [round(target.avgping, 1)]ms)")
+		var/other_str = target.stat_tab == "Status" ? url_encode(json_encode(target.mob.get_status_tab_items())) : url_encode(json_encode(list()))
+		target << output("[encoded_global_data];[ping_str];[other_str]", "statbrowser:update")
+
 		if(!target.holder)
 			target << output("", "statbrowser:remove_admin_tabs")
 		else
@@ -135,7 +136,7 @@ SUBSYSTEM_DEF(statpanels)
 						if(length(turfitems) < 30) // only create images for the first 30 items on the turf, for performance reasons
 							if(!(REF(turf_content) in cached_images))
 								cached_images += REF(turf_content)
-								turf_content.RegisterSignal(turf_content, COMSIG_PARENT_QDELETING, TYPE_PROC_REF(/atom, remove_from_cache)) // we reset cache if anything in it gets deleted
+								RegisterSignal(turf_content, COMSIG_PARENT_QDELETING, PROC_REF(remove_from_cache), override = TRUE)
 								if(ismob(turf_content) || length(turf_content.overlays) > 2)
 									turfitems[++turfitems.len] = list("[turf_content.name]", REF(turf_content), costly_icon2html(turf_content, target, sourceonly=TRUE))
 								else
@@ -145,7 +146,10 @@ SUBSYSTEM_DEF(statpanels)
 						else
 							turfitems[++turfitems.len] = list("[turf_content.name]", REF(turf_content))
 					turfitems = url_encode(json_encode(turfitems))
-					target << output("[turfitems];", "statbrowser:update_listedturf")
+					// Only send if contents changed to prevent constant flashing
+					if(!target.last_turf_items_encoded || target.last_turf_items_encoded != turfitems)
+						target.last_turf_items_encoded = turfitems
+						target << output("[turfitems];", "statbrowser:update_listedturf")
 		if(MC_TICK_CHECK)
 			return
 
@@ -168,9 +172,9 @@ SUBSYSTEM_DEF(statpanels)
 	mc_data[++mc_data.len] = list("Camera Net", "Cameras: [GLOB.cameranet.cameras.len] | Chunks: [GLOB.cameranet.chunks.len]", "\ref[GLOB.cameranet]")
 	mc_data_encoded = url_encode(json_encode(mc_data))
 
-/atom/proc/remove_from_cache()
+/datum/controller/subsystem/statpanels/proc/remove_from_cache(atom/source)
 	SIGNAL_HANDLER
-	SSstatpanels.cached_images -= REF(src)
+	cached_images -= REF(source)
 
 /// verbs that send information from the browser UI
 /client/verb/set_tab(tab as text|null)

@@ -449,14 +449,14 @@ ROUNDSTART_RACES ghoulanthro
 
 ## Races that are strictly worse than humans that could probably be turned on without balance concerns
 ROUNDSTART_RACES lizard
-ROUNDSTART_RACES synthliz
-ROUNDSTART_RACES synthanthro
-ROUNDSTART_RACES fly
+#ROUNDSTART_RACES synthliz
+#ROUNDSTART_RACES synthanthro
+#ROUNDSTART_RACES fly
 #ROUNDSTART_RACES insect
 #ROUNDSTART_RACES plasmaman
 #ROUNDSTART_RACES shadow
 ROUNDSTART_RACES felinid
-ROUNDSTART_RACES dwarf
+#ROUNDSTART_RACES dwarf
 #ROUNDSTART_RACES ethereal
 
 ## Races that are better than humans in some ways, but worse in others
@@ -469,7 +469,7 @@ ROUNDSTART_RACES dwarf
 #ROUNDSTART_RACES silver
 #ROUNDSTART_RACES uranium
 #ROUNDSTART_RACES abductor
-ROUNDSTART_RACES synth
+#ROUNDSTART_RACES synth
 ROUNDSTART_RACES podweak
 
 ## Races that are straight upgrades. If these are on expect powergamers to always pick them
@@ -486,9 +486,9 @@ ROUNDSTART_RACES avian
 ROUNDSTART_RACES aquatic
 ROUNDSTART_RACES insect
 #ROUNDSTART_RACES xeno
-ROUNDSTART_RACES slimeperson
+#ROUNDSTART_RACES slimeperson
 #ROUNDSTART_RACES guilmon
-ROUNDSTART_RACES ipc
+#ROUNDSTART_RACES ipc
 ROUNDSTART_RACES arachnid
 
 ##-------------------------------------------------------------------------------------------

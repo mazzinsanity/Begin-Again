@@ -606,7 +606,7 @@
 	screen_loc = ui_mood
 
 /atom/movable/screen/splash
-	icon = 'icons/blank_title.png'
+	icon = 'icons/runtime/default_title.dmi'
 	icon_state = ""
 	screen_loc = "1,1"
 	plane = SPLASHSCREEN_PLANE

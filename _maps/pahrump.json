@@ -10,24 +10,14 @@
 		"RockSprings.dmm",
 		"RockSprings-Upper.dmm",
 		"Warren.dmm",
-		"Warren-Upper.dmm",
-		"Mountain-Range.dmm"
+		"Warren-Upper.dmm"
 	],
-	"station_ruin_budget":0,
-	"space_ruin_levels":0,
-	"space_empty_levels":0,
-	"shuttles": {
-		"cargo":"cargo_pahrump",
-		"emergency": "emergency_pahrump",
-		"ferry": "ferry_fancy"
-	},
 	"traits":[
 		{
 			"Gravity": true,
 			"Baseturf": "/turf/open/indestructible/ground/inside/mountain",
 			"Up": 1,
 			"No Parallax": true,
-			"Linkage" : null,
 			"Name": "Dungeons"
 		},
 		{
@@ -37,7 +27,6 @@
 			"Up": 1,
 			"Down": 1,
 			"No Parallax": true,
-			"Linkage" : null,
 			"Name": "Lower Sheridan"
 		},
 		{
@@ -57,7 +46,6 @@
 			"Up": 1,
 			"Down": 1,
 			"No Parallax": true,
-			"Linkage" : null,
 			"Above": true,
 			"Name": "Upper Sheridan"
 		},
@@ -65,7 +53,6 @@
 			"Gravity": true,
 			"Baseturf": "/turf/open/transparent/openspace",
 			"Down": 1,
-			"Linkage" : null,
 			"No Parallax": true,
 			"Above": true,
 			"Name": "Upper Sheridan 2"
@@ -84,7 +71,6 @@
 			"Gravity": true,
 			"Baseturf": "/turf/open/transparent/openspace",
 			"Down": 1,
-			"Linkage" : null,
 			"No Parallax": true,
 			"Above": true,
 			"Name": "Upper Rock Springs"
@@ -103,20 +89,9 @@
 			"Gravity": true,
 			"Baseturf": "/turf/open/transparent/openspace",
 			"Down": 1,
-			"Linkage" : null,
 			"No Parallax": true,
 			"Above": true,
 			"Name": "Upper Warren"
-		},
-		{
-			"Gravity": true,
-			"Baseturf": "/turf/open/indestructible/ground/inside/mountain",
-			"Station": 1,
-			"Surface": true,
-			"No Parallax": true,
-			"Linkage" : null,
-			"Name": "Mountain Range"
 		}
-	],
-	"minetype": "none"
+	]
 }

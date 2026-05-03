@@ -13,9 +13,5 @@
 		#include "map_files\Pahrump-Sunset\RockSprings-Upper.dmm"
 		#include "map_files\Pahrump-Sunset\Warren.dmm"
 		#include "map_files\Pahrump-Sunset\Warren-Upper.dmm"
-		#include "map_files\Pahrump-Sunset\Mountain-Range.dmm"
-		#ifdef TRAVISBUILDING
-			#include "templates.dm"
-		#endif
 	#endif
 #endif

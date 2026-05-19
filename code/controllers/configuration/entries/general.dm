@@ -20,11 +20,11 @@
 /datum/config_entry/string/stationname	// station name (the name of the station in-game)
 
 /datum/config_entry/number/lobby_countdown	// In between round countdown.
-	config_entry_value = 120
+	config_entry_value = 180
 	min_val = 0
 
 /datum/config_entry/number/round_end_countdown	// Post round murder death kill countdown
-	config_entry_value = 25
+	config_entry_value = 120
 	min_val = 0
 
 /datum/config_entry/flag/hub	// if the game appears on the hub or not
@@ -83,35 +83,35 @@
 
 /datum/config_entry/flag/allow_vote_mode	// allow votes to change mode
 
-/// Minimum time before a game-ending vote can be started by players.
+/// Minimum time before a game-ending vote can be started by players. (deciseconds, 1 hour 45 minute default)
 /datum/config_entry/number/min_end_vote_time
-	config_entry_value = 180 MINUTES
+	config_entry_value = 63000
 	min_val = 0
 
-/datum/config_entry/number/vote_delay	// minimum time between voting sessions (deciseconds, 10 minute default)
-	config_entry_value = 36000
+/datum/config_entry/number/vote_delay	// minimum time between voting sessions (deciseconds, 15 minute default)
+	config_entry_value = 9000
 	min_val = 0
 
-/datum/config_entry/number/vote_period  // length of voting period (deciseconds, default 1 minute)
-	config_entry_value = 900
+/datum/config_entry/number/vote_period  // length of voting period (deciseconds, default 3 minutes)
+	config_entry_value = 1800
 	min_val = 0
 
-/// Length of time before the first autotransfer vote is called (deciseconds, default 2 hours)
+/// Length of time before the first autotransfer vote is called (deciseconds, 1 hour 45 minute default)
 /// Set to 0 to disable the subsystem altogether.
 /datum/config_entry/number/vote_autotransfer_initial
-	config_entry_value = 180000
+	config_entry_value = 63000
 	min_val = 0
 
-///length of time to wait before subsequent autotransfer votes (deciseconds, default 30 minutes)
+///length of time to wait before subsequent autotransfer votes (deciseconds, 15 minute default)
 /datum/config_entry/number/vote_autotransfer_interval
-	config_entry_value = 36000
+	config_entry_value = 9000
 	min_val = 0
 
 /// maximum extensions until the round autoends.
 /// Set to 0 to force automatic crew transfer after the 'vote_autotransfer_initial' elapsed.
 /// Set to -1 to disable the maximum extensions cap.
 /datum/config_entry/number/vote_autotransfer_maximum
-	config_entry_value = 4
+	config_entry_value = 3
 	min_val = -1
 
 /datum/config_entry/flag/default_no_vote	// vote does not default to nochange/norestart

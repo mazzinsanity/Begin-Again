@@ -36,10 +36,10 @@ STATIONNAME Wasteland
 HUB
 
 ## Lobby time: This is the amount of time between rounds that players have to setup their characters and be ready.
-LOBBY_COUNTDOWN 160
+LOBBY_COUNTDOWN 180
 
 ## Round End Time: This is the amount of time after the round ends that players have to murder death kill each other.
-ROUND_END_COUNTDOWN 60
+ROUND_END_COUNTDOWN 120
 
 ## Comment this out if you want to use the SQL based admin system, the legacy system uses admins.txt.
 ## You need to set up your database to use the SQL based system.
@@ -54,7 +54,7 @@ ADMIN_LEGACY_SYSTEM
 
 ##Uncomment this to have admin ranks only loaded from the legacy admin_ranks.txt
 ##If enabled, each time admins are loaded ranks the database will be updated with the current ranks and their flags
-# LOAD_LEGACY_RANKS_ONLY
+#LOAD_LEGACY_RANKS_ONLY
 
 ## Comment this out if you want to use the SQL based banning system. The legacy systems use the files in the data folder. You need to set up your database to use the SQL based system.
 #BAN_LEGACY_SYSTEM
@@ -65,7 +65,7 @@ ENABLE_LOCALHOST_RANK
 ## Comment this out if you want to use the SQL based mentor system, the legacy system uses mentors.txt.
 ## You need to set up your database to use the SQL based system.
 ## This flag is automatically enabled if SQL_ENABLED isn't
-#MENTOR_LEGACY_SYSTEM
+MENTOR_LEGACY_SYSTEM
 
 #Mentors only see ckeys by default. Uncomment to have them only see mob name
 #MENTORS_MOBNAME_ONLY
@@ -78,7 +78,7 @@ ENABLE_LOCALHOST_RANK
 #USE_AGE_RESTRICTION_FOR_JOBS
 
 ## Uncomment the following line to enable the role whitelisting system.  You will also need the table from role_whitelist.sql in the SQL directory.
-# USE_ROLE_WHITELIST
+#USE_ROLE_WHITELIST
 
 ## Uncomment this to have the job system use the player's account creation date, rather than the when they first joined the server for job timers.
 #USE_ACCOUNT_AGE_FOR_JOBS
@@ -191,20 +191,20 @@ ALLOW_VOTE_TRANSFER
 ## allow players to initate a mode-change start
 #ALLOW_VOTE_MODE
 
-## min delay (deciseconds) between voting sessions (default 10 minutes)
+## min delay (deciseconds) between voting sessions (default 20 minutes)
 VOTE_DELAY 12000
 
-## time period (deciseconds) which voting session will last (default 1 minute)
-VOTE_PERIOD 1200
+## time period (deciseconds) which voting session will last (default 3 minutes)
+VOTE_PERIOD 1800
 
-## autovote initial delay (deciseconds) before first automatic transfer vote call (default 120 minutes)
+## autovote initial delay (deciseconds) before first automatic transfer vote call (default 1 hour 45 minutes)
 ## Set to 0 to disable the subsystem altogether.
 VOTE_AUTOTRANSFER_INITIAL 63000
 
-## autovote delay (deciseconds) before sequential automatic transfer votes are called (default 30 minutes)
-VOTE_AUTOTRANSFER_INTERVAL 12000
+## autovote delay (deciseconds) before sequential automatic transfer votes are called (default 15 minutes)
+VOTE_AUTOTRANSFER_INTERVAL 9000
 
-## autovote maximum votes until automatic transfer call. (default 4)
+## autovote maximum votes until automatic transfer call. (default 3)
 ## Set to 0 to force automatic crew transfer after the 'vote_autotransfer_initial' elapsed.
 ## Set to -1 to disable the maximum votes cap.
 VOTE_AUTOTRANSFER_MAXIMUM 3
@@ -526,7 +526,7 @@ DISABLE_HIGH_POP_MC_MODE_AMOUNT 999
 ##	By default, this is 15x15, which gets simplified to 7 by byond
 ##  15x15 would be the standard square view. 21x15 is what goonstation uses for widescreen.
 ##  Setting this to something different from DEFAULT_VIEW_SQUARE will enable widescreen toggles
-DEFAULT_VIEW 21x15
+DEFAULT_VIEW 15x15
 
 ##Default view size, in tiles. Should *always* be square.
 ## The alternative square viewport size if you're using a widescreen view size
@@ -559,7 +559,7 @@ CENTCOM_BAN_DB https://centcom.melonmesa.com/ban/search
 ## 0 Disables Border Control
 ## 1 Puts Border Control into 'learning mode' and will have it automatically whitelist new connections
 ## 2 Puts Border Control into 'enforcing mode' and will have it deny connections that are not already whitelisted.
-BORDER_CONTROL 1
+BORDER_CONTROL 2
 
 ## Image Previews used for examining humans!
 ## _P stands for prefix, and _S stands for suffix.

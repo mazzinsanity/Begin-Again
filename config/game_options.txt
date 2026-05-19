@@ -565,7 +565,7 @@ LAVALAND_BUDGET 0
 ICEMOON_BUDGET 0
 
 ## Space Ruin Budget
-Space_Budget 0
+SPACE_BUDGET 0
 
 ## Station Ruin Budget
 STATION_SPACE_BUDGET 0

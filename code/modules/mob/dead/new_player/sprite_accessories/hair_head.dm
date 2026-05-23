@@ -1264,3 +1264,15 @@
 /datum/sprite_accessory/hair/hairzone
 	name = "Zone"
 	icon_state = "hair_zone"
+
+/datum/sprite_accessory/hair/inari
+	name = "Inari"
+	icon_state = "hair_inari"
+
+/datum/sprite_accessory/hair/fluffaju
+	name = "Fluffaju"
+	icon_state = "hair_fluffaju"
+
+/datum/sprite_accessory/hair/fluffball
+	name = "Fluffball"
+	icon_state = "hair_fluffball"

@@ -11,7 +11,7 @@
 		"source.fixAll.eslint": "explicit"
 	},
 	"workbench.editorAssociations": {
-		"*.dmi": "imagePreview.previewEditor"
+		"*.dmi": "dmiEditor.dmiEditor"
 	},
 	"files.eol": "\n",
 	"files.trimTrailingWhitespace": true,

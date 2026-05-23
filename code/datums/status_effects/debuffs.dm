@@ -72,6 +72,9 @@
 	needs_update_stat = TRUE
 	var/mob/living/carbon/carbon_owner
 	var/mob/living/carbon/human/human_owner
+	var/last_heal = 0
+	var/heal_interval = 2 SECONDS
+	var/healing_rate = 1.5
 
 /datum/status_effect/incapacitating/sleeping/on_creation(mob/living/new_owner, updating_canmove)
 	. = ..()
@@ -89,19 +92,29 @@
 /datum/status_effect/incapacitating/sleeping/tick()
 	if(owner.getStaminaLoss())
 		owner.adjustStaminaLoss(-0.5) //reduce stamina loss by 0.5 per tick, 10 per 2 seconds
-	if(human_owner && human_owner.drunkenness)
-		human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
+
+	if(human_owner)
+		//Sleep healing, every heal_interval
+		if(world.time - last_heal >= heal_interval && human_owner.stat != DEAD)
+			last_heal = world.time
+			human_owner.adjustBruteLoss(-healing_rate)
+			human_owner.adjustFireLoss(-healing_rate)
+			human_owner.adjustToxLoss(-healing_rate)
+
+		if(human_owner.drunkenness)
+			human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
+
 	if(carbon_owner && !carbon_owner.dreaming && prob(2))
 		carbon_owner.dream()
+
 	// 2% per second, tick interval is in deciseconds
 	if(prob((tick_interval+1) * 0.2) && owner.health > owner.crit_threshold)
 		owner.emote("snore")
 
 /atom/movable/screen/alert/status_effect/asleep
 	name = "Asleep"
-	desc = "You've fallen asleep. Wait a bit and you should wake up. Unless you don't, considering how helpless you are."
+	desc = "You've fallen asleep. You are slowly recovering. Wait a bit and you should wake up. Unless you don't, considering how helpless you are."
 	icon_state = "asleep"
-
 
 //ADMIN SLEEP
 /datum/status_effect/incapacitating/adminsleep

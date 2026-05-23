@@ -439,7 +439,7 @@
 	matrixed_sections = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/ears/mam_ears/shadekinround
-	name = "Shadekin (Tall)"
+	name = "Vermin (Tall)"
 	icon = 'icons/mob/mutant_bodyparts_large.dmi'
 	icon_state = "shadekinround"
 	matrixed_sections = MATRIX_RED_GREEN
@@ -488,3 +488,23 @@
 	icon_state = "zorgoia"
 	color_src = MATRIXED
 	matrixed_sections = MATRIX_RED
+
+/datum/sprite_accessory/ears/mam_ears/shadekin
+	name = "Vermin"
+	icon_state = "shadekin"
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/shadekinfluffy
+	name = "Vermin Fluffy"
+	icon_state = "shadekinfluffy"
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/shadekinsaggy
+	name = "Vermin Saggy"
+	icon_state = "shadekinsaggy"
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/shadekinshort
+	name = "Vermin Short"
+	icon_state = "shadekinshort"
+	color_src = MUTCOLORS

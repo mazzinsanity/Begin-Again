@@ -945,7 +945,7 @@
 /datum/sprite_accessory/tails/mam_tails
 	color_src = MATRIXED
 	icon = 'modular_citadel/icons/mob/mam_tails.dmi'
-	recommended_species = list("mammal", "slimeperson", "podweak", "felinid", "insect", "synthanthro", "ghoulanthro")
+	recommended_species = list("mammal", "slimeperson", "podweak", "felinid", "insect", "synthanthro", "ghoulanthro", "vermin")
 	relevant_layers = list(BODY_BEHIND_LAYER, BODY_FRONT_LAYER)
 
 /datum/sprite_accessory/tails/mam_tails/none
@@ -1926,6 +1926,30 @@
 	name = "Wolf"
 	icon_state = "wolf"
 	matrixed_sections = MATRIX_RED
+
+/datum/sprite_accessory/tails_animated/mam_tails_animated/shadekin
+	name = "Vermin"
+	icon_state = "shadekin"
+	icon = 'modular_citadel/icons/mob/mam_tails.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/tails/mam_tails/shadekin
+	name = "Vermin"
+	icon_state = "shadekin"
+	icon = 'modular_citadel/icons/mob/mam_tails.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/tails/mam_tails/shadekin/shadekinshort
+	name = "Vermin Short"
+	icon_state = "shadekinshort"
+	icon = 'modular_citadel/icons/mob/mam_tails.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/tails_animated/mam_tails_animated/shadekin/shadekinshort
+	name = "Vermin Short"
+	icon_state = "shadekinshort"
+	icon = 'modular_citadel/icons/mob/mam_tails.dmi'
+	color_src = MUTCOLORS
 
 /datum/sprite_accessory/tails/mam_tails/zorgia
 	name = "Zorgoia"

@@ -20,7 +20,6 @@
 	health = 130 //7 shots of 9mm
 	maxHealth = 130
 	healable = FALSE
-	stat_attack = UNCONSCIOUS
 	melee_damage_lower = 28
 	melee_damage_upper = 28
 	robust_searching = TRUE
@@ -180,7 +179,6 @@
 	melee_damage_upper = 72//why would you even get close?
 	extra_projectiles = 0
 	ranged_cooldown_time = 12//big ol' 'fuck off' laser
-	stat_attack = UNCONSCIOUS || SOFT_CRIT
 	ranged = TRUE
 	retreat_distance = 6
 	minimum_distance = 8
@@ -260,7 +258,6 @@
 	melee_damage_lower = 5 //severely reduced melee damage here because its silly to have a ranged mob also be a cqc master
 	melee_damage_upper = 10
 	extra_projectiles = 0 //removed extra projectiles to make these easier to deal with on super lowpop
-	stat_attack = CONSCIOUS
 	ranged = TRUE
 	retreat_distance = 2
 	minimum_distance = 2

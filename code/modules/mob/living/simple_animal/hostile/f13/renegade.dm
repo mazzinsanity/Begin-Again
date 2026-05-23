@@ -17,7 +17,6 @@
 	health = 140
 	healable = 1
 	speed = 1.2
-	stat_attack = 1
 	obj_damage = 150
 	melee_damage_lower = 25
 	melee_damage_upper = 40
@@ -49,7 +48,6 @@
 	melee_damage_lower = 20
 	melee_damage_upper = 30
 	rapid_melee = 2
-	stat_attack = UNCONSCIOUS //will finish you off
 
 // LIGHT RANGED VARIANT
 /mob/living/simple_animal/hostile/renegade/grunt
@@ -334,7 +332,6 @@
 	name = "Renegade Medic"
 	desc = "A veteran of the Renegades, this one specializing in field first aid with a rapid-fanning .44 magnum revolver. He seems to know if you're alive or dead, if the way he's checking a health scanner is anything to go off. No fooling this guy- he's making sure you're dead."
 	extra_projectiles = 2
-	stat_attack = UNCONSCIOUS
 
 // THE BOSS. THE BIG ONE. THE BIG CHEESE
 /mob/living/simple_animal/hostile/raider/junker/boss/renegade
@@ -357,4 +354,3 @@
 	icon_state = "renegade_boss"
 	icon_living = "renegade_boss"
 	icon_dead = "renegade_boss-dead"
-

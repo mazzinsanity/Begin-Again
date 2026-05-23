@@ -32,9 +32,6 @@
 	emote_taunt = list("stares ferociously", "stomps")
 	speak_chance = 10
 	taunt_chance = 25
-
-	stat_attack = UNCONSCIOUS
-
 	see_in_dark = 8
 	decompose = FALSE
 	wound_bonus = 0 //This might be a TERRIBLE idea
@@ -77,7 +74,6 @@
 	gender = FEMALE
 	maxHealth = 800
 	health = 800
-	stat_attack = UNCONSCIOUS
 	melee_damage_lower = 50
 	melee_damage_upper = 55
 	armour_penetration = 0.4
@@ -120,7 +116,6 @@
 	maxHealth = 1500
 	health = 1500
 	color = "#FFFF00"
-	stat_attack = UNCONSCIOUS
 	melee_damage_lower = 55
 	melee_damage_upper = 55
 	armour_penetration = 0.4
@@ -169,7 +164,6 @@
 	icon_dead = "combatclaw_dead"
 	maxHealth = 2500
 	health = 2500
-	stat_attack = UNCONSCIOUS
 	melee_damage_lower = 70
 	melee_damage_upper = 80
 	armour_penetration = 0.5

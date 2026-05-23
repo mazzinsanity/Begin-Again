@@ -15,7 +15,6 @@
 	response_disarm_simple = "shoves"
 	response_harm_simple = "hits"
 	speed = 1
-	stat_attack = 1
 	robust_searching = 1
 	maxHealth = 100
 	health = 100
@@ -130,7 +129,6 @@
 	speed = 0
 	ranged_cooldown_time = 22
 	extra_projectiles = 2
-	stat_attack = 1
 	ranged = TRUE
 	robust_searching = TRUE
 	healable = TRUE
@@ -238,7 +236,6 @@
 	response_disarm_simple = "shoves"
 	response_harm_simple = "hits"
 	speed = 1
-	stat_attack = 1
 	robust_searching = 1
 	maxHealth = 250
 	health = 250
@@ -327,7 +324,6 @@
 	response_disarm_simple = "shoves"
 	response_harm_simple = "hits"
 	speed = 1
-	stat_attack = 1
 	robust_searching = 1
 	maxHealth = 150
 	health = 150
@@ -413,7 +409,6 @@
 	response_disarm_simple = "shoves"
 	response_harm_simple = "hits"
 	speed = 1
-	stat_attack = 1
 	robust_searching = 1
 	maxHealth = 150
 	health = 150
@@ -500,7 +495,6 @@
 	response_disarm_simple = "shoves"
 	response_harm_simple = "hits"
 	speed = 1
-	stat_attack = 1
 	robust_searching = 1
 	maxHealth = 200
 	health = 200

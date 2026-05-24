@@ -53,15 +53,43 @@
 /datum/sprite_accessory/taur/drider
 	name = "Spider"
 	icon_state = "drider"
+	taur_mode = STYLE_PAW_TAURIC
 	color_src = MUTCOLORS
 	extra = TRUE
+
+/datum/sprite_accessory/taur/tarantula
+	name = "Tarantula"
+	icon_state = "tarantula"
+	taur_mode = STYLE_PAW_TAURIC
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
 
 /datum/sprite_accessory/taur/naga
 	name = "Snake"
 	icon_state = "naga"
 	taur_mode = STYLE_SNEK_TAURIC
 	hide_legs = USE_SNEK_CLIP_MASK
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/taur/nagastriped
+	name = "Snake (Striped)"
+	icon_state = "nagastriped"
+	taur_mode = STYLE_SNEK_TAURIC
+	hide_legs = USE_SNEK_CLIP_MASK
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/taur/nagarattle
+	name = "Snake (Rattle)"
+	icon_state = "nagarattle"
+	taur_mode = STYLE_SNEK_TAURIC
+	hide_legs = USE_SNEK_CLIP_MASK
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
 
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
@@ -69,3 +97,49 @@
 	taur_mode = STYLE_SNEK_TAURIC
 	color_src = MUTCOLORS
 	hide_legs = USE_SNEK_CLIP_MASK
+
+/datum/sprite_accessory/taur/tentaclealt
+	name = "Tentacle (Alt)"
+	icon_state = "tentaclealt"
+	taur_mode = STYLE_SNEK_TAURIC
+	color_src = MUTCOLORS
+	hide_legs = USE_SNEK_CLIP_MASK
+
+/datum/sprite_accessory/taur/horse
+	name = "Horse"
+	icon_state = "horse"
+	taur_mode = STYLE_HOOF_TAURIC
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/taur/cow
+	name = "Cow"
+	icon_state = "cow"
+	taur_mode = STYLE_HOOF_TAURIC
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/taur/deer
+	name = "Deer"
+	icon_state = "deer"
+	taur_mode = STYLE_HOOF_TAURIC
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/taur/canine
+	name = "Canine"
+	icon_state = "canine"
+	taur_mode = STYLE_PAW_TAURIC
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/taur/feline
+	name = "Feline"
+	icon_state = "feline"
+	taur_mode = STYLE_PAW_TAURIC
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE

@@ -230,6 +230,10 @@
 	name = "Lightning"
 	icon_state = "lightning"
 
+/datum/sprite_accessory/horns/drake
+	name = "Drake"
+	icon_state = "drake"
+
 /datum/sprite_accessory/horns/antennaebent
 	name = "Antennae (Bent)"
 	icon_state = "antennae_bent"

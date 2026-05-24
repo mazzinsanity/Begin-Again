@@ -1,5 +1,5 @@
 /datum/sprite_accessory/frills
-	icon = 'icons/mob/mutant_bodyparts.dmi'
+	icon = 'modular_citadel/icons/mob/mam_frills.dmi'
 	relevant_layers = list(BODY_ADJ_LAYER)
 	mutant_part_string = "frills"
 
@@ -42,15 +42,12 @@
 
 /datum/sprite_accessory/frills/cobrahoodears
 	name = "Cobra Hood with Ears"
-	icon = 'modular_citadel/icons/mob/frills.dmi'
 	icon_state = "cobraears"
-	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_GREEN
+	color_src = MUTCOLORS
+	extra = TRUE
 
 /datum/sprite_accessory/frills/cobrahood
 	name = "Cobra Hood"
-	icon = 'modular_citadel/icons/mob/frills.dmi'
 	icon_state = "cobrahood"
-	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED_GREEN
-
+	color_src = MUTCOLORS
+	extra = TRUE

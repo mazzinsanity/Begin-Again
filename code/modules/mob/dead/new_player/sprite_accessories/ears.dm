@@ -154,6 +154,12 @@
 	icon_state = "bunnytall"
 	matrixed_sections = MATRIX_RED_GREEN
 
+/datum/sprite_accessory/ears/mam_ears/playbunny
+	name = "Playbunny"
+	icon = 'modular_citadel/icons/mob/mam_ears_32x48.dmi'
+	icon_state = "playbunny_large"
+	color_src = MUTCOLORS
+
 /datum/sprite_accessory/ears/mam_ears/cat
 	name = "Cat"
 	icon_state = "cat"
@@ -176,6 +182,12 @@
 	name = "Cat (Big Splayed)"
 	icon_state = "catbigsplayed"
 	matrixed_sections = MATRIX_RED_GREEN
+
+/datum/sprite_accessory/ears/mam_ears/lynx
+	name = "Lynx"
+	icon_state = "lynx"
+	color_src = MUTCOLORS
+	extra = TRUE
 
 /datum/sprite_accessory/ears/mam_ears/pede
 	name = "Centipede"
@@ -305,6 +317,28 @@
 	color_src = MATRIXED
 	matrixed_sections = MATRIX_RED_BLUE
 
+/datum/sprite_accessory/ears/mam_ears/sandfox
+	name = "Sandfox (Tall)"
+	icon = 'modular_citadel/icons/mob/mam_ears_32x48.dmi'
+	icon_state = "sandfox_large"
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/ears/mam_ears/fennecl
+	name = "Fennec (Large)"
+	icon = 'modular_citadel/icons/mob/mam_ears_32x48.dmi'
+	icon_state = "fennecl_large"
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/ears/mam_ears/fennecflatsharp
+	name = "Fennec (Flat Sharp)"
+	icon = 'modular_citadel/icons/mob/mam_ears_32x48.dmi'
+	icon_state = "fennecl_flatsharp"
+	color_src = MUTCOLORS
+	extra = TRUE
+
 /datum/sprite_accessory/ears/mam_ears/fish
 	name = "Fish"
 	icon_state = "fish"
@@ -373,10 +407,10 @@
 	matrixed_sections = MATRIX_RED_BLUE
 
 /datum/sprite_accessory/ears/mam_ears/jackalope
-	name = "Jackalope (Tall)"
-	icon = 'icons/mob/mutant_bodyparts_large.dmi'
+	name = "Jackalope"
+	icon = 'modular_citadel/icons/mob/mam_horns_32x48.dmi'
 	icon_state = "jackalope"
-	matrixed_sections = MATRIX_RED
+	matrixed_sections = MUTCOLORS
 
 /datum/sprite_accessory/ears/mam_ears/jellyfish
 	name = "Jellyfish"
@@ -459,12 +493,6 @@
 	matrixed_sections = MATRIX_ALL
 	extra = TRUE
 	extra_color_src = MATRIX_ALL
-
-/datum/sprite_accessory/ears/mam_ears/sandfox
-	name = "Sandfox (Tall)"
-	icon = 'icons/mob/mutant_bodyparts_large.dmi'
-	icon_state = "sandfox"
-	matrixed_sections = MATRIX_RED_GREEN
 
 /datum/sprite_accessory/ears/mam_ears/sergal
 	name = "Sergal"

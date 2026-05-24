@@ -185,8 +185,14 @@
 /datum/sprite_accessory/ears/mam_ears/cobra
 	name = "Cobra Hood"
 	icon_state = "cobra"
-	icon = 'modular_citadel/icons/mob/mam_ears.dmi'
-	color_src = SKINTONE
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/ears/mam_ears/cobraears
+	name = "Cobra Hood (Ears)"
+	icon_state = "cobraears"
+	color_src = MUTCOLORS
+	extra = TRUE
 
 /datum/sprite_accessory/ears/mam_ears/cow
 	name = "Cow"
@@ -206,8 +212,7 @@
 /datum/sprite_accessory/ears/mam_ears/dearalt
 	name = "Deer Alt"
 	icon_state = "deeralt"
-	color_src = MATRIXED
-	matrixed_sections = MATRIX_RED
+	color_src = MUTCOLORS
 
 /datum/sprite_accessory/ears/mam_ears/dog
 	name = "Dog"
@@ -222,7 +227,22 @@
 /datum/sprite_accessory/ears/mam_ears/elf
 	name = "Elf"
 	icon_state = "elf"
-	color_src = MUTCOLORS3
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/elfwide
+	name = "Elf (Wide)"
+	icon_state = "elfwide"
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/elfbroad
+	name = "Elf (Broad)"
+	icon_state = "elfbroad"
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/elflonger
+	name = "Elf (Long)"
+	icon_state = "elflonger"
+	color_src = MUTCOLORS
 
 /datum/sprite_accessory/ears/mam_ears/elephant
 	name = "Elephant"
@@ -306,6 +326,12 @@
 	color_src = MATRIXED
 	matrixed_sections = MATRIX_RED_GREEN
 
+/datum/sprite_accessory/ears/mam_ears/fourears
+	name = "Four Ears"
+	icon_state = "four_ears"
+	color_src = MUTCOLORS
+	extra = TRUE
+
 /datum/sprite_accessory/ears/mam_ears/frills/full
 	name = "Frill Full"
 	icon_state = "fullfrill"
@@ -373,10 +399,17 @@
 	color_src = MATRIXED
 	matrixed_sections = MATRIX_RED
 
-/datum/sprite_accessory/ears/mam_ears/mousealt
+/datum/sprite_accessory/ears/mam_ears/mouse
 	name = "Mouse"
 	icon_state = "mouse"
 	color_src = MUTCOLORS
+
+/datum/sprite_accessory/ears/mam_ears/mouse2
+	name = "Mouse (ALT)"
+	icon_state = "mouse2"
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
 
 /datum/sprite_accessory/ears/mam_ears/murid
 	name = "Murid"

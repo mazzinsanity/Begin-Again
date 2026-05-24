@@ -120,6 +120,12 @@
 	name = "Fairy - No Sparkle"
 	icon_state = "fairy2"
 
+/datum/sprite_accessory/deco_wings/arms
+	name = "Two Arms"
+	icon_state = "arms_two"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+
 /datum/sprite_accessory/deco_wings/feathery
 	name = "Feathered"
 	icon_state = "feathery"
@@ -139,6 +145,13 @@
 /datum/sprite_accessory/deco_wings/feathertiny
 	name = "Feathered Tiny"
 	icon_state = "tinyfeather"
+
+/datum/sprite_accessory/deco_wings/pinioned
+	name = "Pinioned"
+	icon_state = "pinioned"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = WINGCOLOR
+	extra = TRUE
 
 /datum/sprite_accessory/deco_wings/harpy
 	name = "Harpy"
@@ -367,6 +380,62 @@
 /datum/sprite_accessory/deco_wings/sspiky
 	name = "Spider Legs (Spiky)"
 	icon_state = "sspiky"
+
+/datum/sprite_accessory/deco_wings/tarantula
+	name = "Tarantula"
+	icon_state = "tarantula"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/deco_wings/spiderthin
+	name = "Spider Legs (Thin)"
+	icon_state = "spiderlegs_thin"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/deco_wings/spiderstriped
+	name = "Spider Legs (Striped)"
+	icon_state = "spiderlegs_striped"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/deco_wings/dragonfly
+	name = "Dragonfly (ALT)"
+	icon_state = "dragonfly"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/deco_wings/beetleelytra
+	name = "Beetle Elytra"
+	icon_state = "beetle_elytra"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+	extra = TRUE
+	extra2 = TRUE
+
+/datum/sprite_accessory/deco_wings/mantisdown
+	name = "Mantis (Down)"
+	icon_state = "mantis_down"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+	extra = TRUE
+
+/datum/sprite_accessory/deco_wings/mantisup
+	name = "Mantis (Up)"
+	icon_state = "mantis_up"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+
+/datum/sprite_accessory/deco_wings/mantistop
+	name = "Mantis (Top)"
+	icon_state = "mantis_top"
+	icon = 'modular_citadel/icons/mob/mam_wings.dmi'
+	color_src = MUTCOLORS
+	extra = TRUE
 
 /datum/sprite_accessory/deco_wings/sylveonbow
 	name = "Bow"

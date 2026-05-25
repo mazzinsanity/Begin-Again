@@ -3,7 +3,7 @@
 	id = /datum/reagent/drug/space_drugs
 	results = list(/datum/reagent/drug/space_drugs = 3)
 	required_reagents = list(/datum/reagent/mercury = 1, /datum/reagent/consumable/sugar = 1, /datum/reagent/lithium = 1)
-/*
+
 /datum/chemical_reaction/crank
 	name = "Crank"
 	id = /datum/reagent/drug/crank
@@ -34,7 +34,7 @@
 	results = list(/datum/reagent/drug/methamphetamine = 4)
 	required_reagents = list(/datum/reagent/medicine/ephedrine = 1, /datum/reagent/iodine = 1, /datum/reagent/phosphorus = 1, /datum/reagent/hydrogen = 1)
 	required_temp = 374
-*/
+
 /datum/chemical_reaction/bath_salts
 	name = "bath_salts"
 	id = /datum/reagent/drug/bath_salts
@@ -110,4 +110,3 @@
 	id = /datum/reagent/drug/buffout
 	results = list(/datum/reagent/drug/buffout = 10)
 	required_reagents = list(/datum/reagent/consumable/sugar = 1, /datum/reagent/phosphorus = 1, /datum/reagent/sulfur = 1, /datum/reagent/drug/crank = 1, /datum/reagent/carbondioxide = 1, /datum/reagent/nitrous_oxide = 1, /datum/reagent/consumable/yuccajuice = 1)
-

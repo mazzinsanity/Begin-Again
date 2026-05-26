@@ -59,7 +59,10 @@ GLOBAL_LIST_INIT(blocking_structures, typecacheof(list(
 		return ..()
 
 /obj/structure/barricade/CanAllowThrough(atom/movable/mover, border_dir)
-	return ismob(mover) ? FALSE : ..()
+	. = ..()
+
+	if(ismob(mover) && !climbable)
+		return FALSE
 
 /////BARRICADE TYPES AND TENTS///////
 //Yeah the new tents go here. Sue me. Use cloth for more posh places like NCR, brahmin skin for tribals/legion  -Pebbles//

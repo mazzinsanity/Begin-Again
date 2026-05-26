@@ -500,7 +500,7 @@
 // MOB PROCS //END
 
 /mob/living/proc/mob_sleep()
-	set name = "Sleep (Minor Healing)"
+	set name = "Sleep"
 	set category = "IC"
 
 	if(IsSleeping())

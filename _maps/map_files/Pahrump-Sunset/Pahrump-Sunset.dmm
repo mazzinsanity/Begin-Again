@@ -26643,9 +26643,6 @@
 /obj/item/reagent_containers/blood/radaway,
 /turf/open/indestructible/ground/outside/desert,
 /area/f13/wasteland/west)
-"dze" = (
-/turf/open/floor/plasteel/elevatorshaft,
-/area/f13/caves)
 "dzg" = (
 /obj/structure/closet/crate/bin,
 /turf/open/indestructible/ground/outside/dirt{
@@ -28265,9 +28262,6 @@
 	name = "famished yao guai"
 	},
 /turf/open/indestructible/ground/inside/mountain,
-/area/f13/caves)
-"emb" = (
-/turf/closed/indestructible/opshuttle,
 /area/f13/caves)
 "eme" = (
 /obj/effect/decal/cleanable/dirt,
@@ -39785,7 +39779,7 @@
 	width = 4
 	},
 /turf/open/floor/plasteel/elevatorshaft,
-/area/f13/caves)
+/area/f13/building)
 "jkj" = (
 /obj/machinery/autolathe,
 /turf/open/floor/plasteel/f13{
@@ -40579,7 +40573,7 @@
 	icon = 'icons/turf/f13floors2.dmi';
 	icon_state = "bluerustychess2"
 	},
-/area/f13/caves)
+/area/f13/building)
 "jDx" = (
 /obj/structure/chair/middle,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -103449,12 +103443,12 @@ vOV
 sGd
 aae
 aae
-emb
-emb
-emb
-emb
-emb
-emb
+aeD
+aeD
+aeD
+aeD
+aeD
+aeD
 aaa
 "}
 (108,1,1) = {"
@@ -103706,12 +103700,12 @@ vgJ
 aae
 aae
 aae
-emb
-dze
-dze
-dze
-dze
-emb
+aeD
+aeZ
+aeZ
+aeZ
+aeZ
+aeD
 aaa
 "}
 (109,1,1) = {"
@@ -103963,12 +103957,12 @@ lRa
 aae
 aae
 aae
-emb
-dze
-dze
-dze
-dze
-emb
+aeD
+aeZ
+aeZ
+aeZ
+aeZ
+aeD
 aaa
 "}
 (110,1,1) = {"
@@ -104220,12 +104214,12 @@ wWc
 aae
 aae
 aae
-emb
-dze
-dze
+aeD
+aeZ
+aeZ
 jkh
-dze
-emb
+aeZ
+aeD
 aaa
 "}
 (111,1,1) = {"
@@ -104477,12 +104471,12 @@ wEd
 acg
 aae
 aae
-emb
-emb
+aeD
+aeD
 jDp
 jDp
-emb
-emb
+aeD
+aeD
 aaa
 "}
 (112,1,1) = {"

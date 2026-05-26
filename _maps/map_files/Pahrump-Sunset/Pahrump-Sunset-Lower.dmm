@@ -1377,7 +1377,7 @@
 	dir = 4;
 	dwidth = 1;
 	height = 3;
-	id = "Vault_Ground";
+	id = "Vault113_Ground";
 	name = "Ground";
 	width = 4
 	},
@@ -11931,7 +11931,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
-/obj/machinery/computer/shuttle/vaultelevator{
+/obj/machinery/computer/shuttle/vault113elevator{
 	dir = 8
 	},
 /turf/open/floor/plasteel/f13/vault_floor,
@@ -46017,8 +46017,8 @@ ruW
 eJs
 iPa
 ptv
-ptv
 bdN
+ptv
 ptv
 iPa
 yeP

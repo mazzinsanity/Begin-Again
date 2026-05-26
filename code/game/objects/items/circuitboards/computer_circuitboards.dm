@@ -426,11 +426,6 @@
 	name = "BoS Entry Elevator Control (Computer board)"
 	build_path = /obj/machinery/computer/shuttle/bosentryelevator
 
-
-/obj/item/circuitboard/computer/vault_control
-	name = "Vault Elevator Control (Computer board)"
-	build_path = /obj/machinery/computer/shuttle/vaultelevator
-
 /obj/item/circuitboard/computer/bunker_control
 	name = "Bunker Elevator Control (Computer board)"
 	build_path = /obj/machinery/computer/shuttle/bunkerelevator
@@ -458,7 +453,3 @@
 /obj/item/circuitboard/computer/enclave
 	name = "Enclave Monitor (Computer Board)"
 	build_path = /obj/machinery/computer/security/enclave
-
-/obj/item/circuitboard/computer/cityvault_control
-	name = "Vault Elevator Control (Computer board)"
-	build_path = /obj/machinery/computer/shuttle/cityvaultelevator

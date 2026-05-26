@@ -1,15 +1,3 @@
-/obj/machinery/computer/shuttle/vaultelevator
-	name = "elevator controls"
-	desc = "Controls the elevator."
-	icon_screen = "shuttle"
-	icon_keyboard = "tech_key"
-	light_color = LIGHT_COLOR_CYAN
-	circuit = /obj/item/circuitboard/computer/vault_control
-	shuttleId = "vault_elevator"
-	possible_destinations = "vault_elevator_top;vault_elevator_down"
-	flags_1 = NODECONSTRUCT_1
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-
 /obj/machinery/computer/shuttle/enclavefortelevator
 	name = "platform controls"
 	desc = "Controls the platform."
@@ -103,17 +91,5 @@
 	circuit = /obj/item/circuitboard/computer/vault113_control
 	shuttleId = "vault113_elevator"
 	possible_destinations = "Vault113_Ground;Vault113_Level_1"
-	flags_1 = NODECONSTRUCT_1
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-
-/obj/machinery/computer/shuttle/cityvaultelevator
-	name = "vault 113 elevator controls"
-	desc = "Controls the elevator between the Vault and Bighorn."
-	icon_screen = "shuttle"
-	icon_keyboard = "tech_key"
-	light_color = LIGHT_COLOR_CYAN
-	circuit = /obj/item/circuitboard/computer/cityvault_control
-	shuttleId = "vault_elevator"
-	possible_destinations = "Vault_Ground;Vault_Level_1"
 	flags_1 = NODECONSTRUCT_1
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF

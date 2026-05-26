@@ -17387,7 +17387,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 10
 	},
-/obj/machinery/computer/shuttle/vaultelevator{
+/obj/machinery/computer/shuttle/vault113elevator{
 	dir = 4
 	},
 /turf/open/floor/plasteel/f13/vault_floor/floor/floorsolid,
@@ -20623,9 +20623,9 @@
 	dir = 8;
 	dwidth = 1;
 	height = 3;
-	id = "Vault_Level_1";
+	id = "Vault113_Level_1";
 	name = "Ground";
-	roundstart_template = /datum/map_template/shuttle/southbunker/elevator;
+	roundstart_template = /datum/map_template/shuttle/vault113/elevator;
 	width = 4
 	},
 /turf/open/floor/plasteel/elevatorshaft,

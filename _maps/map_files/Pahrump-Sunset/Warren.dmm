@@ -6114,9 +6114,6 @@
 "flz" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/rack,
-/obj/item/book/granter/action/origami{
-	pixel_x = -6
-	},
 /obj/item/book/granter/crafting_recipe/cooking_sweets_101{
 	pixel_x = 6
 	},

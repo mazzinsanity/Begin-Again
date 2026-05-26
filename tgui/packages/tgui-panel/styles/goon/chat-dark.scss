@@ -989,8 +989,6 @@ em {
 .hypnophrase {
   color: #202020;
   font-weight: bold;
-  animation: hypnocolor 1500ms infinite;
-  animation-direction: alternate;
 }
 
 .singing {
@@ -1023,8 +1021,6 @@ em {
 .velvet {
   color: #660015;
   font-weight: bold;
-  animation: velvet 5000ms infinite;
-  animation-direction: alternate;
 }
 
 @keyframes velvet {
@@ -1052,7 +1048,6 @@ em {
 .phobia {
   color: #dd0000;
   font-weight: bold;
-  animation: phobia 750ms infinite;
 }
 
 @keyframes phobia {

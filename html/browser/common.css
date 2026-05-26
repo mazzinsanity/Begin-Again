@@ -28,7 +28,7 @@ a, button, a:link, a:visited, a:active, .linkOn, .linkOff
 
 a:hover {
 	background-color: #5DC966;
-	color: black;	
+	color: black;
 }
 
 a.white, a.white:link, a.white:visited, a.white:active
@@ -146,11 +146,10 @@ h4
 
 .uiContent
 {
-	animation: scroll 0.25s 1;
 	clear: both;
 	padding: 8px;
 	font-family: Verdana, Geneva, sans-serif;
-	
+
 }
 
 .good
@@ -394,7 +393,7 @@ p a:before {
 ul a:after,
 p a:after {
 	color: #00dd00;
-	content: '  ';	
+	content: '  ';
 }
 ul.sparse {
 	padding-bottom:20px;
@@ -446,7 +445,7 @@ ul.sparse {
 		left: 0;
 	z-index:-1;
 }
-	
+
 .overlay:after {
 	background: rgba(16, 16, 16, 0.01);
 	content: "";
@@ -458,10 +457,9 @@ ul.sparse {
 		bottom: 0;
 		left: 0;
 	z-index:-1;
-	
+
 }
 .scanline {
-	animation: scrollfade 10s 5s infinite;
 	pointer-events: none;
 	background: linear-gradient(to bottom,  rgba(0,221,0,0) 0%,rgba(0,221,0,1) 25%,rgba(0,221,0,0) 50%);
 	filter: progid:DXImageTransform.Microsoft.Gradient( startColorstr='#0000dd00', endColorstr='#0000dd00',GradientType=0 );
@@ -526,15 +524,15 @@ ul.sparse {
 		95% { opacity: 0.08351 }
 		100% { opacity: 0.054813 }
 	}
-@keyframes type { 
-  from { width: 0; } 
-} 
+@keyframes type {
+  from { width: 0; }
+}
 
 @keyframes type2 {
   0%{width: 0;}
   50%{width: 0;}
-  100%{ width: 100; } 
-} 
+  100%{ width: 100; }
+}
 
 @keyframes blink {
   to{opacity: .0;}
@@ -545,7 +543,6 @@ ul.sparse {
 	to { top: 100% }
 }
 .wrapper {
-  animation: scroll 5s 1;
   margin: 0;
   overflow: hidden;
   padding: 0;

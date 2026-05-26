@@ -1026,8 +1026,6 @@ h1.alert, h2.alert {
 .hypnophrase {
   color: #0d0d0d;
   font-weight: bold;
-  animation: hypnocolor 1500ms infinite;
-  animation-direction: alternate;
 }
 
 .singing {
@@ -1060,8 +1058,6 @@ h1.alert, h2.alert {
 .velvet {
   color: #660015;
   font-weight: bold;
-  animation: velvet 5000ms infinite;
-  animation-direction: alternate;
 }
 
 @keyframes velvet {
@@ -1089,7 +1085,6 @@ h1.alert, h2.alert {
 .phobia {
   color: #dd0000;
   font-weight: bold;
-  animation: phobia 750ms infinite;
 }
 
 @keyframes phobia {

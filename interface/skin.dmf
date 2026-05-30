@@ -63,10 +63,11 @@ window "mapwindow"
 		size = 640x480
 		anchor1 = 0,0
 		anchor2 = 100,100
-		font-family = "Arial"
-		font-size = 7
+		font-family = "Grand9K Pixel"
+		font-size = 6pt
 		is-default = true
 		saved-params = "zoom;letterbox;zoom-mode;icon-size;text-mode"
+		style = ".center { text-align: center; } .maptext { font-family: 'Grand9K Pixel'; font-size: 6pt; -dm-text-outline: 1px black; color: white; line-height: 1.0; } .context { font-family: 'Pixellari'; font-size: 12pt; -dm-text-outline: 1px black; }  .subcontext { font-family: 'TinyUnicode'; font-size: 12pt; line-height: 0.75; } .small { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; } .big { font-family: 'Pixellari'; font-size: 12pt; } .italics { font-family: 'Spess Font'; font-size: 6pt; line-height: 1.4; }"
 
 window "infowindow"
 	elem "infowindow"

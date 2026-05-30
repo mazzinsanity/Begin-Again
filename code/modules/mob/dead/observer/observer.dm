@@ -203,7 +203,7 @@ GLOBAL_VAR_INIT(observer_default_invisibility, INVISIBILITY_OBSERVER)
 	final_appearance.appearance_flags |= KEEP_TOGETHER
 	final_appearance.blend_mode = original.blend_mode
 	final_appearance.color = original.color
-	final_appearance.maptext = original.maptext
+	final_appearance.maptext = MAPTEXT(original.maptext)
 	final_appearance.maptext_width = original.maptext_width
 	final_appearance.maptext_height = original.maptext_height
 	final_appearance.maptext_x = original.maptext_x

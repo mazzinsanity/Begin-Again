@@ -1363,7 +1363,7 @@ Weapons		Service Rifle, Grease Gun, 9mm pistol, all good.
 	suit = /obj/item/clothing/suit/armor/f13/ncr/reinforced/mantle/sergeant
 	suit_store = /obj/item/gun/ballistic/automatic/assault_rifle/r91
 	backpack_contents = list(
-		/obj/item/ammo_box/magazine/ = 1,
+		/obj/item/ammo_box/magazine/m5mm = 1,
 		/obj/item/clothing/accessory/ncr/FSGT = 1
 		)
 

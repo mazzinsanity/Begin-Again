@@ -52,3 +52,5 @@ GLOBAL_LIST_EMPTY(money_piles)
 GLOBAL_LIST_EMPTY(spent_bullet_casings)				//list of all spent bullet casings
 
 GLOBAL_LIST_EMPTY(lamppost)							//list of all lampposts
+
+GLOBAL_LIST_EMPTY(faction_item_spawners)			//list of all faction item spawners

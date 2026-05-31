@@ -150,6 +150,7 @@ Head Paladin
 		/obj/item/melee/onehanded/knife/hunting = 1,
 		/obj/item/gun/energy/laser/pistol=1,
 		/obj/item/stock_parts/cell/ammo/ec=1,
+		/obj/item/melee/f13powerfist = 1,
 		)
 
 /datum/outfit/loadout/sentheavy
@@ -483,6 +484,7 @@ Paladin
 		/obj/item/melee/onehanded/knife/hunting = 1,
 		/obj/item/gun/energy/laser/pistol=1,
 		/obj/item/stock_parts/cell/ammo/ec=1,
+		/obj/item/melee/f13powerfist = 1,
 	)
 
 /datum/outfit/loadout/paladina

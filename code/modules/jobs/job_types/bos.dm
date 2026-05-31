@@ -38,6 +38,7 @@ Main doors: ACCESS_CAPTAIN 20
 	if(visualsOnly)
 		return
 	ADD_TRAIT(H, TRAIT_TECHNOPHREAK,  REF(src))
+	ADD_TRAIT(H, TRAIT_CHEMWHIZ,  REF(src))
 	ADD_TRAIT(H, TRAIT_STRAIGHT_EDGE,  REF(src))
 	ADD_TRAIT(H, TRAIT_GENERIC,  REF(src))
 	H.mind.teach_crafting_recipe(/datum/crafting_recipe/boscombatarmor)
@@ -73,7 +74,6 @@ Elder
 	..()
 	if(visualsOnly)
 		return
-	ADD_TRAIT(H, TRAIT_CHEMWHIZ,  REF(src))
 	ADD_TRAIT(H, TRAIT_RESEARCHER,  REF(src))
 	H.AddSpell(new /obj/effect/proc_holder/spell/terrifying_presence)
 
@@ -209,7 +209,6 @@ Proctor
 	ADD_TRAIT(H, TRAIT_CYBERNETICIST_EXPERT,  REF(src))
 	ADD_TRAIT(H, TRAIT_CYBERNETICIST,  REF(src))
 	ADD_TRAIT(H, TRAIT_GENERIC,  REF(src))
-	ADD_TRAIT(H, TRAIT_CHEMWHIZ,  REF(src))
 	ADD_TRAIT(H, TRAIT_SURGERY_HIGH,  REF(src))
 	ADD_TRAIT(H, TRAIT_RESEARCHER,  REF(src))
 	ADD_TRAIT(H, TRAIT_ADVANCED_EXPLOSIVE_CRAFTING, REF(src))
@@ -970,7 +969,6 @@ Initiate
 	gloves =		/obj/item/clothing/gloves/color/latex
 	backpack_contents = list(
 		/obj/item/reagent_containers/hypospray/medipen/stimpak=1,
-		/obj/item/book/granter/trait/chemistry=1,
 		/obj/item/book/granter/trait/lowsurgery=1,
 		/obj/item/clothing/accessory/bos/initiateS=1,
 		)

@@ -503,7 +503,7 @@
 		playsound(loc, hitsound, 70, TRUE)
 
 // Proton axe			Keywords: Damage 20/41, AP 0.7
-/obj/item/melee/transforming/energy/axe/protonaxe
+/obj/item/melee/transforming/energy/protonaxe
 	name = "proton axe"
 	desc = "The experimental proton axe resembles a futuristic war-axe with a glowing blue blade of electrical energy at its head."
 	icon = 'icons/fallout/objects/melee/twohanded.dmi'
@@ -511,18 +511,23 @@
 	righthand_file = 'icons/fallout/onmob/weapons/melee2h_righthand.dmi'
 	icon_state = "protonaxe"
 	icon_state_on = "protonaxe_on"
+	mob_overlay_icon = 'icons/fallout/onmob/backslot_weapon.dmi'
 	block_parry_data = /datum/block_parry_data/smith_generic //data is in finished items file
 	w_class = WEIGHT_CLASS_BULKY
-	slot_flags = null
-	force = 20
-	force_on = 41
+	w_class_on = WEIGHT_CLASS_HUGE
+	light_color = "#40ceff"
+	attack_verb_off = list("attacked", "chopped", "cleaved", "torn", "cut")
+	attack_verb_on = list()
+	hitsound = 'sound/weapons/bladeslice.ogg'
+	throw_speed = 3
+	throw_range = 5
 	armour_penetration = 0.7
 	throwforce = 15
 	throwforce_on = 50
 
 /obj/item/melee/transforming/energy/axe/protonaxe/ComponentInitialize()
 	. = ..()
-	AddComponent(/datum/component/two_handed, require_twohands=TRUE)
+	AddComponent(/datum/component/two_handed, force_unwielded=20, force_wielded=41, icon_wielded="protonaxe_on")
 	AddElement(/datum/element/update_icon_updates_onmob)
 
 // Inquisitorial axe			Keywords: Damage 6/32, AP 0.9, SPEAR REACH, BACK SLOT ENABLED

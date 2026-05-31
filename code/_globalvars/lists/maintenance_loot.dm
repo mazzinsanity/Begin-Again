@@ -479,7 +479,7 @@ GLOBAL_LIST_INIT(loot_t4_melee, list(
 GLOBAL_LIST_INIT(loot_t5_melee, list(
 	/obj/item/twohanded/thermic_lance,
 	/obj/item/twohanded/chainsaw,
-	/obj/item/melee/transforming/energy/axe/protonaxe,
+	/obj/item/melee/transforming/energy/protonaxe,
 	/obj/item/melee/powered/ripper,
 	/obj/item/melee/f13powerfist,
 	/obj/item/twohanded/sledgehammer/rockethammer,

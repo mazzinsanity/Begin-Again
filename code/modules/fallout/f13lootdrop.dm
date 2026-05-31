@@ -747,7 +747,7 @@
 				/obj/item/twohanded/sledgehammer/rockethammer,
 				/obj/item/melee/powered/ripper,
 				/obj/item/melee/f13powerfist,
-				/obj/item/melee/transforming/energy/axe/protonaxe,
+				/obj/item/melee/transforming/energy/protonaxe,
 				/obj/item/gun/ballistic/revolver/ballisticfist,
 				/obj/item/twohanded/sledgehammer/supersledge,
 				/obj/item/shishkebabpack,

@@ -104,7 +104,7 @@
 	var/on = TRUE
 
 /obj/item/signal_bomb/receive_signal(datum/signal/signal)
-	if(!signal || signal.data["code"] != code || is_active)
+	if(!signal || signal.data["code"] != code || is_active || !on)
 		return
 	playsound(src, 'sound/machines/triple_beep.ogg', 75)
 	is_active = TRUE
@@ -146,7 +146,7 @@
 	switch(action)
 		if("power")
 			on = !on
-			icon_state = "electropack[on]"
+			icon_state = "capmine_preactive"
 			. = TRUE
 		if("freq")
 			var/value = unformat_frequency(params["freq"])

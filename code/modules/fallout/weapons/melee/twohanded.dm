@@ -455,7 +455,7 @@
 /////////////////////////////////
 
 // Thermic Lance		Keywords: Damage 5/60, AP 0.1 Special Damage Type - Burn, bonus damage metal door
-/obj/item/twohanded/thermiclance
+/obj/item/twohanded/thermic_lance
 	name = "thermic lance"
 	desc = "A versatile power-welding tool. Useful for cutting apart metal things like airlocks, bars, and probably limbs."
 	icon = 'icons/fallout/objects/melee/twohanded.dmi'

@@ -444,9 +444,9 @@
 //Scout carbine			Keywords: NCR, 5.56mm, Semi-auto, 20 (10-50) round magazine. Special modifiers:spread -1
 /obj/item/gun/ballistic/automatic/service/carbine
 	name = "scout carbine"
-	desc = "A cut down version of the standard-issue service rifle tapped with mounting holes for a scope. Shorter barrel, lower muzzle velocity."
-	icon = 'icons/fallout/objects/guns/ballistic.dmi'
-	icon_state = "scout_carbine"
+	desc = "A Gun Runners made Ruger AC556 carbine meant to replace the service rifle for specialist and scouting uses. Chambered in 5.56mm."
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
+	icon_state = "ac556"
 	spread = 1.2
 	slowdown = 0.05
 	can_scope = TRUE
@@ -527,9 +527,10 @@
 
 //M1 Garand					Keywords: .308, Semi-auto, 8 rounds internal
 /obj/item/gun/ballistic/automatic/m1garand
-	name = "M1 Garand"
-	desc = "The WWII American Classic. Still has that satisfiying ping."
-	icon_state = "m1garand"
+	name = "battle rifle"
+	desc = "A pre-war sized down M1 Garand semi-automatic rifle chambered for .308, most sales of this particular model were due to a countrywide interest during the 2076 Memorial Day."
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
+	icon_state = "battle"
 	item_state = "rifle"
 	icon_prefix = "308"
 	force = 20
@@ -564,17 +565,17 @@
 
 //Old Glory					Keywords: UNIQUE, .308, Semi-auto, 8 rounds internal, Damage +10
 /obj/item/gun/ballistic/automatic/m1garand/oldglory
-	name = "Old Glory"
-	desc = "This Machine kills communists!"
-	icon_state = "oldglory"
+	name = "\improper Old Glory"
+	desc = "A modified hard-hitting variant of the battle rifle wrapped with a United States flag. You can see 'WELL THIS MACHINE KILLS COMMIES' etched on the handguard."
+	icon_state = "thismachine"
 	extra_damage = 10
 	extra_penetration = 0.12
 
 //Republics Pride			Keywords: UNIQUE, 7.62mm, Semi-auto, 8 rounds internal, Scoped, Damage -3, Penetration +0.1
 /obj/item/gun/ballistic/automatic/m1garand/republicspride
-	name = "Republic's Pride"
-	desc = "A well-tuned scoped M1C rifle crafted by master gunsmith from the Gunrunners. Chambered in 7.62x51."
-	icon_state = "republics_pride"
+	name = "\improper Republic's Pride"
+	desc = "A well-tuned battle rifle crafted by one of the Gun Runners' master gunsmiths."
+	icon_state = "lieutenant"
 	item_state = "scoped308"
 	zoomable = TRUE
 	zoom_amt = 10
@@ -609,9 +610,9 @@
 //DKS 501 sniper rifle				Keywords: .308, Semi-auto, 7 round magazine, Scoped, Extra speed +500, Fire delay +1, 43dmg
 /obj/item/gun/ballistic/automatic/marksman/sniper
 	name = "sniper rifle"
-	desc = "A DKS 501, chambered in .308 Winchester.  With a light polymer body, it's suited for long treks through the desert."
-	icon = 'icons/fallout/objects/guns/ballistic.dmi'
-	icon_prefix = "sniperrifle"
+	desc = "A pre-war DKS 501 semi-automatic sniper rifle, chambered in .308 Winchester.  With a light polymer body, it's suited for long treks through the desert."
+	icon = 'icons/obj/guns/gunfruits2022/rifles_large.dmi'
+	icon_prefix = "dks"
 	icon_state = "sniper_rifle"
 	item_state = "sniper_rifle"
 	mag_type = /obj/item/ammo_box/magazine/w308
@@ -650,12 +651,11 @@
 
 /obj/item/gun/ballistic/automatic/marksman/sniper/snipervenator
 	name = "explorer sniper rifle"
-	desc = "The customized sniper rifle, fitted with a telescopic sight for extreme accuracy and chambered for a high-ballistic performance centerfire cartridge. It is a superior version of the regular sniper rifle and is decorated with the flag of the bull and tokens of a hunt."
-	icon = 'icons/fallout/objects/guns/ballistic.dmi'
+	desc = "A customized DKS-501 sniper rifle, fitted with a telescopic sight for extreme accuracy and chambered for a high-ballistic performance centerfire cartridge. It is a superior version of the regular sniper rifle and is decorated with the flag of the bull and tokens of a hunt."
 	lefthand_file = 'icons/fallout/onmob/weapons/guns_lefthand.dmi'
 	righthand_file = 'icons/fallout/onmob/weapons/guns_righthand.dmi'
 	mob_overlay_icon = 'icons/fallout/onmob/backslot_weapon.dmi'
-	icon_state = "venator_sniper"
+	icon_state = "hunterdks"
 	item_state = "venator_sniper"
 	fire_delay = 5
 	slowdown = 0.12
@@ -818,7 +818,7 @@
 //FAL		Keywords: 7.62mm, 10/20 Rounds, Superhigh tier
 /obj/item/gun/ballistic/automatic/assault_rifle/fal
 	name = "automatic battle rifle"
-	desc = "A uniquely powerful pre-war FAL PARA battle rifle developed by FN Herstal. The shorter barrel and lightweight polymer furniture made it ideal for paratroopers across the European Commonwealth. Chambered in 7.62mm."
+	desc = "A uniquely powerful pre-war FN FAL HPFA battle rifle developed by FN Herstal. It's incredibly hefty, but its accuracy and stopping power made it a staple across the European Commonwealth and South America. Chambered in 7.62mm."
 	icon_state = "fal"
 	item_state = "fal"
 	fire_sound = 'sound/f13weapons/762assault_rifle.ogg'

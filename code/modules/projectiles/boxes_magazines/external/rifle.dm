@@ -42,7 +42,8 @@
 	icon_state = "autopipe_belt-[round(ammo_count(),9)]"
 
 /obj/item/ammo_box/magazine/m556mm
-	name = "rifle magazine (5.56mm)"
+	name = "twenty-round magazine (5.56mm)"
+	desc = "An Armalite-style magazine meant for 5.56x45mm or .223 Remington ammo. Holds twenty rounds, ideal for infantrymen."
 	icon = 'icons/fallout/objects/guns/ammo.dmi'
 	icon_state = "mrifle"
 	ammo_type = /obj/item/ammo_casing/a556mm
@@ -55,7 +56,8 @@
 	start_empty = 1
 
 /obj/item/ammo_box/magazine/m556mm/small
-	name = "small rifle magazine (5.56mm)"
+	name = "ten-round rifle magazine (5.56mm)"
+	desc = "An Armalite-style magazine meant for 5.56x45mm or .223 Remington ammo. Holds ten rounds, ideal for hunting and target shooting."
 	icon_state = "mriflesmall"
 	max_ammo = 10
 
@@ -63,7 +65,8 @@
 	start_empty = 1
 
 /obj/item/ammo_box/magazine/m556mm/extended
-	name = "extended rifle magazine (5.56mm)"
+	name = "thirty-round magazine (5.56mm)"
+	desc = "An Armalite-style magazine meant for 5.56x45mm or .223 Remington ammo. Holds thirty rounds, ideal for modern warfare."
 	icon_state = "mrifleext"
 	max_ammo = 30
 
@@ -71,8 +74,8 @@
 	start_empty = 1
 
 /obj/item/ammo_box/magazine/m556mm/drum
-	name = "rifle drum magazine (5.56mm)"
-	desc = "A large drum magazine chambered for 5.56."
+	name = "fifty-round magazine (5.56mm)"
+	desc = "An Armalite-style magazine with a reinforced spring meant for 5.56x45mm or .223 Remington ammo. Holds fifty rounds, ideal for suppressive fire."
 	icon_state = "mdrum"
 	max_ammo = 50
 	w_class = WEIGHT_CLASS_NORMAL

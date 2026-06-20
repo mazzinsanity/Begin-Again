@@ -171,7 +171,7 @@
 	return INITIALIZE_HINT_QDEL
 
 /obj/effect/spawner/bundle/crate/mosin
-	name = "Mosin-Nagant spawner"
+	name = "M1903 spawner"
 	items = list(
 		/obj/item/gun/ballistic/rifle/mosin,
 		/obj/item/ammo_box/a762mm

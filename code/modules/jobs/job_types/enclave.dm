@@ -296,7 +296,7 @@
 
 	loadout_options = list(
 		/datum/outfit/loadout/sgt_plasrifle,	// Plasma rifle + Mk23
-		/datum/outfit/loadout/sgt_cqc, //Neostead + Plaspistol
+		/datum/outfit/loadout/sgt_cqc, // citykiller + Plaspistol
 		/datum/outfit/loadout/sgt_classic, // AK-112 + Plaspistol
 		)
 
@@ -332,7 +332,7 @@
 
 /datum/outfit/loadout/sgt_cqc
 	name = "Close Quarters Assaultman"
-	suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat/neostead
+	suit_store = /obj/item/gun/ballistic/shotgun/automatic/combat/citykiller
 	backpack_contents = list(
 		/obj/item/ammo_box/shotgun/slug = 2,
 		/obj/item/ammo_box/shotgun/buck = 2,

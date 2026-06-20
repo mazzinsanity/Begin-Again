@@ -467,9 +467,9 @@
 	subcategory = CAT_WEAPON
 
 
-//browning hi-power
+//stallard js-9
 /datum/crafting_recipe/ninemil
-	name = "9mm Pistol"
+	name = "Cheap 9mm Pistol"
 	result = /obj/item/gun/ballistic/automatic/pistol/ninemil
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 1,
 				/obj/item/stack/crafting/metalparts = 1,
@@ -482,7 +482,7 @@
 
 //m1911
 /datum/crafting_recipe/m1911
-	name = "M1911"
+	name = ".45 Auto pistol"
 	result = /obj/item/gun/ballistic/automatic/pistol/m1911
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 1,
 				/obj/item/stack/crafting/metalparts = 2,
@@ -560,7 +560,7 @@
 
 //remington rifle
 /datum/crafting_recipe/remingtonhuntingrifle
-	name = "Hunting Rifle"
+	name = "upgraded hunting rifle"
 	result = /obj/item/gun/ballistic/rifle/hunting/remington
 	reqs = list(/obj/item/stack/crafting/goodparts = 2,
 				/obj/item/stack/crafting/metalparts = 2,
@@ -573,7 +573,7 @@
 
 //battle rifle
 /datum/crafting_recipe/m1garand
-	name = "M1 Garand"
+	name = "Battle Rifle"
 	result = /obj/item/gun/ballistic/automatic/m1garand
 	reqs = list(/obj/item/stack/sheet/mineral/wood = 1,
 				/obj/item/stack/crafting/metalparts = 2,
@@ -767,7 +767,7 @@
 	always_available = FALSE
 
 /datum/crafting_recipe/gaussrifle
-	name = "M72 Gauss Rifle"
+	name = "Gauss Rifle"
 	result = /obj/item/gun/ballistic/automatic/m72
 	reqs = list(/obj/item/stack/sheet/metal = 15,
 				/obj/item/advanced_crafting_components/flux = 1,
@@ -777,21 +777,6 @@
 				/obj/item/advanced_crafting_components/receiver = 1,
 				/obj/item/stack/crafting/metalparts = 5,
 				/obj/item/stack/crafting/electronicparts = 15
-				)
-	tools = list(TOOL_AWORKBENCH)
-	time = 120
-	category = CAT_WEAPONRY
-	subcategory = CAT_WEAPON
-	always_available = FALSE
-
-/datum/crafting_recipe/neostead
-	name = "Neostead 2000"
-	result = /obj/item/gun/ballistic/shotgun/automatic/combat/neostead_noalt
-	reqs = list(/obj/item/stack/sheet/metal = 10,
-				/obj/item/advanced_crafting_components/assembly = 1,
-				/obj/item/advanced_crafting_components/alloys = 1,
-				/obj/item/advanced_crafting_components/receiver = 1,
-				/obj/item/stack/crafting/goodparts = 15,
 				)
 	tools = list(TOOL_AWORKBENCH)
 	time = 120
@@ -978,7 +963,7 @@
 
 //Grease gun
 /datum/crafting_recipe/greasegun
-	name = "Grease Gun"
+	name = "Cheap .45 Auto SMG"
 	result = /obj/item/gun/ballistic/automatic/smg/greasegun
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/stack/crafting/metalparts = 3,
@@ -1004,7 +989,7 @@
 
 //Uzi
 /datum/crafting_recipe/uzi
-	name = "Uzi"
+	name = "9mm SMG"
 	result = /obj/item/gun/ballistic/automatic/smg/uzi
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/advanced_crafting_components/assembly = 1,
@@ -1034,7 +1019,7 @@
 
 //Thompson
 /datum/crafting_recipe/thompson
-	name = "Thompson"
+	name = ".45 Auto SMG"
 	result = /obj/item/gun/ballistic/automatic/smg/thompson
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/advanced_crafting_components/assembly = 1,
@@ -1094,7 +1079,7 @@
 
 //R91 Assault Rifle
 /datum/crafting_recipe/r91
-	name = "R91 Assault Rifle"
+	name = "Assault Rifle"
 	result = /obj/item/gun/ballistic/automatic/assault_rifle/r91
 	reqs = list(/obj/item/stack/sheet/metal = 5,
 				/obj/item/advanced_crafting_components/assembly = 1,
@@ -1110,7 +1095,7 @@
 
 //Type 93 Assault Rifle
 /datum/crafting_recipe/type93
-	name = "Type 93 Assault Rifle"
+	name = "Chinese Assault Rifle"
 	result = /obj/item/gun/ballistic/automatic/assault_rifle/type93
 	reqs = list(/obj/item/stack/sheet/metal = 10,
 				/obj/item/advanced_crafting_components/assembly = 1,
@@ -1125,7 +1110,7 @@
 
 //R84 LMG
 /datum/crafting_recipe/r84
-	name = "R84 LMG"
+	name = "Light Machine Gun"
 	result = /obj/item/gun/ballistic/automatic/lmg/r84
 	reqs = list(/obj/item/stack/sheet/metal = 10,
 				/obj/item/advanced_crafting_components/assembly = 1,
@@ -1141,7 +1126,7 @@
 
 //Type 88 LMG
 /datum/crafting_recipe/type88
-	name = "Type 88 LMG"
+	name = "Chinese LMG"
 	result = /obj/item/gun/ballistic/automatic/lmg/type88
 	reqs = list(/obj/item/stack/sheet/metal = 20,
 				/obj/item/advanced_crafting_components/assembly = 1,
@@ -1220,7 +1205,7 @@
 
 //aer9
 /datum/crafting_recipe/AER9
-	name = "AER-9"
+	name = "Laser Rifle"
 	result = /obj/item/gun/energy/laser/aer9
 	reqs = list(/obj/item/stack/sheet/metal = 15,
 				/obj/item/advanced_crafting_components/lenses = 1,

@@ -857,6 +857,7 @@
 	name = "very low tier non-hobo ballistic gun"
 	icon_state = "gunverylow_loot"
 	loot = list(/obj/effect/spawner/bundle/f13/ninemil,
+				/obj/effect/spawner/bundle/f13/js45,
 				/obj/effect/spawner/bundle/f13/caravan_shotgun,
 				/obj/effect/spawner/bundle/f13/remington,
 				/obj/effect/spawner/bundle/f13/widowmaker,
@@ -868,11 +869,13 @@
 	name = "low tier ballistic gun"
 	icon_state = "gunlow_loot"
 	loot = list(/obj/effect/spawner/bundle/f13/m1911,
+				/obj/effect/spawner/bundle/f13/js45,
 				/obj/effect/spawner/bundle/f13/thatgun,
 				/obj/effect/spawner/bundle/f13/n99,
 				/obj/effect/spawner/bundle/f13/colt357,
 				/obj/effect/spawner/bundle/f13/huntingshotgun,
 				/obj/effect/spawner/bundle/f13/police_pistol,
+				/obj/effect/spawner/bundle/f13/beretta,
 				/obj/effect/spawner/bundle/f13/beretta/select,
 				)
 
@@ -997,7 +1000,7 @@
 				)
 
 /obj/effect/spawner/bundle/f13/mosin
-	name = "mosin nagant and ammo spawner"
+	name = "m1903 and ammo spawner"
 	items = list(
 				/obj/item/gun/ballistic/rifle/mosin,
 				/obj/item/ammo_box/a762mm
@@ -1023,6 +1026,13 @@
 				/obj/item/gun/ballistic/automatic/pistol/m1911,
 				/obj/item/ammo_box/magazine/m45
 				)
+
+/obj/effect/spawner/bundle/f13/js45
+	name = "js45 and ammo spawner"
+	items = list(
+			/obj/item/gun/ballistic/automatic/pistol/m1911/compact,
+			/obj/item/ammo_box/magazine/m45
+			)
 
 /obj/effect/spawner/bundle/f13/ninemil
 	name = "9mm pistol and ammo spawner"
@@ -1263,7 +1273,7 @@
 				)
 
 /obj/effect/spawner/bundle/f13/beretta/select
-	name = "select-fire beretta pistol and ammo spawner"
+	name = "select-fire vp70 pistol and ammo spawner"
 	items = list(
 				/obj/item/gun/ballistic/automatic/pistol/beretta/automatic,
 				/obj/item/ammo_box/magazine/m9mmds/
@@ -1281,13 +1291,6 @@
 	items = list(
 				/obj/item/gun/ballistic/automatic/pistol/pistol14,
 				/obj/item/ammo_box/magazine/m14mm
-	)
-
-/obj/effect/spawner/bundle/f13/neostead
-	name = "Neostead 2000 shotgun and ammo spawner"
-	items = list(
-				/obj/item/gun/ballistic/shotgun/automatic/combat/neostead_noalt,
-				/obj/item/ammo_box/shotgun/buck
 	)
 
 /obj/effect/spawner/bundle/f13/auto5
@@ -2334,7 +2337,6 @@
 	icon_state = "blueprint_loot"
 	lootcount = 1
 	loot = list(
-		/obj/item/book/granter/crafting_recipe/blueprint/neostead,
 		/obj/item/book/granter/crafting_recipe/blueprint/riotshotgun,
 		/obj/item/book/granter/crafting_recipe/blueprint/sniper,
 		/obj/item/book/granter/crafting_recipe/blueprint/brushgun,

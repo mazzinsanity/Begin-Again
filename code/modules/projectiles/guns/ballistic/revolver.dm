@@ -130,7 +130,7 @@
 // .38 Detective					Keywords: .38, Double action, 6 rounds cylinder, Short barrel, Bootgun
 /obj/item/gun/ballistic/revolver/detective
 	name = ".38 revolver"
-	desc = "An easily concealable, poorly-made .38 revolver. The manufacturer is unknown"
+	desc = "An easily concealable, poorly-made .38 revolver. The manufacturer is unknown."
 	icon_state = "detective"
 	w_class = WEIGHT_CLASS_SMALL
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev38
@@ -146,8 +146,8 @@
 
 //S&W 45						Keywords: .45, Single action, 7 rounds cylinder, Long barrel
 /obj/item/gun/ballistic/revolver/revolver45
-	name = ".45 Auto revolver"
-	desc = "A customized S&W Model 625 revolver chambered for .45 ACP."
+	name = ".45 Casull revolver"
+	desc = "A simple Casull revolver chambered for .45 Auto. Its origins are lost to the mist of time."
 	item_state = "45revolver"
 	icon_state = "45revolver"
 	icon = 'icons/obj/guns/gunfruits2022/pistols.dmi'
@@ -156,8 +156,6 @@
 	spread = 1
 	fire_sound = 'sound/f13weapons/45revolver.ogg'
 	extra_damage = 5
-
-
 
 ////////////////////
 // .357 REVOLVERS //
@@ -188,13 +186,6 @@
 	icon = 'icons/fallout/objects/guns/ballistic.dmi'
 	icon_prefix = "357chain"
 
-/obj/item/gun/ballistic/revolver/colt357/mateba //this is a skin that rigbe wanted
-	name = "\improper Unica 6 auto-revolver"
-	desc = "A pre-war high-power autorevolver commonly used by people who think they look cool."
-	icon_state = "mateba"
-	item_state = "mateba"
-	fire_sound = 'sound/f13weapons/magnum_fire.ogg'
-
 //Lucky							Keywords: UNIQUE, .357, Double action, 6 rounds cylinder, Block chance, Fire delay -1
 /obj/item/gun/ballistic/revolver/colt357/lucky
 	name = "Lucky"
@@ -204,13 +195,13 @@
 	icon = 'icons/obj/guns/gunfruits2022/pistols.dmi'
 	w_class = WEIGHT_CLASS_SMALL
 	fire_delay = 3
-	block_chance = 50
-	extra_penetration = 0.05
+	block_chance = 40
+	extra_penetration = 0.1
 
 //Police revolver					Keywords: .357, Double action, 6 rounds cylinder, Pocket Pistol
 /obj/item/gun/ballistic/revolver/police
 	name = "police revolver"
-	desc = "An unmarked snub-nosed double-action pre-war revolver meant for police use, phased out long ago in favor of semi-automatic pistols."
+	desc = "An unmarked snub-nosed double-action pre-war revolver meant for law enforcement, it was phased out long ago in favor of self-loading pistols. Chambered in .38 Special or .357 Magnum."
 	icon_state = "police"
 	icon = 'icons/obj/guns/gunfruits2022/pistols.dmi'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev357
@@ -228,7 +219,7 @@
 //.44 Magnum revolver		 	Keywords: .44, Double action, 6 rounds cylinder
 /obj/item/gun/ballistic/revolver/m29
 	name = ".44 magnum revolver"
-	desc = "A robust S&W Model 29 revolver, uniquely powerful and reliable. Do you feel lucky, punk?"
+	desc = "An uniquely powerful S%W Model 29 double-action revolver, chambered for .44 Magnum rounds. Do you feel lucky, punk?"
 	item_state = "model29"
 	icon_state = "m29"
 	icon = 'icons/obj/guns/gunfruits2022/pistols.dmi'
@@ -239,7 +230,7 @@
 	scope_x_offset = 6
 	scope_y_offset = 24
 	fire_sound = 'sound/f13weapons/44mag.ogg'
-	extra_damage = 5
+	extra_damage = 3	//35
 
 /obj/item/gun/ballistic/revolver/m29/alt
 	name = "modern .44 magnum revolver"
@@ -247,18 +238,7 @@
 	item_state = "44magnum"
 	icon_state = "mysterious_m29"
 	can_scope = FALSE
-	extra_damage = 5
-	extra_speed = 80
-
-//Chiappa Rhino                  Keywords: Enclave, .44, Double action, 6 rounds cylinder
-/obj/item/gun/ballistic/revolver/m29/rhino_america
-	name = "Rhino America"
-	desc = "A revolver machined from a solid aluminium block. This one is coated in gold paint with its grip painted to look like the flag of the United States of America. This model has been specifically made to fire .44 magnum cartridges."
-	item_state = "rhino_america"
-	icon_state = "rhino_america"
-	can_scope = FALSE
-	extra_damage = 23 //for a combined total of 55 damage, as good as the 14mm pistol and plasma pistol.
-	fire_delay = 4 //it should still fire slow but not too slow
+	extra_speed = 100
 
 //Peacekeeper					 Keywords: Experimental, .44, Double action, 6 rounds cylinder
 /obj/item/gun/ballistic/revolver/m29/peacekeeper
@@ -281,29 +261,35 @@
 	w_class = WEIGHT_CLASS_SMALL
 	spread = 3
 	extra_damage = 0
+	extra_speed = -30
 
 
-//.44 single action		 			Keywords: .44, Single action, 6 rounds cylinder, Long barrel
+//.44 single action		 			Keywords: .44, Single action, 5 rounds cylinder, Long barrel
 /obj/item/gun/ballistic/revolver/revolver44
-	name = "\improper .44 magnum single-action revolver"
-	desc = "I hadn't noticed, but there on his hip, was a moderately sized iron..."
+	name = "\improper .44 percussion revolver"
+	desc = "A five pound sixteen-inch single-action Colt Walker chambered in .44 ball. It hits a /lot/ harder than other revolvers, at the heavy cost of speed and armor penetration. It would take a Texan to shoot it."
 	item_state = "44colt"
 	icon_state = "44colt"
-	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44
-	fire_delay = 5
+	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/rev44/percussion
+	fire_delay = 6
 	spread = 0
+	recoil = 3
 	fire_sound = 'sound/f13weapons/44revolver.ogg'
-
+	extra_damage = 10
+	extra_speed = -150
+	extra_penetration = -0.1
+	icon = 'icons/obj/guns/gunfruits2022/pistols.dmi'
 
 //Desert Ranger revolver			Keywords: .44, Single action, 6 rounds cylinder,
 /obj/item/gun/ballistic/revolver/revolver44/desert_ranger
-	name = "desert ranger revolver"
-	desc = "I hadn't noticed, but there on his hip, was a really spiffy looking iron..."
-	fire_delay = 4
+	name = "desert ranger .44 revolver"
+	desc = "A five pound sixteen-inch single-action Colt Walker chambered in .44 ball. They hail from back east, what used to be called Nevada. Their heritage stretches back to the days of the Texas Rangers."
+	fire_delay = 3
+	extra_speed = 0
 
 //Sheriff's revolver			Keywords: .44, Single action, 6 rounds cylinder, 5 less damage than sequoia, 20% more pen
 /obj/item/gun/ballistic/revolver/revolver44/sheriff
-	name = "Biggest Iron"
+	name = "Big Iron"
 	desc = "There was forty feet between them, when they stopped to make their play..."
 	force = 25
 	casing_ejector = TRUE//WHAT THE FUCK IS THIS GUN? FASTEST HAND IN THE WEST BETWEEN SHOTS, THAT'S WHAT.
@@ -384,16 +370,18 @@
 	extra_damage = 9
 	extra_penetration = 0.05		//10-15% AP Total
 
-//Colt 6520 Revolver			Keywords: 10mm, Semi-Automatic, 12 rounds internal, Revolver - Somehow! (Balanced around N99 - that can take attach, this can't)
+//Colt 6520 Revolver			Keywords: 10mm, Semi-Automatic, 8 rounds internal, Revolver - Somehow! (Balanced around N99 - that can take attach, this can't)
 /obj/item/gun/ballistic/revolver/colt6520
-	name = "Colt 6520 revolver"
-	desc = "A Colt 6520 'automatic' revolver. This oddity was developed by Colt prior to the Great War, featuring a slide mechanism working in tandum with the revolving cylander. This weapon manages to eject its shells automatically!"
-	icon_state = "colt6520"
+	name = "10mm revolver"
+	desc = "A very modern pre-war double-action revolver with a separated top that breaks open, making reloading much easier and automatically ejecting all spent rounds. Chambered in 10mm, it was an inexpensive alternative to the Colt 6520."
+	icon_state = "10milrev"
+	icon = 'icons/obj/guns/gunfruits2022/pistols.dmi'
 	mag_type = /obj/item/ammo_box/magazine/internal/cylinder/colt6520
 	fire_sound = 'sound/f13weapons/10mm_fire_02.ogg'
 	recoil = 0.3
 	fire_delay = 4		// Slightly higher than the n99
 	extra_damage = 10	// +4 damage compared to n99
+	extra_speed = 100
 
 /////////////
 // NEEDLER //

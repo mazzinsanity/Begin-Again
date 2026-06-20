@@ -107,8 +107,9 @@
 //Cowboy Repeater						Keywords: .357, Lever action, 12 round internal, Long barrel
 /obj/item/gun/ballistic/rifle/repeater/cowboy
 	name = "cowboy repeater"
-	desc = "A lever action rifle chambered in .357 Magnum. Smells vaguely of whiskey and cigarettes."
-	icon_state = "cowboyrepeater"
+	desc = "A beautifully preserved lever action rifle chambered in .357 Magnum, for the cowboy in all of us."
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
+	icon_state = "crep"
 	item_state = "cowboyrepeater"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/tube357
 	extra_speed = 300
@@ -120,8 +121,9 @@
 //Trail carbine							Keywords: .44, Lever action, 12 round internal, Long barrel
 /obj/item/gun/ballistic/rifle/repeater/trail
 	name = "trail carbine"
-	desc = "A lever action rifle chambered in .44 Magnum."
-	icon_state = "trailcarbine"
+	desc = "A wonderfully kept lever action rifle chambered in .44 Magnum. Don't suffer the lawman to live."
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
+	icon_state = "tcar"
 	item_state = "trailcarbine"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/tube44
 	extra_speed = 200
@@ -133,8 +135,9 @@
 //Brush gun								Keywords: .45-70, Lever action, 10 round internal, Long barrel
 /obj/item/gun/ballistic/rifle/repeater/brush
 	name = "brush gun"
-	desc = "A short lever action rifle chambered in the heavy 45-70 round. Issued to NCR Veteran Rangers in the absence of heavier weaponry."
-	icon_state = "brushgun"
+	desc = "A heavy and expensive lever-action rifle chambered for thhe outrageously powerful .45-70 Government round. It's favored by NCR Rangers."
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
+	icon_state = "brushie"
 	item_state = "brushgun"
 	mag_type = /obj/item/ammo_box/magazine/internal/shot/tube4570
 	extra_speed = 100
@@ -163,8 +166,9 @@
 //Hunting Rifle							Keywords: .308, Bolt-action, 5 rounds internal
 /obj/item/gun/ballistic/rifle/hunting
 	name = "hunting rifle"
-	desc = "A sturdy hunting rifle, chambered in .308. and in use before the war."
-	icon_state = "308"
+	desc = "A sturdy and reliable pre-war Remington hunting rifle that has seen better days. Chambered in .308"
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
+	icon_state = "hunting"
 	item_state = "308"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/hunting
 	sawn_desc = "A hunting rifle, crudely shortened with a saw. It's far from accurate, but the short barrel makes it quite portable."
@@ -192,7 +196,7 @@
 
 //Remington rifle						Keywords: 7.62, Bolt-action, 5 rounds internal
 /obj/item/gun/ballistic/rifle/hunting/remington
-	name = "Remington rifle"
+	name = "upgraded hunting rifle"
 	desc = "A militarized hunting rifle rechambered to 7.62. This one has had the barrel floated with shims to increase accuracy."
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/hunting/remington
 	fire_delay = 5
@@ -215,7 +219,7 @@
 //Paciencia								Keywords: UNIQUE, .308, Bolt-action, 3 rounds internal, Scoped
 /obj/item/gun/ballistic/rifle/hunting/paciencia
 	name = "Paciencia"
-	desc = "A modified .308 hunting rifle with a reduced magazine but an augmented receiver. A Mexican flag is wrapped around the stock. You only have three shots- make them count."
+	desc = "A modified .308 hunting rifle with a reduced magazine but an augmented receiver. A Mexican flag is wrapped around the stock. You only have three shots - make them count."
 	icon_state = "paciencia"
 	item_state = "paciencia"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction/hunting/paciencia
@@ -239,10 +243,11 @@
 		..()
 
 //Mosin-Nagant							Keywords: LEFT-OVER FOR RUSSIAN MOBS, 7.62, Bolt-action, 5 rounds internal. Better pen than the Enfield, lower damage.
-/obj/item/gun/ballistic/rifle/mosin
-	name = "Mosin-Nagant m38"
-	desc = "A rusty old Russian bolt action chambered in 7.62."
-	icon_state = "mosin"
+/obj/item/gun/ballistic/rifle/mosin		//I'll probably nuke this holdover later
+	name = "old army rifle"
+	desc = "A venerable bolt-action Springfield M1903 originally used by the US Army as far back as its model name suggests. It has definitely seen better days."
+	icon_state = "m1903"
+	icon = 'icons/obj/guns/gunfruits2022/rifles.dmi'
 	item_state = "308"
 	mag_type = /obj/item/ammo_box/magazine/internal/boltaction
 	extra_speed = 600

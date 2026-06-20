@@ -1130,7 +1130,7 @@ CODE FOR RESKIN
 						)
 
 
-DUAL TUBE PUMP ACTION (seems redundant with neostead but why not keep it.)
+DUAL TUBE PUMP ACTION (seems redundant with x but why not keep it.)
 /obj/item/gun/ballistic/shotgun/automatic/dual_tube/examine(mob/user)
 	. = ..()
 	. += "<span class='notice'>Alt-click to pump it.</span>"
